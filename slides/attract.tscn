@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bwbbviwj1xxwa"]
+
+[ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_r1mnt"]
+
+[node name="Attract" type="Control" unique_id=1810127310]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r1mnt")
+metadata/_custom_type_script = "uid://dru3usokwlhd3"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1079990552]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 1923.0
+offset_bottom = 1087.0
+color = Color(0.023529412, 0.27058825, 0.47058824, 1)
+
+[node name="Label" type="Label" parent="." unique_id=615826754]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 250.0
+offset_right = 1789.0
+offset_bottom = 773.0
+theme_override_font_sizes/font_size = 98
+text = "welcome the the first slide"
+horizontal_alignment = 1
+vertical_alignment = 1
