@@ -1,2 +1,3 @@
 # Home-Alone-Pinball
-Home Alone Homebrew Machine
+Home Alone Pinball Machine
+Created By Shane 2026
