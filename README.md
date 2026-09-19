@@ -1,2 +1,3 @@
 # Home-Alone-Pinball
-homebrew pinball machine
+Homebrew Pinball Machine
+Created By Shane 
