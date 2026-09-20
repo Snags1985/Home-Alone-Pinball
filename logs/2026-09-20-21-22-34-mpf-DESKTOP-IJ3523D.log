@@ -1,0 +1,110 @@
+2026-09-20 21:22:34,213 : INFO : root : Loading config.
+2026-09-20 21:22:34,288 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-20 21:22:34,289 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-20 21:22:34,289 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-20 21:22:34,298 : WARNING : ConfigProcessor : Config file in cache changed: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_switches.yaml
+2026-09-20 21:22:34,299 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\mpf\Lib\site-packages\mpf\mpfconfig.yaml.
+2026-09-20 21:22:34,316 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\mpf\Lib\site-packages\mpf\mpfconfig.yaml
+2026-09-20 21:22:34,317 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config.yaml.
+2026-09-20 21:22:34,317 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config.yaml
+2026-09-20 21:22:34,318 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_ball_devices.yaml
+2026-09-20 21:22:34,318 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_coils.yaml
+2026-09-20 21:22:34,319 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_switches.yaml
+2026-09-20 21:22:34,319 : INFO : ConfigProcessor : Config file cache created: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-20 21:22:34,354 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-20 21:22:34,355 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\f9d0a9398642ddfc4313bff44fac1089.mpf_cache
+2026-09-20 21:22:34,355 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-20 21:22:34,355 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\cf4decfeafdfbdfa1f1946839e41c5b8.mpf_cache
+2026-09-20 21:22:34,356 : INFO : Machine : Mission Pinball Framework Core Engine v0.81.0.dev4
+2026-09-20 21:22:34,356 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': False, 'configfile': ['config.yaml'], 'force_assets_load': False, 'platform_integration_test': False, 'jsonlogging': False, 'logfile': 'logs\\2026-09-20-21-22-34-mpf-DESKTOP-IJ3523D.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'full_logfile_path': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-20-21-22-34-mpf-DESKTOP-IJ3523D.log'}
+2026-09-20 21:22:34,356 : INFO : Machine : MPF path: C:\Users\GamingPC\mpf\Lib\site-packages\mpf
+2026-09-20 21:22:34,356 : INFO : Machine : Machine path: C:\Users\GamingPC\Documents\Home-Alone-Pinball
+2026-09-20 21:22:34,356 : INFO : Machine : Platform: win32
+2026-09-20 21:22:34,356 : INFO : Machine : Python executable location: C:\Users\GamingPC\mpf\Scripts\python.exe
+2026-09-20 21:22:34,356 : INFO : Machine : Python version: 3.14.7 (64-bit)
+2026-09-20 21:22:34,399 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,407 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,407 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,407 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,407 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.14.7', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Windows-11-10.0.26200-SP0', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Windows', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '11', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '10.0.26200', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'AMD64', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'machine_var_log_file_path'====== Args={'value': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-20-21-22-34-mpf-DESKTOP-IJ3523D.log', 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,438 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2026-09-20 21:22:34,444 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2026-09-20 21:22:34,444 : ERROR : asyncio : Task exception was never retrieved
+future: <Task finished name='Task-35' coro=<BallDevice._initialize_async() done, defined at C:\Users\GamingPC\mpf\Lib\site-packages\mpf\devices\ball_device\ball_device.py:196> exception=ConfigFileError('Config validation error: Entry ball_device_counter_ball_switches:ball_device_counter_ball_switches:ball_switches = "s_trough_1" is not valid. Device "s_trough_1" not found in "switches:" section in your config.')>
+Traceback (most recent call last):
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\devices\ball_device\ball_device.py", line 198, in _initialize_async
+    await self.ball_count_handler.initialize()
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\devices\ball_device\ball_count_handler.py", line 92, in initialize
+    self.counter = counter_class(self.ball_device, self.ball_device.config.get("counter", {}))
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\devices\ball_device\switch_counter.py", line 27, in __init__
+    self.config = self.machine.config_validator.validate_config("ball_device_counter_ball_switches", self.config)
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 163, in validate_config
+    return self._validate_config(config_spec, source, base_spec=base_spec, add_missing_keys=add_missing_keys,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 validation_failure_info=validation_failure_info)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 203, in _validate_config
+    processed_config[k] = self.validate_config_item(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        this_spec[k], item=source[k],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        validation_failure_info=ValidationPath(validation_failure_info, k))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 255, in validate_config_item
+    new_list.append(self.validate_item(i, validation, validation_failure_info))
+                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 698, in validate_item
+    return self.validator_list[validator](item, validation_failure_info=validation_failure_info, param=param)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 412, in _validate_type_machine
+    raise self.validation_error(item, validation_failure_info,
+                                'Device "{}" not found in "{}:" section in your config.'.format(item, param),
+                                6)
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in ConfigValidator: Config validation error: Entry ball_device_counter_ball_switches:ball_device_counter_ball_switches:ball_switches = "s_trough_1" is not valid. Device "s_trough_1" not found in "switches:" section in your config. Error Code: CFE-ConfigValidator-6 (https://missionpinball.org/latest/logs)
+2026-09-20 21:22:34,447 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2026-09-20 21:22:34,448 : INFO : Machine : Shutting down...
+2026-09-20 21:22:34,448 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2026-09-20 21:22:34,448 : INFO : EventManager : Event: ======'init_phase_4'====== Args={}
+2026-09-20 21:22:34,448 : ERROR : asyncio : Exception in callback Util.raise_exceptions() at C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\utility_functions.py:794
+handle: <Handle Util.raise_exceptions() at C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\utility_functions.py:794>
+Traceback (most recent call last):
+  File "D:\Python\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\utility_functions.py", line 802, in raise_exceptions
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\ball_controller.py", line 90, in _add_new_balls_to_playfield
+    self.num_balls_known = await self._count_all_balls_in_devices()
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\ball_controller.py", line 129, in _count_all_balls_in_devices
+    futures.append(asyncio.ensure_future(device.ball_count_handler.counter.wait_for_count_stable()))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'wait_for_count_stable'
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_through_3'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_right'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_left'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_through_2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_plunger_lane'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_through_1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_events_game_started'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_events_game_ended'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_var_audits_player_score'====== Args={'value': {'top': [], 'average': 0, 'total': 0}, 'prev_value': None, 'change': True}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'init_phase_5'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'init_done'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_reset_phase_1'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_reset_phase_2'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'machine_reset_phase_3'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'reset_complete'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'mode_attract_will_start'====== Args={}
+2026-09-20 21:22:34,450 : INFO : EventManager : Event: ======'mode_attract_starting'====== Args={}
+2026-09-20 21:22:34,450 : ERROR : Machine : MPF Initialization was interrupted or aborted before completing.
+2026-09-20 21:22:34,450 : INFO : root : MPF run loop ended.

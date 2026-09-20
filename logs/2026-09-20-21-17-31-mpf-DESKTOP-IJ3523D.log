@@ -1,0 +1,10 @@
+2026-09-20 21:17:31,805 : INFO : root : Loading config.
+2026-09-20 21:17:31,882 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-20 21:17:31,883 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-20 21:17:31,883 : WARNING : ConfigProcessor : Config file in cache changed: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config.yaml
+2026-09-20 21:17:31,883 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\mpf\Lib\site-packages\mpf\mpfconfig.yaml.
+2026-09-20 21:17:31,902 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\mpf\Lib\site-packages\mpf\mpfconfig.yaml
+2026-09-20 21:17:31,902 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config.yaml.
+2026-09-20 21:17:31,902 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config.yaml
+2026-09-20 21:17:31,903 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_ball_devices.yaml
+2026-09-20 21:17:31,904 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\config\config_switches.yaml
