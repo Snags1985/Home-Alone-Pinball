@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://d4fa2mwwekwsd" path="res://addons/mpf-gmc/fonts/Century-BookCondensed.otf" id="2_f161n"]
 [ext_resource type="Texture2D" uid="uid://b8gbks2pnqvct" path="res://addons/mpf-gmc/images/HomeAloneLOGO.png" id="2_hhxni"]
 [ext_resource type="Texture2D" uid="uid://bmqp654eonehi" path="res://addons/mpf-gmc/images/Kevin.PNG" id="3_f161n"]
+[ext_resource type="Script" uid="uid://cqyd77ovuryuv" path="res://slides/label_2.gd" id="5_cq3lo"]
 
 [sub_resource type="Gradient" id="Gradient_e5m5l"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -62,6 +63,18 @@ scale = Vector2(0.37888882, 0.37845305)
 texture = ExtResource("2_hhxni")
 
 [node name="kevin" type="Sprite2D" parent="." unique_id=2128914203]
-position = Vector2(989.00006, 613)
+position = Vector2(959.00006, 661)
 scale = Vector2(0.55854577, 0.55854577)
 texture = ExtResource("3_f161n")
+
+[node name="Label2" type="Label" parent="." unique_id=1182957865]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 758.0
+offset_right = 600.0
+offset_bottom = 875.0
+theme_override_font_sizes/font_size = 80
+text = "PRESS START"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_cq3lo")
