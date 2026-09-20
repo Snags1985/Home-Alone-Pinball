@@ -7,7 +7,7 @@ slide_player:
   mode_attract_started: attract
 
 sound_player:
-  mode-attract_started:
+  mode_attract_started:
     main_theme:
       bus: music
       
