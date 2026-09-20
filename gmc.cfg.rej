@@ -1,0 +1,10 @@
+diff a/gmc.cfg b/gmc.cfg	(rejected hunks)
+@@ -6,3 +7,8 @@
++
++[keyboard]
++comma={"switch", "s_flipper_left"}
++period={"switch", "s_flipper_right"}
++
+ [sound_system]
+ music={"type": "solo"}
+ effects={"type": "simultaneous", "simultaneouse_sounds": 3, "default": true}
