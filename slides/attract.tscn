@@ -1,81 +1,26 @@
 [gd_scene format=3 uid="uid://bounf4d52nt77"]
 
 [ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_r1mnt"]
-[ext_resource type="FontFile" uid="uid://d4fa2mwwekwsd" path="res://addons/mpf-gmc/fonts/Century-BookCondensed.otf" id="2_f161n"]
-[ext_resource type="Texture2D" uid="uid://b8gbks2pnqvct" path="res://addons/mpf-gmc/images/HomeAloneLOGO.png" id="2_hhxni"]
-[ext_resource type="Texture2D" uid="uid://bmqp654eonehi" path="res://addons/mpf-gmc/images/Kevin.PNG" id="3_f161n"]
-[ext_resource type="Script" uid="uid://cqyd77ovuryuv" path="res://slides/label_2.gd" id="5_cq3lo"]
+[ext_resource type="Script" uid="uid://dpe3dq8axt3g7" path="res://addons/mpf-gmc/classes/mpf_carousel.gd" id="2_f161n"]
+[ext_resource type="PackedScene" uid="uid://185dtivr1vtv" path="res://slides/attract_slide_1.tscn" id="3_cq3lo"]
+[ext_resource type="PackedScene" uid="uid://c5k62y2djsgpg" path="res://slides/attract_slide_2.tscn" id="4_twbla"]
 
-[sub_resource type="Gradient" id="Gradient_e5m5l"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[node name="Attract" type="Control" unique_id=1453258256]
+[node name="attract" type="Control" unique_id=1453258256]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_r1mnt")
 metadata/_custom_type_script = "uid://dru3usokwlhd3"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=139039936]
-custom_minimum_size = Vector2(1920, 1080)
+[node name="MPFCarousel" type="Control" parent="." unique_id=1308289589]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_f161n")
+carousel_name = "attract"
+metadata/_custom_type_script = "uid://dpe3dq8axt3g7"
+
+[node name="attract_slide_1" parent="MPFCarousel" unique_id=870656906 instance=ExtResource("3_cq3lo")]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 1024.0
-color = Color(0.023529412, 0.27058825, 0.47058824, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1653238308]
-position = Vector2(967, -13)
-amount = 8000
-lifetime = 20.0
-speed_scale = 0.8
-randomness = 0.7
-fixed_fps = 30
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 10)
-spread = 0.0
-gravity = Vector2(0, 25)
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-color_ramp = SubResource("Gradient_e5m5l")
-
-[node name="PINBALL" type="Label" parent="." unique_id=673753630]
+[node name="attract_slide_2" parent="MPFCarousel" unique_id=1106651454 instance=ExtResource("4_twbla")]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 267.0
-offset_right = 990.0
-offset_bottom = 430.0
-theme_override_colors/font_color = Color(0.9843137, 0.76862746, 0, 1)
-theme_override_fonts/font = ExtResource("2_f161n")
-theme_override_font_sizes/font_size = 140
-text = "PINBALL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1535252849]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 406.0
-offset_right = 923.0
-offset_bottom = 414.0
-color = Color(0.9254902, 0.007843138, 0.050980393, 1)
-
-[node name="logo" type="Sprite2D" parent="." unique_id=949087758]
-position = Vector2(684, 195)
-scale = Vector2(0.37888882, 0.37845305)
-texture = ExtResource("2_hhxni")
-
-[node name="kevin" type="Sprite2D" parent="." unique_id=2128914203]
-position = Vector2(1410, 661.00006)
-scale = Vector2(0.55854577, 0.55854577)
-texture = ExtResource("3_f161n")
-
-[node name="Label2" type="Label" parent="." unique_id=1182957865]
-layout_mode = 0
-offset_left = 403.0
-offset_top = 672.0
-offset_right = 895.0
-offset_bottom = 789.0
-theme_override_font_sizes/font_size = 80
-text = "PRESS START"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_cq3lo")

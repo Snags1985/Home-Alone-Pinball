@@ -15,92 +15,173 @@ metadata/_custom_type_script = "uid://dru3usokwlhd3"
 position = Vector2(960.00006, 540)
 texture = ExtResource("2_3bi0c")
 
-[node name="Grand_Champion" type="Label" parent="." unique_id=1708599781]
+[node name="grand_champion" type="Label" parent="." unique_id=1708599781]
 layout_mode = 0
 offset_left = 621.0
-offset_top = 498.0
-offset_right = 1353.0
-offset_bottom = 607.0
+offset_top = 494.0
+offset_right = 1326.0
+offset_bottom = 603.0
 theme_override_colors/font_color = Color(1, 1, 0.5254902, 1)
 theme_override_colors/font_outline_color = Color(0.797361, 0.4095525, 0.018641617, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_4yyj0")
 theme_override_font_sizes/font_size = 80
-text = "122,252,500,000"
+text = "12,225,000"
 horizontal_alignment = 1
 script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "grand_champion"
 comma_separate = true
 min_digits = 2
 metadata/_custom_type_script = "uid://bfvhmv2eirpua"
 
-[node name="Highscore_1" type="Label" parent="." unique_id=1425054297]
+[node name="grand_champion_name" type="Label" parent="." unique_id=917561298]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 584.0
+offset_right = 1153.0
+offset_bottom = 635.0
+theme_override_font_sizes/font_size = 37
+text = "SHANE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "grand_champion_name"
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="score_1" type="Label" parent="." unique_id=1425054297]
 layout_mode = 0
 offset_left = 942.0
 offset_top = 651.0
 offset_right = 1326.0
-offset_bottom = 748.0
+offset_bottom = 713.0
 theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_4yyj0")
 theme_override_font_sizes/font_size = 45
-text = "122,252,500,000"
+text = "10,000,000"
 horizontal_alignment = 2
 script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_1"
 comma_separate = true
 min_digits = 2
 metadata/_custom_type_script = "uid://bfvhmv2eirpua"
 
-[node name="Highscore_2" type="Label" parent="." unique_id=1256616301]
+[node name="score_1_name" type="Label" parent="." unique_id=1923308340]
+layout_mode = 1
+offset_left = 770.0
+offset_top = 659.0
+offset_right = 932.0
+offset_bottom = 711.0
+theme_override_font_sizes/font_size = 31
+text = "KEVIN"
+vertical_alignment = 2
+script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_1_name"
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="score_2" type="Label" parent="." unique_id=1256616301]
 layout_mode = 0
 offset_left = 942.0
 offset_top = 723.0
 offset_right = 1326.0
-offset_bottom = 820.0
+offset_bottom = 785.0
 theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_4yyj0")
 theme_override_font_sizes/font_size = 45
-text = "122,252,500,000"
+text = "7,500,000"
 horizontal_alignment = 2
 script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_2"
 comma_separate = true
 min_digits = 2
 metadata/_custom_type_script = "uid://bfvhmv2eirpua"
 
-[node name="Highscore_3" type="Label" parent="." unique_id=1771439928]
+[node name="score_2_name" type="Label" parent="." unique_id=909913659]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 729.0
+offset_right = 932.0
+offset_bottom = 784.0
+theme_override_font_sizes/font_size = 31
+text = "MARV"
+vertical_alignment = 2
+script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_2_name"
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="score_3" type="Label" parent="." unique_id=1771439928]
 layout_mode = 0
 offset_left = 942.0
 offset_top = 797.0
 offset_right = 1326.0
-offset_bottom = 894.0
+offset_bottom = 859.0
 theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_4yyj0")
 theme_override_font_sizes/font_size = 45
-text = "122,252,500,000"
+text = "5,000,000"
 horizontal_alignment = 2
 script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_3"
 comma_separate = true
 min_digits = 2
 metadata/_custom_type_script = "uid://bfvhmv2eirpua"
 
-[node name="Highscore_4" type="Label" parent="." unique_id=1267708349]
+[node name="score_3_name" type="Label" parent="." unique_id=405092388]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 801.0
+offset_right = 932.0
+offset_bottom = 857.0
+theme_override_font_sizes/font_size = 31
+text = "HARRY"
+vertical_alignment = 2
+script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_3_name"
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="score_4" type="Label" parent="." unique_id=1267708349]
 layout_mode = 0
 offset_left = 942.0
 offset_top = 871.0
 offset_right = 1326.0
-offset_bottom = 968.0
+offset_bottom = 933.0
 theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_4yyj0")
 theme_override_font_sizes/font_size = 45
-text = "122,252,500,000"
+text = "2,500,000"
 horizontal_alignment = 2
 script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_4"
 comma_separate = true
 min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="score_4_name" type="Label" parent="." unique_id=838054047]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 874.0
+offset_right = 932.0
+offset_bottom = 933.0
+theme_override_font_sizes/font_size = 31
+text = "BUZZ"
+vertical_alignment = 2
+script = ExtResource("4_2ob2v")
+variable_type = 2
+variable_name = "score_4_name"
 metadata/_custom_type_script = "uid://bfvhmv2eirpua"

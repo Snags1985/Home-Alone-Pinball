@@ -1,0 +1,82 @@
+2026-09-21 13:59:26,397 : INFO : root : Loading config.
+2026-09-21 13:59:26,474 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-21 13:59:26,474 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-21 13:59:26,474 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-21 13:59:26,513 : WARNING : ConfigProcessor : Config file in cache changed: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
+2026-09-21 13:59:26,513 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml.
+2026-09-21 13:59:26,514 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml
+2026-09-21 13:59:26,514 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml.
+2026-09-21 13:59:26,515 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
+2026-09-21 13:59:26,515 : INFO : ConfigProcessor : Config file cache created: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 13:59:26,516 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\f9d0a9398642ddfc4313bff44fac1089.mpf_cache
+2026-09-21 13:59:26,516 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 13:59:26,524 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\cf4decfeafdfbdfa1f1946839e41c5b8.mpf_cache
+2026-09-21 13:59:26,525 : INFO : Machine : Mission Pinball Framework Core Engine v0.81.0.dev4
+2026-09-21 13:59:26,525 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'platform_integration_test': False, 'jsonlogging': False, 'logfile': 'logs\\2026-09-21-13-59-26-mpf-DESKTOP-IJ3523D.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'full_logfile_path': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-13-59-26-mpf-DESKTOP-IJ3523D.log'}
+2026-09-21 13:59:26,525 : INFO : Machine : MPF path: C:\Users\GamingPC\mpf\Lib\site-packages\mpf
+2026-09-21 13:59:26,525 : INFO : Machine : Machine path: C:\Users\GamingPC\Documents\Home-Alone-Pinball
+2026-09-21 13:59:26,525 : INFO : Machine : Platform: win32
+2026-09-21 13:59:26,525 : INFO : Machine : Python executable location: C:\Users\GamingPC\mpf\Scripts\python.exe
+2026-09-21 13:59:26,525 : INFO : Machine : Python version: 3.14.7 (64-bit)
+2026-09-21 13:59:26,571 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,579 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,579 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,579 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,579 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.14.7', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Windows-11-10.0.26200-SP0', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Windows', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '11', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '10.0.26200', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'AMD64', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'machine_var_log_file_path'====== Args={'value': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-13-59-26-mpf-DESKTOP-IJ3523D.log', 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,609 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2026-09-21 13:59:26,615 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2026-09-21 13:59:26,616 : INFO : EventManager : Event: ======'bcp_connection_attempt'====== Args={'name': 'local_display', 'host': 'localhost', 'port': 5050}
+2026-09-21 13:59:26,621 : INFO : EventManager : Event: ======'bcp_clients_connected'====== Args={}
+2026-09-21 13:59:26,623 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2026-09-21 13:59:26,623 : INFO : EventManager : Event: ======'init_phase_4'====== Args={}
+2026-09-21 13:59:26,624 : INFO : BallController : Initial balls found: 0
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_3'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_plunger_lane'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_right'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_left'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_events_game_ended'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_events_game_started'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_var_audits_player_score'====== Args={'value': {'top': [], 'average': 0, 'total': 0}, 'prev_value': None, 'change': True}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'init_phase_5'====== Args={}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'init_done'====== Args={}
+2026-09-21 13:59:26,624 : INFO : EventManager : Event: ======'machine_reset_phase_1'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'machine_reset_phase_2'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'machine_reset_phase_3'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'reset_complete'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'mode_attract_will_start'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 0}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 0}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'mode_attract_starting'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2026-09-21 13:59:26,628 : INFO : EventManager : Event: ======'mode_attract_started'====== Args={}
+2026-09-21 13:59:26,629 : INFO : EventManager : Event: ======'collecting_balls_complete'====== Args={}
+2026-09-21 13:59:26,629 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': None, 'item': 'attract_slide_1'}
+2026-09-21 13:59:26,710 : INFO : EventManager : Event: ======'slide_attract_created'====== Args={'_from_bcp': True}
+2026-09-21 13:59:26,711 : INFO : EventManager : Event: ======'slide__removed'====== Args={'_from_bcp': True}
+2026-09-21 13:59:26,711 : INFO : EventManager : Event: ======'slide_attract_active'====== Args={'original_context': 'attract', 'original_calling_context': 'mode_attract_started', 'priority': 10.0, 'cmd': 'slides_play', '_from_bcp': True}
+2026-09-21 13:59:28,640 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 1, 'ticks_remaining': 0}
+2026-09-21 13:59:30,642 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 2, 'ticks_remaining': 0}
+2026-09-21 13:59:32,643 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 3, 'ticks_remaining': 0}
+2026-09-21 13:59:34,642 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 4, 'ticks_remaining': 0}
+2026-09-21 13:59:36,631 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 5, 'ticks_remaining': 0}
+2026-09-21 13:59:38,633 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 6, 'ticks_remaining': 0}
+2026-09-21 13:59:40,638 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 7, 'ticks_remaining': 0}
+2026-09-21 13:59:42,639 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 8, 'ticks_remaining': 0}
+2026-09-21 13:59:44,629 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 9, 'ticks_remaining': 0}
+2026-09-21 13:59:46,633 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 10, 'ticks_remaining': 0}
+2026-09-21 13:59:48,631 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 11, 'ticks_remaining': 0}
+2026-09-21 13:59:50,632 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 12, 'ticks_remaining': 0}
+2026-09-21 13:59:52,634 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 13, 'ticks_remaining': 0}
+2026-09-21 13:59:54,634 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 14, 'ticks_remaining': 0}
+2026-09-21 13:59:56,637 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 15, 'ticks_remaining': 0}
+2026-09-21 13:59:58,638 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 16, 'ticks_remaining': 0}
+2026-09-21 14:00:00,643 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 17, 'ticks_remaining': 0}
+2026-09-21 14:00:02,629 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 18, 'ticks_remaining': 0}

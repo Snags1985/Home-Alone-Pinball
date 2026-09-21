@@ -11,3 +11,29 @@ sound_player:
     main_theme:
       bus: music
       
+
+mode_settings:
+  selectable_items:
+    - attract_slide_1
+    - attract_slide_2
+  next_item_events: 
+    - s_flipper_right_active
+    - attract_auto_next
+  previous_item_events: s_flipper_left_active
+
+timers:
+  attract_carousel_timer:
+    start_running: true
+    tick_interval: 5s
+    end_value: 1
+    control_events:
+      - event: carousel_item_highlighted
+        action: restart
+      - event: flipper_cradle
+        action: stop
+      - event: flipper_cradle_release
+        action: restart
+
+event_player:
+  timer_attract_carousel_timer_complete: attract_auto_next
+

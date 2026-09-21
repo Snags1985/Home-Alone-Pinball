@@ -1,0 +1,232 @@
+2026-09-21 14:34:20,063 : INFO : root : Loading config.
+2026-09-21 14:34:20,140 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-21 14:34:20,141 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-21 14:34:20,141 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-21 14:34:20,182 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 14:34:20,183 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\f9d0a9398642ddfc4313bff44fac1089.mpf_cache
+2026-09-21 14:34:20,183 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 14:34:20,183 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\cf4decfeafdfbdfa1f1946839e41c5b8.mpf_cache
+2026-09-21 14:34:20,184 : INFO : Machine : Mission Pinball Framework Core Engine v0.81.0.dev4
+2026-09-21 14:34:20,184 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'platform_integration_test': False, 'jsonlogging': False, 'logfile': 'logs\\2026-09-21-14-34-20-mpf-DESKTOP-IJ3523D.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'full_logfile_path': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-14-34-20-mpf-DESKTOP-IJ3523D.log'}
+2026-09-21 14:34:20,184 : INFO : Machine : MPF path: C:\Users\GamingPC\mpf\Lib\site-packages\mpf
+2026-09-21 14:34:20,184 : INFO : Machine : Machine path: C:\Users\GamingPC\Documents\Home-Alone-Pinball
+2026-09-21 14:34:20,184 : INFO : Machine : Platform: win32
+2026-09-21 14:34:20,184 : INFO : Machine : Python executable location: C:\Users\GamingPC\mpf\Scripts\python.exe
+2026-09-21 14:34:20,184 : INFO : Machine : Python version: 3.14.7 (64-bit)
+2026-09-21 14:34:20,229 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,238 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,238 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,238 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,238 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.14.7', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Windows-11-10.0.26200-SP0', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Windows', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '11', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '10.0.26200', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'AMD64', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'machine_var_log_file_path'====== Args={'value': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-14-34-20-mpf-DESKTOP-IJ3523D.log', 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,270 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2026-09-21 14:34:20,277 : INFO : EventManager : Event: ======'init_phase_2'====== Args={}
+2026-09-21 14:34:20,277 : INFO : EventManager : Event: ======'bcp_connection_attempt'====== Args={'name': 'local_display', 'host': 'localhost', 'port': 5050}
+2026-09-21 14:34:20,282 : INFO : EventManager : Event: ======'bcp_clients_connected'====== Args={}
+2026-09-21 14:34:20,284 : INFO : EventManager : Event: ======'init_phase_3'====== Args={}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'init_phase_4'====== Args={}
+2026-09-21 14:34:20,285 : INFO : BallController : Initial balls found: 0
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_plunger_lane'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_3'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_right'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_flipper_left'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_1'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_switches_s_trough_2'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_events_game_started'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_events_game_ended'====== Args={'value': 0, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'machine_var_audits_player_score'====== Args={'value': {'top': [], 'average': 0, 'total': 0}, 'prev_value': None, 'change': True}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'init_phase_5'====== Args={}
+2026-09-21 14:34:20,285 : INFO : EventManager : Event: ======'init_done'====== Args={}
+2026-09-21 14:34:20,286 : INFO : EventManager : Event: ======'machine_reset_phase_1'====== Args={}
+2026-09-21 14:34:20,291 : INFO : EventManager : Event: ======'machine_reset_phase_2'====== Args={}
+2026-09-21 14:34:20,291 : INFO : EventManager : Event: ======'machine_reset_phase_3'====== Args={}
+2026-09-21 14:34:20,291 : INFO : EventManager : Event: ======'reset_complete'====== Args={}
+2026-09-21 14:34:20,291 : INFO : EventManager : Event: ======'mode_attract_will_start'====== Args={}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'mode_attract_starting'====== Args={}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'modes_active_modes_changed'====== Args={}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'mode_attract_started'====== Args={}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'collecting_balls_complete'====== Args={}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': None, 'item': 'attract_slide_1'}
+2026-09-21 14:34:20,292 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:20,373 : INFO : EventManager : Event: ======'slide_attract_created'====== Args={'_from_bcp': True}
+2026-09-21 14:34:20,373 : INFO : EventManager : Event: ======'slide__removed'====== Args={'_from_bcp': True}
+2026-09-21 14:34:20,373 : INFO : EventManager : Event: ======'slide_attract_active'====== Args={'original_context': 'attract', 'original_calling_context': 'mode_attract_started', 'priority': 10.0, 'cmd': 'slides_play', '_from_bcp': True}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:25,294 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:30,307 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:30,307 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:30,307 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:34:30,307 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:30,308 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:30,308 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:35,319 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:40,101 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:40,101 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:40,101 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:40,371 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:40,371 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:40,371 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:40,691 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:40,691 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:40,691 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:40,971 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:40,971 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:40,971 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:41,301 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:41,301 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:41,301 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:41,771 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:41,771 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:41,771 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:41,941 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:41,941 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:41,941 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,341 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:42,341 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:42,342 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,491 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:42,491 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:42,491 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,581 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:42,581 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:42,581 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,681 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:42,681 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:42,681 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,791 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:42,791 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:42,791 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,891 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:42,891 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:42,892 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:42,981 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:42,981 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:42,981 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,111 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:43,111 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:43,111 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,191 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:43,191 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:43,191 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,301 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:43,301 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:43,301 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,401 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:43,401 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:43,401 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,511 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:43,511 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:43,512 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,621 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:43,621 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:43,621 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,721 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:43,721 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:43,722 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,831 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:43,831 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:43,831 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:43,961 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:43,961 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:43,961 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:44,281 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:44,281 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:44,281 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:44,451 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:44,451 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:44,451 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:44,631 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:44,631 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:44,631 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:45,211 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:45,211 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:45,211 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:45,891 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:45,891 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:45,892 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:46,901 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:46,901 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:46,901 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:48,411 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:48,411 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:48,411 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:50,371 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:34:50,371 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:34:50,371 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:51,211 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:34:51,211 : INFO : EventManager : Event: ======'flipper_cancel'====== Args={'triggering_group': 1, 'triggering_switch': 's_flipper_left'}
+2026-09-21 14:34:51,211 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_2'}
+2026-09-21 14:34:51,212 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:34:51,331 : INFO : EventManager : Event: ======'both_flippers_one'====== Args={'triggering_group': 1, 'triggering_switch': 's_flipper_left'}
+2026-09-21 14:34:53,383 : INFO : EventManager : Event: ======'flipper_cradle'====== Args={}
+2026-09-21 14:34:53,383 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:00,791 : INFO : EventManager : Event: ======'both_flippers_inactive'====== Args={'triggering_group': 2, 'triggering_switch': 's_flipper_right'}
+2026-09-21 14:35:00,791 : INFO : EventManager : Event: ======'flipper_cradle_release'====== Args={}
+2026-09-21 14:35:00,791 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:00,791 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:05,796 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:05,796 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:05,797 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:05,797 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:35:05,797 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:05,797 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:10,803 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:15,806 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:20,811 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:25,813 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:25,813 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:25,813 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:25,813 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_1'}
+2026-09-21 14:35:25,814 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:25,814 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:28,841 : INFO : EventManager : Event: ======'s_flipper_right_active'====== Args={}
+2026-09-21 14:35:28,842 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:35:28,842 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:31,011 : INFO : EventManager : Event: ======'s_flipper_left_active'====== Args={}
+2026-09-21 14:35:31,011 : INFO : EventManager : Event: ======'flipper_cancel'====== Args={'triggering_group': 1, 'triggering_switch': 's_flipper_left'}
+2026-09-21 14:35:31,012 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'backwards', 'item': 'attract_slide_1'}
+2026-09-21 14:35:31,012 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:31,062 : INFO : EventManager : Event: ======'both_flippers_one'====== Args={'triggering_group': 1, 'triggering_switch': 's_flipper_left'}
+2026-09-21 14:35:31,845 : INFO : EventManager : Event: ======'flipper_cradle'====== Args={}
+2026-09-21 14:35:31,845 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:36,232 : INFO : EventManager : Event: ======'both_flippers_inactive'====== Args={'triggering_group': 2, 'triggering_switch': 's_flipper_right'}
+2026-09-21 14:35:36,232 : INFO : EventManager : Event: ======'flipper_cradle_release'====== Args={}
+2026-09-21 14:35:36,232 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:36,232 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_stopped'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_complete'====== Args={'ticks': 1, 'ticks_remaining': 1}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'attract_auto_next'====== Args={'priority': 0}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'carousel_item_highlighted'====== Args={'carousel': 'attract', 'direction': 'forwards', 'item': 'attract_slide_2'}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_started'====== Args={'ticks': 0, 'ticks_remaining': 1}
+2026-09-21 14:35:41,234 : INFO : EventManager : Event: ======'timer_attract_carousel_timer_tick'====== Args={'ticks': 0, 'ticks_remaining': 1}

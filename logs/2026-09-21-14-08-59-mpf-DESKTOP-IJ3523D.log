@@ -1,0 +1,70 @@
+2026-09-21 14:08:59,298 : INFO : root : Loading config.
+2026-09-21 14:08:59,375 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-21 14:08:59,375 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-21 14:08:59,375 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-21 14:08:59,415 : WARNING : ConfigProcessor : Config file in cache changed: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
+2026-09-21 14:08:59,415 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml.
+2026-09-21 14:08:59,416 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml
+2026-09-21 14:08:59,416 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml.
+2026-09-21 14:08:59,417 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
+2026-09-21 14:08:59,417 : INFO : ConfigProcessor : Config file cache created: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 14:08:59,418 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\f9d0a9398642ddfc4313bff44fac1089.mpf_cache
+2026-09-21 14:08:59,418 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\2b91508161fe18ea05992eb706094b2d.mpf_cache
+2026-09-21 14:08:59,425 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\cf4decfeafdfbdfa1f1946839e41c5b8.mpf_cache
+2026-09-21 14:08:59,425 : INFO : Machine : Mission Pinball Framework Core Engine v0.81.0.dev4
+2026-09-21 14:08:59,426 : INFO : Machine : Command line arguments: {'no_load_cache': False, 'create_config_cache': True, 'bcp': True, 'configfile': ['config.yaml'], 'force_assets_load': False, 'platform_integration_test': False, 'jsonlogging': False, 'logfile': 'logs\\2026-09-21-14-08-59-mpf-DESKTOP-IJ3523D.log', 'pause': False, 'production': False, 'text_ui': False, 'loglevel': 15, 'consoleloglevel': 20, 'force_platform': 'virtual', 'syslog_address': None, 'full_logfile_path': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-14-08-59-mpf-DESKTOP-IJ3523D.log'}
+2026-09-21 14:08:59,426 : INFO : Machine : MPF path: C:\Users\GamingPC\mpf\Lib\site-packages\mpf
+2026-09-21 14:08:59,426 : INFO : Machine : Machine path: C:\Users\GamingPC\Documents\Home-Alone-Pinball
+2026-09-21 14:08:59,426 : INFO : Machine : Platform: win32
+2026-09-21 14:08:59,426 : INFO : Machine : Python executable location: C:\Users\GamingPC\mpf\Scripts\python.exe
+2026-09-21 14:08:59,426 : INFO : Machine : Python version: 3.14.7 (64-bit)
+2026-09-21 14:08:59,488 : INFO : EventManager : Event: ======'machine_var_credits_string'====== Args={'value': 'FREE PLAY', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,497 : INFO : EventManager : Event: ======'machine_var_master_volume'====== Args={'value': 0.5, 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,497 : INFO : EventManager : Event: ======'machine_var_mpf_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,497 : INFO : EventManager : Event: ======'machine_var_mpf_extended_version'====== Args={'value': 'Mission Pinball Framework v0.81.0.dev4, Config version:6, Show version: 6, BCP version:1.1', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,498 : INFO : EventManager : Event: ======'machine_var_python_version'====== Args={'value': '3.14.7', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_platform'====== Args={'value': 'Windows-11-10.0.26200-SP0', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_platform_system'====== Args={'value': 'Windows', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_platform_release'====== Args={'value': '11', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_platform_version'====== Args={'value': '10.0.26200', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_platform_machine'====== Args={'value': 'AMD64', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'machine_var_log_file_path'====== Args={'value': 'C:\\Users\\GamingPC\\Documents\\Home-Alone-Pinball\\logs\\2026-09-21-14-08-59-mpf-DESKTOP-IJ3523D.log', 'prev_value': None, 'change': True}
+2026-09-21 14:08:59,527 : INFO : EventManager : Event: ======'init_phase_1'====== Args={}
+2026-09-21 14:08:59,533 : ERROR : ConfigValidator : Your config contains a value for the setting "mode:attract:timers:attract_carousel_timer:end-value", but this is not a valid setting name.
+2026-09-21 14:08:59,533 : ERROR : asyncio : Exception in callback EventManager._async_handler_done()() at C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\events.py:124
+handle: <Handle EventManager._async_handler_done()() at C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\events.py:124>
+Traceback (most recent call last):
+  File "D:\Python\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\events.py", line 127, in _async_handler_done
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\device_manager.py", line 89, in _load_device_modules
+    await self.machine.mode_controller.load_mode_devices()
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\mode_controller.py", line 86, in load_mode_devices
+    await mode.load_mode_devices()
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\mode.py", line 439, in load_mode_devices
+    settings = device.validate_and_parse_config(settings, True, "mode:" + self.name)
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\device.py", line 108, in validate_and_parse_config
+    self.machine.config_validator.validate_config(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.config_section, config, self.name, "device", prefix=debug_prefix)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 163, in validate_config
+    return self._validate_config(config_spec, source, base_spec=base_spec, add_missing_keys=add_missing_keys,
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 validation_failure_info=validation_failure_info)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 176, in _validate_config
+    self.check_for_invalid_sections(this_spec, source, validation_failure_info)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\GamingPC\mpf\Lib\site-packages\mpf\core\config_validator.py", line 344, in check_for_invalid_sections
+    raise ConfigFileError('Your config contains a value for the '
+                          'setting "' + path_string + '", but this is not a valid '
+                                                      'setting name.', 2, self.log.name)
+mpf.exceptions.config_file_error.ConfigFileError: Config File Error in ConfigValidator: Your config contains a value for the setting "mode:attract:timers:attract_carousel_timer:end-value", but this is not a valid setting name. Error Code: CFE-ConfigValidator-2 (https://missionpinball.org/latest/logs)
+2026-09-21 14:08:59,591 : INFO : Machine : Shutting down...
+2026-09-21 14:08:59,591 : INFO : EventManager : Event: ======'shutdown'====== Args={}
+2026-09-21 14:09:00,598 : ERROR : Machine : MPF Initialization was interrupted or aborted before completing.
+2026-09-21 14:09:00,598 : INFO : root : MPF run loop ended.

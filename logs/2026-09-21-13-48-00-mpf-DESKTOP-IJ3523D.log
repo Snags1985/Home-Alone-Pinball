@@ -1,0 +1,9 @@
+2026-09-21 13:48:00,850 : INFO : root : Loading config.
+2026-09-21 13:48:00,926 : INFO : ConfigProcessor : Config spec file cache created: C:\Users\GamingPC\AppData\Local\Temp\config_spec.mpf_cache
+2026-09-21 13:48:00,926 : INFO : YamlMultifileConfigLoader : Machine config file #1: config.yaml
+2026-09-21 13:48:00,927 : INFO : ConfigProcessor : Loading config from cache: C:\Users\GamingPC\AppData\Local\Temp\11425650fd1c9b7f746fb9afb9324ebf.mpf_cache
+2026-09-21 13:48:00,970 : WARNING : ConfigProcessor : Config file in cache changed: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
+2026-09-21 13:48:00,970 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml.
+2026-09-21 13:48:00,975 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\mpf\Lib\site-packages\mpf\modes\attract\config\attract.yaml
+2026-09-21 13:48:00,975 : INFO : ConfigProcessor : Loading config from file C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml.
+2026-09-21 13:48:00,976 : INFO : ConfigProcessor : Loading config: C:\Users\GamingPC\Documents\Home-Alone-Pinball\modes\attract\config\attract.yaml
