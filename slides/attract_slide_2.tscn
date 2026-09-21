@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c5k62y2djsgpg"]
+
+[ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_ean50"]
+[ext_resource type="Texture2D" uid="uid://co2g2uybq2jis" path="res://addons/mpf-gmc/images/highscores.PNG" id="2_3bi0c"]
+[ext_resource type="FontFile" uid="uid://bpp8mglxnyeof" path="res://addons/mpf-gmc/fonts/machine-bold.ttf" id="3_4yyj0"]
+[ext_resource type="Script" uid="uid://bfvhmv2eirpua" path="res://addons/mpf-gmc/classes/mpf_variable.gd" id="4_2ob2v"]
+
+[node name="attract_slide_2" type="Control" unique_id=1106651454]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ean50")
+metadata/_custom_type_script = "uid://dru3usokwlhd3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=350820162]
+position = Vector2(960.00006, 540)
+texture = ExtResource("2_3bi0c")
+
+[node name="Grand_Champion" type="Label" parent="." unique_id=1708599781]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 498.0
+offset_right = 1353.0
+offset_bottom = 607.0
+theme_override_colors/font_color = Color(1, 1, 0.5254902, 1)
+theme_override_colors/font_outline_color = Color(0.797361, 0.4095525, 0.018641617, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_font_sizes/font_size = 80
+text = "122,252,500,000"
+horizontal_alignment = 1
+script = ExtResource("4_2ob2v")
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="Highscore_1" type="Label" parent="." unique_id=1425054297]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 651.0
+offset_right = 1326.0
+offset_bottom = 748.0
+theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_font_sizes/font_size = 45
+text = "122,252,500,000"
+horizontal_alignment = 2
+script = ExtResource("4_2ob2v")
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="Highscore_2" type="Label" parent="." unique_id=1256616301]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 723.0
+offset_right = 1326.0
+offset_bottom = 820.0
+theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_font_sizes/font_size = 45
+text = "122,252,500,000"
+horizontal_alignment = 2
+script = ExtResource("4_2ob2v")
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="Highscore_3" type="Label" parent="." unique_id=1771439928]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 797.0
+offset_right = 1326.0
+offset_bottom = 894.0
+theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_font_sizes/font_size = 45
+text = "122,252,500,000"
+horizontal_alignment = 2
+script = ExtResource("4_2ob2v")
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"
+
+[node name="Highscore_4" type="Label" parent="." unique_id=1267708349]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 871.0
+offset_right = 1326.0
+offset_bottom = 968.0
+theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_font_sizes/font_size = 45
+text = "122,252,500,000"
+horizontal_alignment = 2
+script = ExtResource("4_2ob2v")
+comma_separate = true
+min_digits = 2
+metadata/_custom_type_script = "uid://bfvhmv2eirpua"

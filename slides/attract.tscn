@@ -16,32 +16,33 @@ script = ExtResource("1_r1mnt")
 metadata/_custom_type_script = "uid://dru3usokwlhd3"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=139039936]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 1024.0
 color = Color(0.023529412, 0.27058825, 0.47058824, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1653238308]
-position = Vector2(650, -16)
+position = Vector2(967, -13)
 amount = 8000
 lifetime = 20.0
 speed_scale = 0.8
 randomness = 0.7
 fixed_fps = 30
 emission_shape = 3
-emission_rect_extents = Vector2(650, 10)
+emission_rect_extents = Vector2(1000, 10)
 spread = 0.0
 gravity = Vector2(0, 25)
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_e5m5l")
 
-[node name="Label" type="Label" parent="." unique_id=673753630]
+[node name="PINBALL" type="Label" parent="." unique_id=673753630]
 layout_mode = 0
-offset_left = 115.0
-offset_top = 215.0
-offset_right = 754.0
-offset_bottom = 378.0
+offset_left = 351.0
+offset_top = 267.0
+offset_right = 990.0
+offset_bottom = 430.0
 theme_override_colors/font_color = Color(0.9843137, 0.76862746, 0, 1)
 theme_override_fonts/font = ExtResource("2_f161n")
 theme_override_font_sizes/font_size = 140
@@ -51,28 +52,28 @@ vertical_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1535252849]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 354.0
-offset_right = 684.0
-offset_bottom = 362.0
+offset_left = 421.0
+offset_top = 406.0
+offset_right = 923.0
+offset_bottom = 414.0
 color = Color(0.9254902, 0.007843138, 0.050980393, 1)
 
 [node name="logo" type="Sprite2D" parent="." unique_id=949087758]
-position = Vector2(466, 125)
+position = Vector2(684, 195)
 scale = Vector2(0.37888882, 0.37845305)
 texture = ExtResource("2_hhxni")
 
 [node name="kevin" type="Sprite2D" parent="." unique_id=2128914203]
-position = Vector2(959.00006, 661)
+position = Vector2(1410, 661.00006)
 scale = Vector2(0.55854577, 0.55854577)
 texture = ExtResource("3_f161n")
 
 [node name="Label2" type="Label" parent="." unique_id=1182957865]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 758.0
-offset_right = 600.0
-offset_bottom = 875.0
+offset_left = 403.0
+offset_top = 672.0
+offset_right = 895.0
+offset_bottom = 789.0
 theme_override_font_sizes/font_size = 80
 text = "PRESS START"
 horizontal_alignment = 1
