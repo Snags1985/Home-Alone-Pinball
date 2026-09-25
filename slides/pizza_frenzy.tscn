@@ -17,7 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bdox5ad8jp4so" path="res://addons/mpf-gmc/images/PIZZA FRENZY/z1_lit.png" id="15_d64b3"]
 [ext_resource type="Texture2D" uid="uid://hadir6nkkiy1" path="res://addons/mpf-gmc/images/PIZZA FRENZY/a_grey.png" id="16_o0p4w"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/PIZZA FRENZY/a_lit.png" id="17_uonvx"]
+[ext_resource type="Texture2D" uid="uid://dpq6q1jq4jfa0" path="res://addons/mpf-gmc/images/PIZZA FRENZY/get_ready.png" id="18_uf5ih"]
 [ext_resource type="Texture2D" uid="uid://nk0gdytyidvh" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_frenzy.PNG" id="18_vwogh"]
+[ext_resource type="Texture2D" uid="uid://c7o2eb527gs7f" path="res://addons/mpf-gmc/images/PIZZA FRENZY/nice_job.png" id="19_4cst4"]
+[ext_resource type="Texture2D" uid="uid://j8g6q1w6pydh" path="res://addons/mpf-gmc/images/PIZZA FRENZY/great_work.png" id="20_uf5ih"]
+[ext_resource type="Texture2D" uid="uid://c2q2jgusntqsf" path="res://addons/mpf-gmc/images/PIZZA FRENZY/keep_going.png" id="21_4phdy"]
+[ext_resource type="Texture2D" uid="uid://hhjqq63siel0" path="res://addons/mpf-gmc/images/PIZZA FRENZY/shoot_delivery_ramp.PNG" id="22_lg3ve"]
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
@@ -111,7 +116,37 @@ position = Vector2(1730, 879)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_uonvx")
 
+[node name="get_ready" type="Sprite2D" parent="." unique_id=1594232342]
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("18_uf5ih")
+
+[node name="nice_job" type="Sprite2D" parent="." unique_id=1749759701]
+visible = false
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("19_4cst4")
+
+[node name="great_work" type="Sprite2D" parent="." unique_id=1891243301]
+visible = false
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("20_uf5ih")
+
+[node name="keep_going" type="Sprite2D" parent="." unique_id=139416794]
+visible = false
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("21_4phdy")
+
+[node name="shoot_delivery_ramp" type="Sprite2D" parent="." unique_id=1350503327]
+visible = false
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.5263671, 0.5263672)
+texture = ExtResource("22_lg3ve")
+
 [node name="pizza_frenzy" type="Sprite2D" parent="." unique_id=328768936]
+visible = false
 position = Vector2(1463, 299.00003)
 scale = Vector2(0.5263671, 0.5263672)
 texture = ExtResource("18_vwogh")
