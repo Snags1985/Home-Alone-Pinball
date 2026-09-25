@@ -23,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://j8g6q1w6pydh" path="res://addons/mpf-gmc/images/PIZZA FRENZY/great_work.png" id="20_uf5ih"]
 [ext_resource type="Texture2D" uid="uid://c2q2jgusntqsf" path="res://addons/mpf-gmc/images/PIZZA FRENZY/keep_going.png" id="21_4phdy"]
 [ext_resource type="Texture2D" uid="uid://hhjqq63siel0" path="res://addons/mpf-gmc/images/PIZZA FRENZY/shoot_delivery_ramp.PNG" id="22_lg3ve"]
+[ext_resource type="Texture2D" uid="uid://c83n88m7nx3u" path="res://addons/mpf-gmc/images/PIZZA FRENZY/3.png" id="24_60hy4"]
+[ext_resource type="Texture2D" uid="uid://ci4g43hiaesuo" path="res://addons/mpf-gmc/images/PIZZA FRENZY/2.png" id="25_2cwph"]
+[ext_resource type="Texture2D" uid="uid://csbbfyfqavf2e" path="res://addons/mpf-gmc/images/PIZZA FRENZY/1.png" id="26_v6wby"]
+[ext_resource type="Texture2D" uid="uid://cf1k4wnslodcc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/go.png" id="27_thgtb"]
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
@@ -150,3 +154,31 @@ visible = false
 position = Vector2(1463, 299.00003)
 scale = Vector2(0.5263671, 0.5263672)
 texture = ExtResource("18_vwogh")
+
+[node name="frenzy_intro" type="Node2D" parent="." unique_id=2029984063]
+visible = false
+
+[node name="pizza_frenzy_big" type="Sprite2D" parent="frenzy_intro" unique_id=1796355903]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("18_vwogh")
+
+[node name="countdown_3" type="Sprite2D" parent="frenzy_intro" unique_id=2128347175]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("24_60hy4")
+
+[node name="countdown_2" type="Sprite2D" parent="frenzy_intro" unique_id=505886526]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("25_2cwph")
+
+[node name="countdown_1" type="Sprite2D" parent="frenzy_intro" unique_id=694757252]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("26_v6wby")
+
+[node name="go" type="Sprite2D" parent="frenzy_intro" unique_id=2077041857]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("27_thgtb")

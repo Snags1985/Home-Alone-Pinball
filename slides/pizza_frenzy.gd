@@ -10,6 +10,10 @@ var a_collected = false
 var pizza_ready = false
 var active_logo = null
 var logo_pulsing = false
+var delivery_ramp_lit = false
+var pizza_frenzy_active = false
+var frenzy_time_remaining = 45
+var frenzy_starting = false
 
 func _ready():
 
@@ -67,7 +71,13 @@ func show_status_logo(logo_name):
 	print("keep_going: ", $keep_going.visible)
 	print("shoot_delivery_ramp: ", $shoot_delivery_ramp.visible)
 	print("pizza_frenzy: ", $pizza_frenzy.visible)
+	
+func hide_countdown():
 
+	$frenzy_intro/countdown_3.visible = false
+	$frenzy_intro/countdown_2.visible = false
+	$frenzy_intro/countdown_1.visible = false
+	$frenzy_intro/go.visible = false
 
 func show_pizza_box(count):
 
@@ -92,7 +102,6 @@ func show_pizza_box(count):
 			$slice_4.visible = true
 		5:
 			$slice_5.visible = true
-
 
 func light_letter(letter):
 
@@ -178,6 +187,7 @@ func pulse_logo():
 func reset_pizza_frenzy():
 	pizza_ready = false
 	pizza_complete = false
+	delivery_ramp_lit = false
 
 	pizza_slices = 0
 
@@ -218,8 +228,129 @@ func _input(event):
 		
 	if event.is_action_pressed("ui_cancel"):
 		reset_pizza_frenzy()
+	
+	if event.is_action_pressed("ui_page_up"):
+		shoot_delivery_ramp()
 		
-		
+func shoot_delivery_ramp():
+
+	if !delivery_ramp_lit:
+		return
+
+	start_pizza_frenzy()
+	
+func start_pizza_frenzy():
+
+	if pizza_frenzy_active:
+		return
+
+	frenzy_starting = true
+
+	print("PIZZA FRENZY STARTING")
+
+	show_status_logo("pizza_frenzy")
+
+	start_sequence()
+	
+func start_sequence():
+
+	hide_gameplay_elements()
+
+	$frenzy_intro.visible = true
+
+	hide_intro_elements()
+
+	# Show big Pizza Frenzy logo
+	$frenzy_intro/pizza_frenzy_big.visible = true
+
+	var logo = $frenzy_intro/pizza_frenzy_big
+
+	logo.scale = Vector2(0.1, 0.1)
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		logo,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.5
+	)
+
+	await tween.finished
+
+	await pulse_once(logo)
+	await pulse_once(logo)
+
+	await get_tree().create_timer(0.5).timeout
+
+	# Hide logo before countdown
+	$frenzy_intro/pizza_frenzy_big.visible = false
+
+	hide_countdown()
+	$frenzy_intro/countdown_3.visible = true
+
+	await get_tree().create_timer(1.0).timeout
+
+	hide_countdown()
+	$frenzy_intro/countdown_2.visible = true
+
+	await get_tree().create_timer(1.0).timeout
+
+	hide_countdown()
+	$frenzy_intro/countdown_1.visible = true
+
+	await get_tree().create_timer(1.0).timeout
+
+	hide_countdown()
+	$frenzy_intro/go.visible = true
+
+	await get_tree().create_timer(1.0).timeout
+
+	hide_countdown()
+	$frenzy_intro.visible = false
+
+	pizza_frenzy_active = true
+	delivery_ramp_lit = false
+	frenzy_starting = false
+
+	frenzy_time_remaining = 45
+
+	frenzy_countdown()
+	
+func pulse_once(node):
+
+	var original_scale = node.scale
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		node,
+		"scale",
+		original_scale * 1.1,
+		0.2
+	)
+
+	tween.tween_property(
+		node,
+		"scale",
+		original_scale,
+		0.2
+	)
+
+	await tween.finished
+
+func frenzy_countdown():
+
+	while frenzy_time_remaining > 0:
+
+		print(frenzy_time_remaining)
+
+		await get_tree().create_timer(1.0).timeout
+
+		frenzy_time_remaining -= 1
+
+	print("PIZZA FRENZY COMPLETE")
+	
 func collect_letter(letter):
 
 	match letter:
@@ -274,7 +405,51 @@ func collect_letter(letter):
 	
 	if pizza_slices == 5:
 		pizza_complete = true
+		delivery_ramp_lit = true
+
 		print("PIZZA COMPLETE")
+		print("DELIVERY RAMP LIT")
+
 		animate_pizza_ready()
 	
+func hide_gameplay_elements():
+
+	# Pizza box
+	$slice_0.visible = false
+	$slice_1.visible = false
+	$slice_2.visible = false
+	$slice_3.visible = false
+	$slice_4.visible = false
+	$slice_5.visible = false
+
+	# Pizza letters
+	$p_grey.visible = false
+	$p_lit.visible = false
+
+	$i_grey.visible = false
+	$i_lit.visible = false
+
+	$z1_grey.visible = false
+	$z1_lit.visible = false
+
+	$z2_grey.visible = false
+	$z2_lit.visible = false
+
+	$a_grey.visible = false
+	$a_lit.visible = false
+
+	# Status logos
+	$get_ready.visible = false
+	$nice_job.visible = false
+	$great_work.visible = false
+	$keep_going.visible = false
+	$shoot_delivery_ramp.visible = false
+	$pizza_frenzy.visible = false
 		
+func hide_intro_elements():
+
+	$frenzy_intro/pizza_frenzy_big.visible = false
+	$frenzy_intro/countdown_3.visible = false
+	$frenzy_intro/countdown_2.visible = false
+	$frenzy_intro/countdown_1.visible = false
+	$frenzy_intro/go.visible = false
