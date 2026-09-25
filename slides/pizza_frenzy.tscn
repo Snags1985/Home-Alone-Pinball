@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://nwfx2puvlsgm"]
+
+[ext_resource type="Script" uid="uid://bwr6cf7xpilgx" path="res://slides/pizza_frenzy.gd" id="1_61tar"]
+[ext_resource type="Texture2D" uid="uid://de6yygr5gv88f" path="res://addons/mpf-gmc/images/PIZZA FRENZY/0_slice.PNG" id="2_8diu4"]
+[ext_resource type="Texture2D" uid="uid://cnwqclvjdm18s" path="res://addons/mpf-gmc/images/PIZZA FRENZY/1_slice.png" id="3_xmj6k"]
+[ext_resource type="Texture2D" uid="uid://ri22y1tap375" path="res://addons/mpf-gmc/images/PIZZA FRENZY/2_slice.png" id="4_gq60v"]
+[ext_resource type="Texture2D" uid="uid://cjfkyy83po3b3" path="res://addons/mpf-gmc/images/PIZZA FRENZY/3_slice.png" id="5_4cst4"]
+[ext_resource type="Texture2D" uid="uid://c5iehthab5gh5" path="res://addons/mpf-gmc/images/PIZZA FRENZY/4_slice.png" id="6_uf5ih"]
+[ext_resource type="Texture2D" uid="uid://8m8q6ok27ay1" path="res://addons/mpf-gmc/images/PIZZA FRENZY/5_slice.PNG" id="7_4phdy"]
+[ext_resource type="Texture2D" uid="uid://rteitck5oinj" path="res://addons/mpf-gmc/images/PIZZA FRENZY/p_grey.png" id="8_lg3ve"]
+[ext_resource type="Texture2D" uid="uid://btwr1msim2rdu" path="res://addons/mpf-gmc/images/PIZZA FRENZY/p_lit.png" id="9_7gl0u"]
+[ext_resource type="Texture2D" uid="uid://y12q6wds0mks" path="res://addons/mpf-gmc/images/PIZZA FRENZY/i_grey.png" id="10_60hy4"]
+[ext_resource type="Texture2D" uid="uid://h4xm81cspahm" path="res://addons/mpf-gmc/images/PIZZA FRENZY/i_lit.png" id="11_2cwph"]
+[ext_resource type="Texture2D" uid="uid://dhljpvlhqswxm" path="res://addons/mpf-gmc/images/PIZZA FRENZY/z2_grey.png" id="12_v6wby"]
+[ext_resource type="Texture2D" uid="uid://b5skdy4abd152" path="res://addons/mpf-gmc/images/PIZZA FRENZY/z2_lit.png" id="13_thgtb"]
+[ext_resource type="Texture2D" uid="uid://d2orfshkk2a1p" path="res://addons/mpf-gmc/images/PIZZA FRENZY/z1_grey.png" id="14_1hkyi"]
+[ext_resource type="Texture2D" uid="uid://bdox5ad8jp4so" path="res://addons/mpf-gmc/images/PIZZA FRENZY/z1_lit.png" id="15_d64b3"]
+[ext_resource type="Texture2D" uid="uid://hadir6nkkiy1" path="res://addons/mpf-gmc/images/PIZZA FRENZY/a_grey.png" id="16_o0p4w"]
+[ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/PIZZA FRENZY/a_lit.png" id="17_uonvx"]
+[ext_resource type="Texture2D" uid="uid://nk0gdytyidvh" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_frenzy.PNG" id="18_vwogh"]
+
+[node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
+script = ExtResource("1_61tar")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2030322007]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slice_0" type="Sprite2D" parent="." unique_id=1121002224]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("2_8diu4")
+
+[node name="slice_1" type="Sprite2D" parent="." unique_id=1479937038]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("3_xmj6k")
+
+[node name="slice_2" type="Sprite2D" parent="." unique_id=1503492191]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("4_gq60v")
+
+[node name="slice_3" type="Sprite2D" parent="." unique_id=129070215]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("5_4cst4")
+
+[node name="slice_4" type="Sprite2D" parent="." unique_id=187650222]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("6_uf5ih")
+
+[node name="slice_5" type="Sprite2D" parent="." unique_id=939261601]
+position = Vector2(494.7, 411.75)
+scale = Vector2(0.72008735, 0.72008735)
+texture = ExtResource("7_4phdy")
+
+[node name="p_grey" type="Sprite2D" parent="." unique_id=926391352]
+position = Vector2(659, 878)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_lg3ve")
+
+[node name="p_lit" type="Sprite2D" parent="." unique_id=1810830312]
+position = Vector2(659, 878)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7gl0u")
+
+[node name="i_grey" type="Sprite2D" parent="." unique_id=1685856617]
+position = Vector2(910, 878)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_60hy4")
+
+[node name="i_lit" type="Sprite2D" parent="." unique_id=1896744051]
+position = Vector2(910, 878)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_2cwph")
+
+[node name="z2_grey" type="Sprite2D" parent="." unique_id=1743110685]
+position = Vector2(1146, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_v6wby")
+
+[node name="z2_lit" type="Sprite2D" parent="." unique_id=172764998]
+position = Vector2(1146, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_thgtb")
+
+[node name="z1_grey" type="Sprite2D" parent="." unique_id=321043738]
+position = Vector2(1443, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_1hkyi")
+
+[node name="z1_lit" type="Sprite2D" parent="." unique_id=1754209988]
+position = Vector2(1443, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_d64b3")
+
+[node name="a_grey" type="Sprite2D" parent="." unique_id=1096225535]
+position = Vector2(1730, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_o0p4w")
+
+[node name="a_lit" type="Sprite2D" parent="." unique_id=1828459222]
+position = Vector2(1730, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_uonvx")
+
+[node name="pizza_frenzy" type="Sprite2D" parent="." unique_id=328768936]
+position = Vector2(1463, 299.00003)
+scale = Vector2(0.5263671, 0.5263672)
+texture = ExtResource("18_vwogh")

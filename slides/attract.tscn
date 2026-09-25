@@ -11,7 +11,7 @@ anchors_preset = 0
 script = ExtResource("1_r1mnt")
 metadata/_custom_type_script = "uid://dru3usokwlhd3"
 
-[node name="MPFCarousel" type="Control" parent="." unique_id=1308289589]
+[node name="MPFCarousel" type="Control" parent="." unique_id=1141912293]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -19,8 +19,8 @@ script = ExtResource("2_f161n")
 carousel_name = "attract"
 metadata/_custom_type_script = "uid://dpe3dq8axt3g7"
 
-[node name="attract_slide_1" parent="MPFCarousel" unique_id=870656906 instance=ExtResource("3_cq3lo")]
+[node name="attract_slide_2" parent="MPFCarousel" unique_id=1106651454 instance=ExtResource("4_twbla")]
 layout_mode = 0
 
-[node name="attract_slide_2" parent="MPFCarousel" unique_id=1106651454 instance=ExtResource("4_twbla")]
+[node name="attract_slide_1" parent="MPFCarousel" unique_id=1945207469 instance=ExtResource("3_cq3lo")]
 layout_mode = 0

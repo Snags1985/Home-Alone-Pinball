@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bpp8mglxnyeof"
-path="res://.godot/imported/machine-bold.ttf-f476688f9c29a5caed08152a48a15c29.fontdata"
+uid="uid://hl3knncb506y"
+path="res://.godot/imported/EraserRegular.ttf-e56234fe539623bdc8df768d9914ac38.fontdata"
 
 [deps]
 
-source_file="res://addons/mpf-gmc/fonts/machine-bold.ttf"
-dest_files=["res://.godot/imported/machine-bold.ttf-f476688f9c29a5caed08152a48a15c29.fontdata"]
+source_file="res://addons/mpf-gmc/fonts/EraserRegular.ttf"
+dest_files=["res://.godot/imported/EraserRegular.ttf-e56234fe539623bdc8df768d9914ac38.fontdata"]
 
 [params]
 

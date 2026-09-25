@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dru3usokwlhd3" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_ean50"]
 [ext_resource type="Texture2D" uid="uid://co2g2uybq2jis" path="res://addons/mpf-gmc/images/highscores.PNG" id="2_3bi0c"]
-[ext_resource type="FontFile" uid="uid://bpp8mglxnyeof" path="res://addons/mpf-gmc/fonts/machine-bold.ttf" id="3_4yyj0"]
+[ext_resource type="FontFile" uid="uid://ti0g1mag7wm6" path="res://addons/mpf-gmc/fonts/compacta-bold.ttf" id="3_3bi0c"]
 [ext_resource type="Script" uid="uid://bfvhmv2eirpua" path="res://addons/mpf-gmc/classes/mpf_variable.gd" id="4_2ob2v"]
 
 [node name="attract_slide_2" type="Control" unique_id=1106651454]
@@ -17,14 +17,14 @@ texture = ExtResource("2_3bi0c")
 
 [node name="grand_champion" type="Label" parent="." unique_id=1708599781]
 layout_mode = 0
-offset_left = 621.0
-offset_top = 494.0
-offset_right = 1326.0
-offset_bottom = 603.0
+offset_left = 623.0
+offset_top = 501.0
+offset_right = 1328.0
+offset_bottom = 610.0
 theme_override_colors/font_color = Color(1, 1, 0.5254902, 1)
 theme_override_colors/font_outline_color = Color(0.797361, 0.4095525, 0.018641617, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_fonts/font = ExtResource("3_3bi0c")
 theme_override_font_sizes/font_size = 80
 text = "12,225,000"
 horizontal_alignment = 1
@@ -56,10 +56,10 @@ offset_left = 942.0
 offset_top = 651.0
 offset_right = 1326.0
 offset_bottom = 713.0
-theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
-theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.9254902, 0.003921569, 0.047058824, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_fonts/font = ExtResource("3_3bi0c")
 theme_override_font_sizes/font_size = 45
 text = "10,000,000"
 horizontal_alignment = 2
@@ -90,10 +90,10 @@ offset_left = 942.0
 offset_top = 723.0
 offset_right = 1326.0
 offset_bottom = 785.0
-theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
-theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_fonts/font = ExtResource("3_3bi0c")
 theme_override_font_sizes/font_size = 45
 text = "7,500,000"
 horizontal_alignment = 2
@@ -124,10 +124,10 @@ offset_left = 942.0
 offset_top = 797.0
 offset_right = 1326.0
 offset_bottom = 859.0
-theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
-theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_fonts/font = ExtResource("3_3bi0c")
 theme_override_font_sizes/font_size = 45
 text = "5,000,000"
 horizontal_alignment = 2
@@ -158,10 +158,10 @@ offset_left = 942.0
 offset_top = 871.0
 offset_right = 1326.0
 offset_bottom = 933.0
-theme_override_colors/font_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
-theme_override_colors/font_outline_color = Color(1, 0.94509804, 0.7529412, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.9254902, 0.007843138, 0.05490196, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("3_4yyj0")
+theme_override_fonts/font = ExtResource("3_3bi0c")
 theme_override_font_sizes/font_size = 45
 text = "2,500,000"
 horizontal_alignment = 2

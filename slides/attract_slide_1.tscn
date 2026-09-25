@@ -4,7 +4,10 @@
 [ext_resource type="FontFile" uid="uid://d4fa2mwwekwsd" path="res://addons/mpf-gmc/fonts/Century-BookCondensed.otf" id="2_dgcq8"]
 [ext_resource type="Texture2D" uid="uid://b8gbks2pnqvct" path="res://addons/mpf-gmc/images/HomeAloneLOGO.png" id="3_l4ibm"]
 [ext_resource type="Texture2D" uid="uid://bmqp654eonehi" path="res://addons/mpf-gmc/images/Kevin.PNG" id="4_3p533"]
+[ext_resource type="Texture2D" uid="uid://y3ve7nff42vu" path="res://addons/mpf-gmc/images/plan.PNG" id="4_bmkga"]
 [ext_resource type="Script" uid="uid://cqyd77ovuryuv" path="res://slides/label_2.gd" id="5_bmkga"]
+[ext_resource type="Texture2D" uid="uid://i8mpxllvhh47" path="res://addons/mpf-gmc/images/paintcans.PNG" id="6_dgcq8"]
+[ext_resource type="Texture2D" uid="uid://k8rn5t7pn4rr" path="res://addons/mpf-gmc/images/defend_the_house.png" id="8_6n2mk"]
 
 [sub_resource type="Gradient" id="Gradient_e5m5l"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -18,8 +21,9 @@ metadata/_custom_type_script = "uid://dru3usokwlhd3"
 [node name="ColorRect" type="ColorRect" parent="." unique_id=139039936]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 1024.0
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 1079.0
 color = Color(0.023529412, 0.27058825, 0.47058824, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1653238308]
@@ -39,10 +43,10 @@ color_ramp = SubResource("Gradient_e5m5l")
 
 [node name="PINBALL" type="Label" parent="." unique_id=673753630]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 267.0
-offset_right = 990.0
-offset_bottom = 430.0
+offset_left = 359.0
+offset_top = 201.0
+offset_right = 998.0
+offset_bottom = 364.0
 theme_override_colors/font_color = Color(0.9843137, 0.76862746, 0, 1)
 theme_override_fonts/font = ExtResource("2_dgcq8")
 theme_override_font_sizes/font_size = 140
@@ -52,30 +56,46 @@ vertical_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1535252849]
 layout_mode = 0
-offset_left = 421.0
-offset_top = 406.0
-offset_right = 923.0
-offset_bottom = 414.0
+offset_left = 429.0
+offset_top = 340.0
+offset_right = 931.0
+offset_bottom = 348.0
 color = Color(0.9254902, 0.007843138, 0.050980393, 1)
 
 [node name="logo" type="Sprite2D" parent="." unique_id=949087758]
-position = Vector2(684, 195)
+position = Vector2(680, 134.99998)
 scale = Vector2(0.37888882, 0.37845305)
 texture = ExtResource("3_l4ibm")
 
+[node name="plan" type="Sprite2D" parent="." unique_id=1028507290]
+position = Vector2(1010.99994, 809.9998)
+rotation = 0.116937056
+scale = Vector2(0.4542124, 0.45421246)
+texture = ExtResource("4_bmkga")
+
 [node name="kevin" type="Sprite2D" parent="." unique_id=2128914203]
-position = Vector2(1410, 661.00006)
+position = Vector2(1537.0001, 663.00006)
 scale = Vector2(0.55854577, 0.55854577)
 texture = ExtResource("4_3p533")
 
-[node name="Label2" type="Label" parent="." unique_id=1182957865]
+[node name="press_start" type="Label" parent="." unique_id=1182957865]
 layout_mode = 0
-offset_left = 403.0
-offset_top = 672.0
-offset_right = 895.0
-offset_bottom = 789.0
+offset_left = 1321.0
+offset_top = 68.0
+offset_right = 1813.0
+offset_bottom = 185.0
 theme_override_font_sizes/font_size = 80
 text = "PRESS START"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_bmkga")
+
+[node name="paintcans" type="Sprite2D" parent="." unique_id=1930033981]
+position = Vector2(478, 927)
+scale = Vector2(0.32525367, 0.32525367)
+texture = ExtResource("6_dgcq8")
+
+[node name="defend_the_house" type="Sprite2D" parent="." unique_id=1125659427]
+position = Vector2(667, 534)
+scale = Vector2(0.35562328, 0.35562336)
+texture = ExtResource("8_6n2mk")
