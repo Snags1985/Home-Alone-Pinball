@@ -23,10 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://j8g6q1w6pydh" path="res://addons/mpf-gmc/images/PIZZA FRENZY/great_work.png" id="20_uf5ih"]
 [ext_resource type="Texture2D" uid="uid://c2q2jgusntqsf" path="res://addons/mpf-gmc/images/PIZZA FRENZY/keep_going.png" id="21_4phdy"]
 [ext_resource type="Texture2D" uid="uid://hhjqq63siel0" path="res://addons/mpf-gmc/images/PIZZA FRENZY/shoot_delivery_ramp.PNG" id="22_lg3ve"]
+[ext_resource type="Texture2D" uid="uid://cnp5y4htmhqto" path="res://addons/mpf-gmc/images/PIZZA FRENZY/completed.png" id="24_1hkyi"]
 [ext_resource type="Texture2D" uid="uid://c83n88m7nx3u" path="res://addons/mpf-gmc/images/PIZZA FRENZY/3.png" id="24_60hy4"]
 [ext_resource type="Texture2D" uid="uid://ci4g43hiaesuo" path="res://addons/mpf-gmc/images/PIZZA FRENZY/2.png" id="25_2cwph"]
 [ext_resource type="Texture2D" uid="uid://csbbfyfqavf2e" path="res://addons/mpf-gmc/images/PIZZA FRENZY/1.png" id="26_v6wby"]
 [ext_resource type="Texture2D" uid="uid://cf1k4wnslodcc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/go.png" id="27_thgtb"]
+[ext_resource type="Texture2D" uid="uid://cd23et4uvduxe" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_night.png" id="28_thgtb"]
+[ext_resource type="Texture2D" uid="uid://jkmme0jbqjse" path="res://addons/mpf-gmc/images/PIZZA FRENZY/Street_scene_day.png" id="29_1hkyi"]
+[ext_resource type="Texture2D" uid="uid://be1fh37m4dotw" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_car.PNG" id="30_d64b3"]
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
@@ -155,6 +159,23 @@ position = Vector2(1463, 299.00003)
 scale = Vector2(0.5263671, 0.5263672)
 texture = ExtResource("18_vwogh")
 
+[node name="complete" type="Sprite2D" parent="." unique_id=2138750193]
+visible = false
+position = Vector2(955.00006, 539)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("24_1hkyi")
+
+[node name="timer_label" type="Label" parent="." unique_id=1466404970]
+visible = false
+offset_left = 955.00006
+offset_top = 62.0
+offset_right = 1184.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(0.99607843, 0.8392157, 0.28627452, 1)
+theme_override_font_sizes/font_size = 200
+text = "45"
+horizontal_alignment = 1
+
 [node name="frenzy_intro" type="Node2D" parent="." unique_id=2029984063]
 visible = false
 
@@ -182,3 +203,46 @@ texture = ExtResource("26_v6wby")
 visible = false
 position = Vector2(960, 540)
 texture = ExtResource("27_thgtb")
+
+[node name="street_scene_night" type="Node2D" parent="." unique_id=433038109]
+visible = false
+position = Vector2(960, 540)
+
+[node name="street_scene_night" type="Sprite2D" parent="street_scene_night" unique_id=606256034]
+position = Vector2(0.99997044, 323)
+scale = Vector2(0.8848987, 1)
+texture = ExtResource("28_thgtb")
+
+[node name="shop_marker" type="Marker2D" parent="street_scene_night" unique_id=1714888019]
+visible = false
+position = Vector2(-834, 419)
+
+[node name="house_marker" type="Marker2D" parent="street_scene_night" unique_id=1651876192]
+visible = false
+position = Vector2(861, 423)
+
+[node name="street_scene_day" type="Node2D" parent="." unique_id=1147867850]
+visible = false
+position = Vector2(960, 540)
+
+[node name="street_scene_day" type="Sprite2D" parent="street_scene_day" unique_id=414777675]
+position = Vector2(0.9999695, 379)
+scale = Vector2(0.8848987, 1)
+texture = ExtResource("29_1hkyi")
+
+[node name="shop_marker" type="Marker2D" parent="street_scene_day" unique_id=1955766292]
+visible = false
+position = Vector2(-834, 485)
+
+[node name="house_marker" type="Marker2D" parent="street_scene_day" unique_id=1758710029]
+visible = false
+position = Vector2(836, 506)
+
+[node name="delivery_car_container" type="Node2D" parent="." unique_id=58470948]
+visible = false
+position = Vector2(1266, 717)
+
+[node name="pizza_car" type="Sprite2D" parent="delivery_car_container" unique_id=818540109]
+position = Vector2(-1139, 309)
+scale = Vector2(0.15473504, 0.15473504)
+texture = ExtResource("30_d64b3")

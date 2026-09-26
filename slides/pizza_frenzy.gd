@@ -14,6 +14,10 @@ var delivery_ramp_lit = false
 var pizza_frenzy_active = false
 var frenzy_time_remaining = 45
 var frenzy_starting = false
+var active_scene = null
+var car_tween = null
+var frenzy_finished = false
+var delivery_progress = 0
 
 func _ready():
 
@@ -27,6 +31,7 @@ func _ready():
 	$a_lit.visible = false
 
 	show_status_logo("get_ready")
+	$timer_label.visible = false
 	
 func show_status_logo(logo_name):
 
@@ -204,6 +209,7 @@ func reset_pizza_frenzy():
 	$z1_lit.visible = false
 	$z2_lit.visible = false
 	$a_lit.visible = false
+	$complete.visible = false
 	
 	show_status_logo("get_ready")
 			
@@ -308,6 +314,10 @@ func start_sequence():
 
 	hide_countdown()
 	$frenzy_intro.visible = false
+	
+	start_delivery_run()
+	$timer_label.visible = true
+	$timer_label.text = str(frenzy_time_remaining)
 
 	pizza_frenzy_active = true
 	delivery_ramp_lit = false
@@ -316,6 +326,47 @@ func start_sequence():
 	frenzy_time_remaining = 45
 
 	frenzy_countdown()
+	
+func start_delivery_run():
+	
+	print("START DELIVERY RUN")
+
+	active_scene = $street_scene_night
+
+	$street_scene_night.visible = true
+	$delivery_car_container.visible = true
+
+	print("Street visible: ", $street_scene_night.visible)
+	print("Car visible: ", $delivery_car_container.visible)
+
+	$delivery_car_container/pizza_car.global_position = active_scene.get_node("shop_marker").global_position
+
+	print("Car position: ", $delivery_car_container/pizza_car.global_position)
+
+	car_tween = create_tween()
+
+	car_tween.tween_property(
+		$delivery_car_container/pizza_car,
+		"global_position",
+		active_scene.get_node("house_marker").global_position,
+		45.0
+	)
+
+	active_scene = $street_scene_night
+
+	$street_scene_night.visible = true
+	$delivery_car_container.visible = true
+
+	$delivery_car_container/pizza_car.global_position = active_scene.get_node("shop_marker").global_position
+
+	car_tween = create_tween()
+
+	car_tween.tween_property(
+		$delivery_car_container/pizza_car,
+		"global_position",
+		active_scene.get_node("house_marker").global_position,
+		45.0
+)
 	
 func pulse_once(node):
 
@@ -343,13 +394,14 @@ func frenzy_countdown():
 
 	while frenzy_time_remaining > 0:
 
-		print(frenzy_time_remaining)
-
 		await get_tree().create_timer(1.0).timeout
 
 		frenzy_time_remaining -= 1
+		$timer_label.text = str(frenzy_time_remaining)
 
-	print("PIZZA FRENZY COMPLETE")
+		print(frenzy_time_remaining)
+
+	complete_pizza_frenzy()
 	
 func collect_letter(letter):
 
@@ -453,3 +505,43 @@ func hide_intro_elements():
 	$frenzy_intro/countdown_2.visible = false
 	$frenzy_intro/countdown_1.visible = false
 	$frenzy_intro/go.visible = false
+
+func complete_pizza_frenzy():
+
+	if frenzy_finished:
+		return
+
+	frenzy_finished = true
+
+	print("PIZZA FRENZY COMPLETE")
+
+	if car_tween:
+		car_tween.kill()
+
+	# Hide all mode visuals
+	$street_scene_night.visible = false
+	$street_scene_day.visible = false
+	$delivery_car_container.visible = false
+	$timer_label.visible = false
+	
+	# Show complete logo
+	$complete.visible = true
+
+	await pulse_once($complete)
+	await pulse_once($complete)
+	await pulse_once($complete)
+
+	$complete.visible = false
+
+	reset_pizza_frenzy()
+
+	frenzy_finished = false
+
+func delivery_ramp_shot():
+
+	if !pizza_frenzy_active:
+		return
+
+	delivery_progress += 1
+
+	print("DELIVERY BOOST: ", delivery_progress)
