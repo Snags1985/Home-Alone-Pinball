@@ -18,12 +18,16 @@ var active_scene = null
 var car_tween = null
 var frenzy_finished = false
 var delivery_progress = 0
+var frenzy_multiplier = 2
+var pizza_ball_save_active = false
+var frenzy_score = 0
+var wheel_spin_speed = 12.0
 
 func _ready():
 
 	# Start with empty pizza box
 	show_pizza_box(0)
-	
+
 	$p_lit.visible = false
 	$i_lit.visible = false
 	$z1_lit.visible = false
@@ -31,7 +35,13 @@ func _ready():
 	$a_lit.visible = false
 
 	show_status_logo("get_ready")
+
 	$timer_label.visible = false
+
+	# Hide frenzy visuals
+	$street_scene_night.visible = false
+	$street_scene_day.visible = false
+	$delivery_car_container.visible = false
 	
 func show_status_logo(logo_name):
 
@@ -152,6 +162,86 @@ func animate_letter(letter_node):
 		0.1
 	)
 
+func animate_multiplier():
+	
+
+	var original_scale = $multiplier_label.scale
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		$multiplier_label,
+		"scale",
+		original_scale * 1.3,
+		0.1
+	)
+
+	tween.tween_property(
+		$multiplier_label,
+		"scale",
+		original_scale,
+		0.1
+	)
+
+func show_multiplier_popup():
+
+	$multiplier_popup.text = "+" + str(frenzy_multiplier) + "X!"
+	$multiplier_popup.visible = true
+
+	var original_position = $multiplier_popup.position
+
+	var tween = create_tween()
+
+	tween.parallel().tween_property(
+		$multiplier_popup,
+		"position",
+		original_position + Vector2(0, -50),
+		0.6
+	)
+
+	tween.parallel().tween_property(
+		$multiplier_popup,
+		"modulate:a",
+		0.0,
+		0.6
+	)
+
+	await tween.finished
+
+	$multiplier_popup.visible = false
+	$multiplier_popup.modulate.a = 1.0
+	$multiplier_popup.position = original_position
+
+func show_score_popup(points):
+
+	$score_popup.text = "+" + format_score(points)
+
+	$score_popup.visible = true
+
+	var original_position = $score_popup.position
+
+	var tween = create_tween()
+
+	tween.parallel().tween_property(
+		$score_popup,
+		"position",
+		original_position + Vector2(0, -50),
+		0.8
+	)
+
+	tween.parallel().tween_property(
+		$score_popup,
+		"modulate:a",
+		0.0,
+		0.8
+	)
+
+	await tween.finished
+
+	$score_popup.visible = false
+	$score_popup.modulate.a = 1.0
+	$score_popup.position = original_position
+
 func animate_pizza_ready():
 
 	pizza_ready = true
@@ -190,6 +280,28 @@ func pulse_logo():
 	)
 
 func reset_pizza_frenzy():
+	
+	# Hide all Pizza Frenzy visuals
+	$street_scene_night.visible = false
+	$street_scene_day.visible = false
+	$delivery_car_container.visible = false
+
+	$timer_label.visible = false
+	$multiplier_label.visible = false
+
+	$complete.visible = false
+	$score_label.visible = false
+	$score_popup.visible = false
+
+	$frenzy_intro.visible = false
+
+	hide_countdown()
+	hide_intro_elements()
+
+	pizza_ready = false
+	pizza_complete = false
+	delivery_ramp_lit = false
+	
 	pizza_ready = false
 	pizza_complete = false
 	delivery_ramp_lit = false
@@ -210,6 +322,18 @@ func reset_pizza_frenzy():
 	$z2_lit.visible = false
 	$a_lit.visible = false
 	$complete.visible = false
+	
+	pizza_frenzy_active = false
+	frenzy_starting = false
+	frenzy_finished = false
+	pizza_ball_save_active = false
+	$street_scene_night.visible = false
+	$street_scene_day.visible = false
+	$delivery_car_container.visible = false
+	
+
+	frenzy_time_remaining = 45
+	frenzy_multiplier = 2
 	
 	show_status_logo("get_ready")
 			
@@ -238,7 +362,26 @@ func _input(event):
 	if event.is_action_pressed("ui_page_up"):
 		shoot_delivery_ramp()
 		
+	if event.is_action_pressed("ball_saved_test"):
+		show_ball_saved()
+			
 func shoot_delivery_ramp():
+
+	if pizza_frenzy_active:
+
+		if frenzy_multiplier < 10:
+			frenzy_multiplier += 1
+
+			$multiplier_label.text = str(frenzy_multiplier) + "X"
+			
+			animate_multiplier()
+			show_multiplier_popup()
+			
+			add_frenzy_score(100000)
+
+			print("MULTIPLIER: ", frenzy_multiplier)
+
+		return
 
 	if !delivery_ramp_lit:
 		return
@@ -322,6 +465,15 @@ func start_sequence():
 	pizza_frenzy_active = true
 	delivery_ramp_lit = false
 	frenzy_starting = false
+	frenzy_score = 0
+	$score_label.text = format_score(0)
+	$score_label.visible = true
+	
+	pizza_ball_save_active = true
+
+	frenzy_multiplier = 2
+	$multiplier_label.text = str(frenzy_multiplier) + "X"
+	$multiplier_label.visible = true
 
 	frenzy_time_remaining = 45
 
@@ -367,6 +519,14 @@ func start_delivery_run():
 		active_scene.get_node("house_marker").global_position,
 		45.0
 )
+	
+func _process(delta):
+
+	if pizza_frenzy_active:
+
+		$delivery_car_container/pizza_car/front_wheel.rotation += 8.0 * delta
+
+		$delivery_car_container/pizza_car/rear_wheel.rotation += 8.0 * delta
 	
 func pulse_once(node):
 
@@ -506,6 +666,76 @@ func hide_intro_elements():
 	$frenzy_intro/countdown_1.visible = false
 	$frenzy_intro/go.visible = false
 
+func format_score(score):
+
+	var s = str(score)
+	var result = ""
+
+	while s.length() > 3:
+		result = "," + s.substr(s.length() - 3, 3) + result
+		s = s.substr(0, s.length() - 3)
+
+	return s + result
+
+func add_frenzy_score(base_value):
+
+	var points = base_value * frenzy_multiplier
+
+	frenzy_score += points
+	show_score_popup(points)
+
+	$score_label.text = format_score(frenzy_score)
+
+	print("FRENZY SCORE: ", frenzy_score)
+
+func show_ball_saved():
+
+	var screen
+
+	if randi_range(1, 2) == 1:
+		screen = $ball_saved_1
+	else:
+		screen = $ball_saved_2
+
+	screen.visible = true
+
+	var final_position = screen.position
+
+	# Start above the screen
+	screen.position = final_position + Vector2(0, -1000)
+
+	var tween = create_tween()
+
+	# Slide into centre
+	tween.tween_property(
+		screen,
+		"position",
+		final_position,
+		0.3
+	)
+
+	await tween.finished
+
+	# Hold on screen
+	await get_tree().create_timer(1.2).timeout
+
+	# Slide back out
+	var exit_tween = create_tween()
+
+	exit_tween.tween_property(
+		screen,
+		"position",
+		final_position + Vector2(0, -1000),
+		0.3
+	)
+
+	await exit_tween.finished
+
+	screen.visible = false
+
+	# Reset for next time
+	screen.position = final_position
+
 func complete_pizza_frenzy():
 
 	if frenzy_finished:
@@ -523,7 +753,9 @@ func complete_pizza_frenzy():
 	$street_scene_day.visible = false
 	$delivery_car_container.visible = false
 	$timer_label.visible = false
-	
+	$multiplier_label.visible = false
+	$score_label.visible = false
+		
 	# Show complete logo
 	$complete.visible = true
 
@@ -532,10 +764,12 @@ func complete_pizza_frenzy():
 	await pulse_once($complete)
 
 	$complete.visible = false
-
+	
+	frenzy_multiplier = 2
 	reset_pizza_frenzy()
 
 	frenzy_finished = false
+	pizza_ball_save_active = false
 
 func delivery_ramp_shot():
 

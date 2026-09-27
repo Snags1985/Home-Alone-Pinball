@@ -26,11 +26,15 @@
 [ext_resource type="Texture2D" uid="uid://cnp5y4htmhqto" path="res://addons/mpf-gmc/images/PIZZA FRENZY/completed.png" id="24_1hkyi"]
 [ext_resource type="Texture2D" uid="uid://c83n88m7nx3u" path="res://addons/mpf-gmc/images/PIZZA FRENZY/3.png" id="24_60hy4"]
 [ext_resource type="Texture2D" uid="uid://ci4g43hiaesuo" path="res://addons/mpf-gmc/images/PIZZA FRENZY/2.png" id="25_2cwph"]
+[ext_resource type="Texture2D" uid="uid://j4u1k580sfca" path="res://addons/mpf-gmc/images/ball_saved_1.png" id="25_o0p4w"]
+[ext_resource type="Texture2D" uid="uid://brewtu8a2gt41" path="res://addons/mpf-gmc/images/ball_saved_2.png" id="26_uonvx"]
 [ext_resource type="Texture2D" uid="uid://csbbfyfqavf2e" path="res://addons/mpf-gmc/images/PIZZA FRENZY/1.png" id="26_v6wby"]
 [ext_resource type="Texture2D" uid="uid://cf1k4wnslodcc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/go.png" id="27_thgtb"]
 [ext_resource type="Texture2D" uid="uid://cd23et4uvduxe" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_night.png" id="28_thgtb"]
 [ext_resource type="Texture2D" uid="uid://jkmme0jbqjse" path="res://addons/mpf-gmc/images/PIZZA FRENZY/Street_scene_day.png" id="29_1hkyi"]
 [ext_resource type="Texture2D" uid="uid://be1fh37m4dotw" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_car.PNG" id="30_d64b3"]
+[ext_resource type="Texture2D" uid="uid://fatcrw7w4yni" path="res://addons/mpf-gmc/images/PIZZA FRENZY/rear_wheel.png" id="32_88ev2"]
+[ext_resource type="Texture2D" uid="uid://n31470ti0njg" path="res://addons/mpf-gmc/images/PIZZA FRENZY/front_wheel.png" id="33_i1o6u"]
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
@@ -165,17 +169,6 @@ position = Vector2(955.00006, 539)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("24_1hkyi")
 
-[node name="timer_label" type="Label" parent="." unique_id=1466404970]
-visible = false
-offset_left = 955.00006
-offset_top = 62.0
-offset_right = 1184.0
-offset_bottom = 335.0
-theme_override_colors/font_color = Color(0.99607843, 0.8392157, 0.28627452, 1)
-theme_override_font_sizes/font_size = 200
-text = "45"
-horizontal_alignment = 1
-
 [node name="frenzy_intro" type="Node2D" parent="." unique_id=2029984063]
 visible = false
 
@@ -242,7 +235,89 @@ position = Vector2(836, 506)
 visible = false
 position = Vector2(1266, 717)
 
-[node name="pizza_car" type="Sprite2D" parent="delivery_car_container" unique_id=818540109]
-position = Vector2(-1139, 309)
+[node name="pizza_car" type="Sprite2D" parent="delivery_car_container" unique_id=295788018]
+position = Vector2(-1140, 242)
 scale = Vector2(0.15473504, 0.15473504)
 texture = ExtResource("30_d64b3")
+
+[node name="front_wheel" type="Sprite2D" parent="delivery_car_container/pizza_car" unique_id=1964709181]
+position = Vector2(-568.7141, 258.5064)
+texture = ExtResource("33_i1o6u")
+
+[node name="rear_wheel" type="Sprite2D" parent="delivery_car_container/pizza_car" unique_id=1459545047]
+position = Vector2(568.7141, 258.5064)
+texture = ExtResource("32_88ev2")
+
+[node name="timer_label" type="Label" parent="." unique_id=1466404970]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 842.0
+offset_top = 19.0
+offset_right = 1071.0
+offset_bottom = 292.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "45"
+horizontal_alignment = 1
+
+[node name="multiplier_label" type="Label" parent="." unique_id=1054297973]
+visible = false
+offset_left = 848.0
+offset_top = 326.0
+offset_right = 1077.0
+offset_bottom = 599.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "x2"
+horizontal_alignment = 1
+
+[node name="multiplier_popup" type="Label" parent="." unique_id=67373787]
+visible = false
+offset_left = 842.0
+offset_top = 234.0
+offset_right = 1071.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "\"\""
+horizontal_alignment = 1
+
+[node name="score_label" type="Label" parent="." unique_id=761989719]
+visible = false
+offset_left = 96.0
+offset_top = 467.0
+offset_right = 325.0
+offset_bottom = 740.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[node name="score_popup" type="Label" parent="." unique_id=1214083333]
+visible = false
+offset_left = 98.0
+offset_top = 398.0
+offset_right = 327.0
+offset_bottom = 671.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "\"\""
+horizontal_alignment = 1
+
+[node name="ball_saved_1" type="Sprite2D" parent="." unique_id=2067838789]
+visible = false
+z_index = 1000
+position = Vector2(960.49994, 540)
+scale = Vector2(1.326, 1.001)
+texture = ExtResource("25_o0p4w")
+
+[node name="ball_saved_2" type="Sprite2D" parent="." unique_id=241233674]
+visible = false
+z_index = 1000
+position = Vector2(960, 540)
+scale = Vector2(1.3259668, 0.99631673)
+texture = ExtResource("26_uonvx")
