@@ -35,9 +35,18 @@
 [ext_resource type="Texture2D" uid="uid://be1fh37m4dotw" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_car.PNG" id="30_d64b3"]
 [ext_resource type="Texture2D" uid="uid://fatcrw7w4yni" path="res://addons/mpf-gmc/images/PIZZA FRENZY/rear_wheel.png" id="32_88ev2"]
 [ext_resource type="Texture2D" uid="uid://n31470ti0njg" path="res://addons/mpf-gmc/images/PIZZA FRENZY/front_wheel.png" id="33_i1o6u"]
+[ext_resource type="AudioStream" uid="uid://cxjg5iwupm6t3" path="res://sounds/voice/ball_saved_1.mp3" id="36_i1o6u"]
+[ext_resource type="AudioStream" uid="uid://dhyg8kb5qi4b" path="res://sounds/voice/ball_saved_2.mp3" id="37_6ih6s"]
+[ext_resource type="Texture2D" uid="uid://dq2h10i4hyq1q" path="res://addons/mpf-gmc/images/PIZZA FRENZY/awesome.png" id="38_m7r5k"]
+[ext_resource type="Texture2D" uid="uid://b4jv202qqfqll" path="res://addons/mpf-gmc/images/PIZZA FRENZY/perfect.png" id="39_cxshc"]
+[ext_resource type="Texture2D" uid="uid://effto5ijvkuu" path="res://addons/mpf-gmc/images/PIZZA FRENZY/looking_good.png" id="40_tmj5n"]
+[ext_resource type="Texture2D" uid="uid://bypu3pajc11yr" path="res://addons/mpf-gmc/images/PIZZA FRENZY/on_fire.png" id="41_bjhsj"]
+[ext_resource type="Texture2D" uid="uid://d1fo5jwkx2wvc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/jackpot.png" id="42_tmj5n"]
+[ext_resource type="Texture2D" uid="uid://d87udld3xc3t" path="res://addons/mpf-gmc/images/PIZZA FRENZY/super_jackpot.PNG" id="43_bjhsj"]
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
+metadata/_edit_horizontal_guides_ = [-163.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2030322007]
 anchors_preset = 15
@@ -321,3 +330,44 @@ z_index = 1000
 position = Vector2(960, 540)
 scale = Vector2(1.3259668, 0.99631673)
 texture = ExtResource("26_uonvx")
+
+[node name="ball_saved_1_audio" type="AudioStreamPlayer2D" parent="." unique_id=674254268]
+position = Vector2(961, 919)
+scale = Vector2(0.8848987, 1)
+stream = ExtResource("36_i1o6u")
+
+[node name="ball_saved_2_audio" type="AudioStreamPlayer2D" parent="." unique_id=1949426853]
+position = Vector2(961, 919)
+scale = Vector2(0.8848987, 1)
+stream = ExtResource("37_6ih6s")
+
+[node name="awesome" type="Sprite2D" parent="." unique_id=1752867725]
+visible = false
+position = Vector2(1471, 310)
+texture = ExtResource("38_m7r5k")
+
+[node name="perfect" type="Sprite2D" parent="." unique_id=2010237315]
+visible = false
+position = Vector2(1471, 310)
+texture = ExtResource("39_cxshc")
+
+[node name="looking_good" type="Sprite2D" parent="." unique_id=2010111047]
+visible = false
+position = Vector2(1471, 310)
+texture = ExtResource("40_tmj5n")
+
+[node name="on_fire" type="Sprite2D" parent="." unique_id=1335620274]
+visible = false
+position = Vector2(1471, 310)
+texture = ExtResource("41_bjhsj")
+
+[node name="jackpot" type="Sprite2D" parent="." unique_id=288012515]
+visible = false
+position = Vector2(1471, 310)
+texture = ExtResource("42_tmj5n")
+
+[node name="super_jackpot" type="Sprite2D" parent="." unique_id=1644195032]
+visible = false
+position = Vector2(1442.0001, 303)
+scale = Vector2(0.57068604, 0.5706861)
+texture = ExtResource("43_bjhsj")

@@ -22,6 +22,11 @@ var frenzy_multiplier = 2
 var pizza_ball_save_active = false
 var frenzy_score = 0
 var wheel_spin_speed = 12.0
+var callout_showing = false
+var last_ball_saved_screen = 2
+var combo_active = false
+var combo_count = 0
+var combo_timer = null
 
 func _ready():
 
@@ -33,6 +38,12 @@ func _ready():
 	$z1_lit.visible = false
 	$z2_lit.visible = false
 	$a_lit.visible = false
+	$awesome.visible = false
+	$perfect.visible = false
+	$looking_good.visible = false
+	$on_fire.visible = false
+	$jackpot.visible = false
+	$super_jackpot.visible = false
 
 	show_status_logo("get_ready")
 
@@ -370,14 +381,25 @@ func shoot_delivery_ramp():
 	if pizza_frenzy_active:
 
 		if frenzy_multiplier < 10:
+
 			frenzy_multiplier += 1
 
+			if frenzy_multiplier == 5:
+				await show_callout_once($jackpot)
+
+			if frenzy_multiplier == 10:
+				await show_callout_once($super_jackpot)
+
 			$multiplier_label.text = str(frenzy_multiplier) + "X"
-			
+
 			animate_multiplier()
 			show_multiplier_popup()
-			
+
 			add_frenzy_score(100000)
+			register_combo()
+			
+			if frenzy_multiplier != 5 and frenzy_multiplier != 10:
+				show_random_frenzy_callout()
 
 			print("MULTIPLIER: ", frenzy_multiplier)
 
@@ -524,11 +546,13 @@ func _process(delta):
 
 	if pizza_frenzy_active:
 
-		$delivery_car_container/pizza_car/front_wheel.rotation += 8.0 * delta
+		$delivery_car_container/pizza_car/front_wheel.rotation += 6.0 * delta
 
-		$delivery_car_container/pizza_car/rear_wheel.rotation += 8.0 * delta
+		$delivery_car_container/pizza_car/rear_wheel.rotation += 6.0 * delta
 	
 func pulse_once(node):
+
+	node.visible = true
 
 	var original_scale = node.scale
 
@@ -549,6 +573,8 @@ func pulse_once(node):
 	)
 
 	await tween.finished
+
+	node.visible = false
 
 func frenzy_countdown():
 
@@ -682,8 +708,9 @@ func add_frenzy_score(base_value):
 	var points = base_value * frenzy_multiplier
 
 	frenzy_score += points
-	show_score_popup(points)
 
+	show_score_popup(points)
+	
 	$score_label.text = format_score(frenzy_score)
 
 	print("FRENZY SCORE: ", frenzy_score)
@@ -692,10 +719,14 @@ func show_ball_saved():
 
 	var screen
 
-	if randi_range(1, 2) == 1:
-		screen = $ball_saved_1
-	else:
+	if last_ball_saved_screen == 1:
 		screen = $ball_saved_2
+		$ball_saved_2_audio.play()
+		last_ball_saved_screen = 2
+	else:
+		screen = $ball_saved_1
+		$ball_saved_1_audio.play()
+		last_ball_saved_screen = 1
 
 	screen.visible = true
 
@@ -771,11 +802,103 @@ func complete_pizza_frenzy():
 	frenzy_finished = false
 	pizza_ball_save_active = false
 
+func show_random_frenzy_callout():
+
+	if callout_showing:
+		return
+
+	callout_showing = true
+
+	var callouts = [
+		$awesome,
+		$perfect,
+		$looking_good,
+		$on_fire
+	]
+
+	var selected = callouts[randi() % callouts.size()]
+
+	await show_callout_once(selected)
+
+	callout_showing = false
+
+func show_callout_once(node):
+
+	node.visible = true
+
+	var original_scale = node.scale
+
+	var tween = create_tween()
+
+	tween.tween_property(
+		node,
+		"scale",
+		original_scale * 1.1,
+		0.2
+	)
+
+	tween.tween_property(
+		node,
+		"scale",
+		original_scale,
+		0.2
+	)
+
+	await tween.finished
+
+	await get_tree().create_timer(0.5).timeout
+
+	node.visible = false
+
 func delivery_ramp_shot():
 
 	if !pizza_frenzy_active:
 		return
 
-	delivery_progress += 1
+	add_frenzy_score(25000)
 
-	print("DELIVERY BOOST: ", delivery_progress)
+	show_random_frenzy_callout()
+
+func register_combo():
+
+	if combo_active:
+
+		combo_count += 1
+
+		print("COMBO x", combo_count)
+
+		add_frenzy_score(combo_count * 10000)
+
+		show_random_frenzy_callout()
+
+	else:
+
+		combo_active = true
+		combo_count = 1
+
+		print("COMBO STARTED")
+
+	if combo_timer:
+		combo_timer.stop()
+
+	combo_timer = Timer.new()
+
+	add_child(combo_timer)
+
+	combo_timer.wait_time = 3.0
+	combo_timer.one_shot = true
+
+	combo_timer.timeout.connect(end_combo)
+
+	combo_timer.start()
+
+func end_combo():
+
+	print("COMBO ENDED")
+
+	combo_active = false
+	combo_count = 0
+
+	if combo_timer:
+		combo_timer.queue_free()
+		combo_timer = null
