@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://csbbfyfqavf2e" path="res://addons/mpf-gmc/images/PIZZA FRENZY/1.png" id="26_v6wby"]
 [ext_resource type="Texture2D" uid="uid://cf1k4wnslodcc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/go.png" id="27_thgtb"]
 [ext_resource type="Texture2D" uid="uid://cd23et4uvduxe" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_night.png" id="28_thgtb"]
-[ext_resource type="Texture2D" uid="uid://jkmme0jbqjse" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_day.png" id="29_1hkyi"]
+[ext_resource type="Texture2D" uid="uid://jkmme0jbqjse" path="res://addons/mpf-gmc/images/PIZZA FRENZY/Street_scene_day.png" id="29_1hkyi"]
 [ext_resource type="Texture2D" uid="uid://be1fh37m4dotw" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_car.PNG" id="30_d64b3"]
 [ext_resource type="Texture2D" uid="uid://fatcrw7w4yni" path="res://addons/mpf-gmc/images/PIZZA FRENZY/rear_wheel.png" id="32_88ev2"]
 [ext_resource type="Texture2D" uid="uid://n31470ti0njg" path="res://addons/mpf-gmc/images/PIZZA FRENZY/front_wheel.png" id="33_i1o6u"]
@@ -211,46 +211,42 @@ visible = false
 position = Vector2(960, 540)
 
 [node name="street_scene_night" type="Sprite2D" parent="street_scene_night" unique_id=606256034]
-position = Vector2(-489.05896, -67.5)
-scale = Vector2(0.73277193, 0.82808566)
+position = Vector2(0.99997044, 323)
+scale = Vector2(0.8848987, 1)
 texture = ExtResource("28_thgtb")
 
-[node name="shop_marker" type="Marker2D" parent="street_scene_night/street_scene_night" unique_id=1752992007]
+[node name="shop_marker" type="Marker2D" parent="street_scene_night" unique_id=1714888019]
 visible = false
-position = Vector2(-1789.0166, 574.21594)
-scale = Vector2(1.3646811, 1.2076045)
+position = Vector2(-834, 419)
 
-[node name="house_marker" type="Marker2D" parent="street_scene_night/street_scene_night" unique_id=1651876192]
+[node name="house_marker" type="Marker2D" parent="street_scene_night" unique_id=1651876192]
 visible = false
-position = Vector2(1722.308, 574.216)
-scale = Vector2(1.3646811, 1.2076045)
+position = Vector2(861, 423)
 
 [node name="street_scene_day" type="Node2D" parent="." unique_id=1147867850]
 visible = false
 position = Vector2(960, 540)
 
 [node name="street_scene_day" type="Sprite2D" parent="street_scene_day" unique_id=414777675]
-position = Vector2(-489.059, -67.5)
-scale = Vector2(0.733, 0.828)
+position = Vector2(0.9999695, 379)
+scale = Vector2(0.8848987, 1)
 texture = ExtResource("29_1hkyi")
 
-[node name="shop_marker" type="Marker2D" parent="street_scene_day/street_scene_day" unique_id=1331244639]
+[node name="shop_marker" type="Marker2D" parent="street_scene_day" unique_id=1955766292]
 visible = false
-position = Vector2(-1789.0166, 574.21594)
-scale = Vector2(1.3646811, 1.2076045)
+position = Vector2(-834, 485)
 
-[node name="house_marker" type="Marker2D" parent="street_scene_day/street_scene_day" unique_id=1914365661]
+[node name="house_marker" type="Marker2D" parent="street_scene_day" unique_id=1758710029]
 visible = false
-position = Vector2(1722.308, 574.216)
-scale = Vector2(1.3646811, 1.2076045)
+position = Vector2(836, 506)
 
 [node name="delivery_car_container" type="Node2D" parent="." unique_id=58470948]
 visible = false
 position = Vector2(1266, 717)
 
 [node name="pizza_car" type="Sprite2D" parent="delivery_car_container" unique_id=295788018]
-position = Vector2(-2113, 226)
-scale = Vector2(0.23182069, 0.23182069)
+position = Vector2(-1140, 242)
+scale = Vector2(0.15473504, 0.15473504)
 texture = ExtResource("30_d64b3")
 
 [node name="front_wheel" type="Sprite2D" parent="delivery_car_container/pizza_car" unique_id=1964709181]

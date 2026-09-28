@@ -21,12 +21,14 @@ var delivery_progress = 0
 var frenzy_multiplier = 2
 var pizza_ball_save_active = false
 var frenzy_score = 0
-var wheel_spin_speed = 12.0
+var wheel_spin_speed = 11.0
 var callout_showing = false
 var last_ball_saved_screen = 2
 var combo_active = false
 var combo_count = 0
 var combo_timer = null
+var pizza_frenzy_count = 0
+var wheels_spinning = false
 
 func _ready():
 
@@ -313,10 +315,6 @@ func reset_pizza_frenzy():
 	pizza_complete = false
 	delivery_ramp_lit = false
 	
-	pizza_ready = false
-	pizza_complete = false
-	delivery_ramp_lit = false
-
 	pizza_slices = 0
 
 	p_collected = false
@@ -333,8 +331,14 @@ func reset_pizza_frenzy():
 	$z2_lit.visible = false
 	$a_lit.visible = false
 	$complete.visible = false
+	$p_grey.visible = true
+	$i_grey.visible = true
+	$z1_grey.visible = true
+	$z2_grey.visible = true
+	$a_grey.visible = true
 	
 	pizza_frenzy_active = false
+	wheels_spinning = false
 	frenzy_starting = false
 	frenzy_finished = false
 	pizza_ball_save_active = false
@@ -385,9 +389,15 @@ func shoot_delivery_ramp():
 			frenzy_multiplier += 1
 
 			if frenzy_multiplier == 5:
+
+				award_bonus(500000)
+
 				await show_callout_once($jackpot)
 
 			if frenzy_multiplier == 10:
+
+				award_bonus(1000000)
+
 				await show_callout_once($super_jackpot)
 
 			$multiplier_label.text = str(frenzy_multiplier) + "X"
@@ -398,9 +408,6 @@ func shoot_delivery_ramp():
 			add_frenzy_score(100000)
 			register_combo()
 			
-			if frenzy_multiplier != 5 and frenzy_multiplier != 10:
-				show_random_frenzy_callout()
-
 			print("MULTIPLIER: ", frenzy_multiplier)
 
 		return
@@ -414,6 +421,8 @@ func start_pizza_frenzy():
 
 	if pizza_frenzy_active:
 		return
+
+	pizza_frenzy_count += 1
 
 	frenzy_starting = true
 
@@ -502,49 +511,67 @@ func start_sequence():
 	frenzy_countdown()
 	
 func start_delivery_run():
-	
+
 	print("START DELIVERY RUN")
 
-	active_scene = $street_scene_night
+	if pizza_frenzy_count % 2 == 1:
+		active_scene = $street_scene_night/street_scene_night
+		$street_scene_night.visible = true
+		$street_scene_day.visible = false
+		print("Using NIGHT scene")
+	else:
+		active_scene = $street_scene_day/street_scene_day
+		$street_scene_night.visible = false
+		$street_scene_day.visible = true
+		print("Using DAY scene")
 
-	$street_scene_night.visible = true
 	$delivery_car_container.visible = true
 
-	print("Street visible: ", $street_scene_night.visible)
-	print("Car visible: ", $delivery_car_container.visible)
+	# Put car at shop
+	$delivery_car_container/pizza_car.global_position = Vector2(350, 948)
+	print("Car X = ", $delivery_car_container/pizza_car.global_position.x)
+	print("Car Y = ", $delivery_car_container/pizza_car.global_position.y)
 
-	$delivery_car_container/pizza_car.global_position = active_scene.get_node("shop_marker").global_position
+	# Reset street position
+	active_scene.position.x = 488.941
 
-	print("Car position: ", $delivery_car_container/pizza_car.global_position)
+	# Pause for 2 seconds so player sees the pizza shop
+	await get_tree().create_timer(2.0).timeout
+	
+	# Start wheel animation
+	wheels_spinning = true
 
-	car_tween = create_tween()
+	# Scroll street for 15 seconds
+	var scroll_tween = create_tween()
 
-	car_tween.tween_property(
-		$delivery_car_container/pizza_car,
-		"global_position",
-		active_scene.get_node("house_marker").global_position,
-		45.0
+	scroll_tween.tween_property(
+		active_scene,
+		"position:x",
+		-489.059,
+		15.0
 	)
 
-	active_scene = $street_scene_night
+	# Wait until scrolling finishes
+	await scroll_tween.finished
+	print("House after scroll = ",
+	active_scene.get_node("house_marker").global_position)
 
-	$street_scene_night.visible = true
-	$delivery_car_container.visible = true
+	print("Car after scroll = ",
+	$delivery_car_container/pizza_car.global_position)
 
-	$delivery_car_container/pizza_car.global_position = active_scene.get_node("shop_marker").global_position
-
+	# Drive to house
 	car_tween = create_tween()
 
 	car_tween.tween_property(
 		$delivery_car_container/pizza_car,
 		"global_position",
 		active_scene.get_node("house_marker").global_position,
-		45.0
-)
+		28.0
+	)
 	
 func _process(delta):
 
-	if pizza_frenzy_active:
+	if wheels_spinning:
 
 		$delivery_car_container/pizza_car/front_wheel.rotation += 6.0 * delta
 
@@ -715,6 +742,17 @@ func add_frenzy_score(base_value):
 
 	print("FRENZY SCORE: ", frenzy_score)
 
+func award_bonus(points):
+
+	frenzy_score += points
+
+	show_score_popup(points)
+
+	$score_label.text = format_score(frenzy_score)
+
+	print("BONUS AWARDED: ", points)
+	print("FRENZY SCORE: ", frenzy_score)
+
 func show_ball_saved():
 
 	var screen
@@ -778,6 +816,11 @@ func complete_pizza_frenzy():
 
 	if car_tween:
 		car_tween.kill()
+		
+	wheels_spinning = false
+	
+	# Leave the scene visible for a moment
+	await get_tree().create_timer(2.0).timeout
 
 	# Hide all mode visuals
 	$street_scene_night.visible = false
@@ -802,25 +845,22 @@ func complete_pizza_frenzy():
 	frenzy_finished = false
 	pizza_ball_save_active = false
 
-func show_random_frenzy_callout():
+func show_combo_callout():
 
-	if callout_showing:
-		return
+	match combo_count:
 
-	callout_showing = true
+		2:
+			await show_callout_once($looking_good)
 
-	var callouts = [
-		$awesome,
-		$perfect,
-		$looking_good,
-		$on_fire
-	]
+		3:
+			await show_callout_once($awesome)
 
-	var selected = callouts[randi() % callouts.size()]
+		4:
+			await show_callout_once($perfect)
 
-	await show_callout_once(selected)
-
-	callout_showing = false
+		_:
+			if combo_count >= 5:
+				await show_callout_once($on_fire)
 
 func show_callout_once(node):
 
@@ -857,8 +897,7 @@ func delivery_ramp_shot():
 
 	add_frenzy_score(25000)
 
-	show_random_frenzy_callout()
-
+	
 func register_combo():
 
 	if combo_active:
@@ -869,7 +908,7 @@ func register_combo():
 
 		add_frenzy_score(combo_count * 10000)
 
-		show_random_frenzy_callout()
+		await show_combo_callout()
 
 	else:
 
