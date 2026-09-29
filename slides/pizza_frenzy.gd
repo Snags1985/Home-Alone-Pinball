@@ -19,8 +19,8 @@ var car_tween = null
 var frenzy_finished = false
 var delivery_progress = 0
 var frenzy_multiplier = 2
+var multiplier_tween = null
 var pizza_ball_save_active = false
-var frenzy_score = 0
 var wheel_spin_speed = 11.0
 var callout_showing = false
 var last_ball_saved_screen = 2
@@ -29,31 +29,54 @@ var combo_count = 0
 var combo_timer = null
 var pizza_frenzy_count = 0
 var wheels_spinning = false
+var final_receipt_position = Vector2.ZERO
+var frenzy_score = 0
+var base_score = 0
+var delivery_bonus_total = 0
+var multiplier_bonus_total = 0
+var combo_bonus_total = 0
+var jackpot_bonus_total = 0
+var super_jackpot_bonus_total = 0
+
+
 
 func _ready():
 
-	# Start with empty pizza box
 	show_pizza_box(0)
-
+	
 	$p_lit.visible = false
 	$i_lit.visible = false
 	$z1_lit.visible = false
 	$z2_lit.visible = false
 	$a_lit.visible = false
+
 	$awesome.visible = false
 	$perfect.visible = false
 	$looking_good.visible = false
 	$on_fire.visible = false
+
 	$jackpot.visible = false
 	$super_jackpot.visible = false
 
 	show_status_logo("get_ready")
 
 	$timer_label.visible = false
+	$multiplier_label.visible = false
+	$score_label.visible = false
+	$score_popup.visible = false
 
-	# Hide frenzy visuals
+	# Shared Pizza Frenzy HUD
+	$pizza_frenzy_hud.visible = false
+
+	# Final receipt
+	final_receipt_position = $final_receipt.position
+	$final_receipt.visible = false
+
+	# Street scenes
 	$street_scene_night.visible = false
 	$street_scene_day.visible = false
+
+	# Delivery car
 	$delivery_car_container.visible = false
 	
 func show_status_logo(logo_name):
@@ -176,25 +199,33 @@ func animate_letter(letter_node):
 	)
 
 func animate_multiplier():
-	
 
-	var original_scale = $multiplier_label.scale
+	# Stop any previous multiplier animation
+	if multiplier_tween:
+		multiplier_tween.kill()
 
-	var tween = create_tween()
+	# Always start from the normal scale
+	$multiplier_label.scale = Vector2(1.0, 1.0)
 
-	tween.tween_property(
+	multiplier_tween = create_tween()
+
+	multiplier_tween.tween_property(
 		$multiplier_label,
 		"scale",
-		original_scale * 1.3,
+		Vector2(1.3, 1.3),
 		0.1
 	)
 
-	tween.tween_property(
+	multiplier_tween.tween_property(
 		$multiplier_label,
 		"scale",
-		original_scale,
+		Vector2(1.0, 1.0),
 		0.1
 	)
+
+	await multiplier_tween.finished
+
+	multiplier_tween = null
 
 func show_multiplier_popup():
 
@@ -294,6 +325,12 @@ func pulse_logo():
 
 func reset_pizza_frenzy():
 	
+	# Hide final receipt
+	$final_receipt.visible = false
+
+	# Hide shared Pizza Frenzy HUD
+	$pizza_frenzy_hud.visible = false
+
 	# Hide all Pizza Frenzy visuals
 	$street_scene_night.visible = false
 	$street_scene_day.visible = false
@@ -330,7 +367,9 @@ func reset_pizza_frenzy():
 	$z1_lit.visible = false
 	$z2_lit.visible = false
 	$a_lit.visible = false
+
 	$complete.visible = false
+
 	$p_grey.visible = true
 	$i_grey.visible = true
 	$z1_grey.visible = true
@@ -342,18 +381,25 @@ func reset_pizza_frenzy():
 	frenzy_starting = false
 	frenzy_finished = false
 	pizza_ball_save_active = false
+	
 	$street_scene_night.visible = false
 	$street_scene_day.visible = false
 	$delivery_car_container.visible = false
-	
 
 	frenzy_time_remaining = 45
 	frenzy_multiplier = 2
+
+	# Reset Pizza Frenzy scoring
+	frenzy_score = 0
+	base_score = 0
+	delivery_bonus_total = 0
+	multiplier_bonus_total = 0
+	combo_bonus_total = 0
+	jackpot_bonus_total = 0
+	super_jackpot_bonus_total = 0
 	
 	show_status_logo("get_ready")
-			
- #tempory input values to test the PIZZA word lighting up
-		   
+
 func _input(event):
 
 	if event.is_action_pressed("ui_accept"):
@@ -379,7 +425,7 @@ func _input(event):
 		
 	if event.is_action_pressed("ball_saved_test"):
 		show_ball_saved()
-			
+
 func shoot_delivery_ramp():
 
 	if pizza_frenzy_active:
@@ -405,9 +451,20 @@ func shoot_delivery_ramp():
 			animate_multiplier()
 			show_multiplier_popup()
 
-			add_frenzy_score(100000)
+			# Delivery ramp scoring
+			var delivery_points = 100000 * frenzy_multiplier
+
+			frenzy_score += delivery_points
+			delivery_bonus_total += delivery_points
+
+			show_score_popup(delivery_points)
+
+			$score_label.text = format_score(frenzy_score)
+
 			register_combo()
 			
+			print("DELIVERY BONUS: ", delivery_bonus_total)
+			print("FRENZY SCORE: ", frenzy_score)
 			print("MULTIPLIER: ", frenzy_multiplier)
 
 		return
@@ -437,6 +494,7 @@ func start_sequence():
 	hide_gameplay_elements()
 
 	$frenzy_intro.visible = true
+	$timer_label.modulate = Color.BLACK
 
 	hide_intro_elements()
 
@@ -490,13 +548,28 @@ func start_sequence():
 	$frenzy_intro.visible = false
 	
 	start_delivery_run()
+	frenzy_time_remaining = 45
+
+	# Show shared Pizza Frenzy HUD
+	$pizza_frenzy_hud.visible = true
+
+	$timer_label.modulate = Color.BLACK
+	$timer_label.scale = Vector2(1.0, 1.0)
+
 	$timer_label.visible = true
-	$timer_label.text = str(frenzy_time_remaining)
+	$timer_label.text = "00:%02d" % frenzy_time_remaining
 
 	pizza_frenzy_active = true
 	delivery_ramp_lit = false
 	frenzy_starting = false
 	frenzy_score = 0
+	
+	delivery_bonus_total = 0
+	multiplier_bonus_total = 0
+	combo_bonus_total = 0
+	jackpot_bonus_total = 0
+	super_jackpot_bonus_total = 0
+	
 	$score_label.text = format_score(0)
 	$score_label.visible = true
 	
@@ -505,8 +578,6 @@ func start_sequence():
 	frenzy_multiplier = 2
 	$multiplier_label.text = str(frenzy_multiplier) + "X"
 	$multiplier_label.visible = true
-
-	frenzy_time_remaining = 45
 
 	frenzy_countdown()
 	
@@ -607,14 +678,57 @@ func frenzy_countdown():
 
 	while frenzy_time_remaining > 0:
 
+		$timer_label.text = "00:%02d" % frenzy_time_remaining
+
+		if frenzy_time_remaining <= 10:
+			$timer_label.modulate = Color(0.78, 0.004, 0.008, 1.0)
+
+			var tween = create_tween()
+
+			tween.tween_property(
+				$timer_label,
+				"scale",
+				Vector2(1.1, 1.1),
+				0.15
+			)
+
+			tween.tween_property(
+				$timer_label,
+				"scale",
+				Vector2(1.0, 1.0),
+				0.15
+			)
+
 		await get_tree().create_timer(1.0).timeout
 
 		frenzy_time_remaining -= 1
-		$timer_label.text = str(frenzy_time_remaining)
 
-		print(frenzy_time_remaining)
+	$timer_label.text = "00:00"
 
 	complete_pizza_frenzy()
+	
+func start_timer_warning():
+
+	while frenzy_time_remaining > 0:
+
+		var shake_amount = 3
+
+		if frenzy_time_remaining <= 5:
+			shake_amount = 6
+
+		var original_pos = $timer_label.position
+
+		$timer_label.position = original_pos + Vector2(-shake_amount, 0)
+
+		await get_tree().create_timer(0.05).timeout
+
+		$timer_label.position = original_pos + Vector2(shake_amount, 0)
+
+		await get_tree().create_timer(0.05).timeout
+
+		$timer_label.position = original_pos
+
+		await get_tree().create_timer(0.1).timeout
 	
 func collect_letter(letter):
 
@@ -734,17 +848,38 @@ func add_frenzy_score(base_value):
 
 	var points = base_value * frenzy_multiplier
 
+	# Calculate the extra points created by the multiplier
+	var multiplier_bonus = points - base_value
+
+	# Add the full amount to the overall Pizza Frenzy score
 	frenzy_score += points
+
+	# Track the original scoring separately
+	base_score += base_value
+
+	# Track only the extra points created by the multiplier
+	multiplier_bonus_total += multiplier_bonus
 
 	show_score_popup(points)
 	
 	$score_label.text = format_score(frenzy_score)
 
 	print("FRENZY SCORE: ", frenzy_score)
+	print("BASE SCORE: ", base_score)
+	print("MULTIPLIER BONUS: ", multiplier_bonus_total)
 
 func award_bonus(points):
 
 	frenzy_score += points
+
+	# Track jackpot bonuses separately
+	if points == 500000:
+
+		jackpot_bonus_total += points
+
+	elif points == 1000000:
+
+		super_jackpot_bonus_total += points
 
 	show_score_popup(points)
 
@@ -752,6 +887,8 @@ func award_bonus(points):
 
 	print("BONUS AWARDED: ", points)
 	print("FRENZY SCORE: ", frenzy_score)
+	print("JACKPOT BONUS: ", jackpot_bonus_total)
+	print("SUPER JACKPOT: ", super_jackpot_bonus_total)
 
 func show_ball_saved():
 
@@ -818,32 +955,32 @@ func complete_pizza_frenzy():
 		car_tween.kill()
 		
 	wheels_spinning = false
-	
-	# Leave the scene visible for a moment
-	await get_tree().create_timer(2.0).timeout
 
-	# Hide all mode visuals
-	$street_scene_night.visible = false
-	$street_scene_day.visible = false
-	$delivery_car_container.visible = false
+	# Timer has reached zero
+	$timer_label.text = "00:00"
 	$timer_label.visible = false
-	$multiplier_label.visible = false
+
+	# Hide the normal Pizza Frenzy HUD
+	$pizza_frenzy_hud.visible = false
+
+	# Hide active gameplay score elements
 	$score_label.visible = false
-		
-	# Show complete logo
-	$complete.visible = true
+	$score_popup.visible = false
+	$multiplier_label.visible = false
 
-	await pulse_once($complete)
-	await pulse_once($complete)
-	await pulse_once($complete)
-
+	# Make sure the old completion logo is hidden
 	$complete.visible = false
-	
-	frenzy_multiplier = 2
-	reset_pizza_frenzy()
 
-	frenzy_finished = false
-	pizza_ball_save_active = false
+	# Keep the street scene and car visible
+	# The final receipt will appear over them
+
+	await show_final_receipt()
+
+	# Give the player time to read the results
+	await get_tree().create_timer(10.0).timeout
+
+	# Reset everything after the receipt
+	reset_pizza_frenzy()
 
 func show_combo_callout():
 
@@ -863,6 +1000,9 @@ func show_combo_callout():
 				await show_callout_once($on_fire)
 
 func show_callout_once(node):
+
+	# Hide only the Pizza Frenzy logo
+	$pizza_frenzy_hud/pizza_frenzy_logo.visible = false
 
 	node.visible = true
 
@@ -890,14 +1030,10 @@ func show_callout_once(node):
 
 	node.visible = false
 
-func delivery_ramp_shot():
+	# Show Pizza Frenzy logo again
+	if pizza_frenzy_active:
+		$pizza_frenzy_hud/pizza_frenzy_logo.visible = true
 
-	if !pizza_frenzy_active:
-		return
-
-	add_frenzy_score(25000)
-
-	
 func register_combo():
 
 	if combo_active:
@@ -906,7 +1042,21 @@ func register_combo():
 
 		print("COMBO x", combo_count)
 
-		add_frenzy_score(combo_count * 10000)
+		var combo_points = combo_count * 10000
+		var combo_points_with_multiplier = combo_points * frenzy_multiplier
+
+		# Track the actual points earned from the combo
+		combo_bonus_total += combo_points_with_multiplier
+
+		# Add combo points to the overall Frenzy score
+		frenzy_score += combo_points_with_multiplier
+
+		show_score_popup(combo_points_with_multiplier)
+
+		$score_label.text = format_score(frenzy_score)
+
+		print("COMBO BONUS: ", combo_bonus_total)
+		print("FRENZY SCORE: ", frenzy_score)
 
 		await show_combo_callout()
 
@@ -930,6 +1080,218 @@ func register_combo():
 	combo_timer.timeout.connect(end_combo)
 
 	combo_timer.start()
+
+func animate_receipt_row(label_node, value_node):
+
+	label_node.visible = true
+	value_node.visible = true
+
+	label_node.modulate.a = 0.0
+	value_node.modulate.a = 0.0
+
+	label_node.scale = Vector2(0.8, 0.8)
+	value_node.scale = Vector2(0.8, 0.8)
+
+	var row_tween = create_tween()
+
+	row_tween.parallel().tween_property(
+		label_node,
+		"modulate:a",
+		1.0,
+		0.25
+	)
+
+	row_tween.parallel().tween_property(
+		value_node,
+		"modulate:a",
+		1.0,
+		0.25
+	)
+
+	row_tween.parallel().tween_property(
+		label_node,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.25
+	)
+
+	row_tween.parallel().tween_property(
+		value_node,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.25
+	)
+
+	await row_tween.finished
+
+func show_final_receipt():
+
+	$final_receipt.visible = true
+
+	# Hide all receipt score lines before the receipt appears
+
+	$final_receipt/base_score_label.visible = false
+	$final_receipt/base_score_value.visible = false
+
+	$final_receipt/delivery_bonus_label.visible = false
+	$final_receipt/delivery_bonus_value.visible = false
+
+	$final_receipt/multiplier_bonus_label.visible = false
+	$final_receipt/multiplier_bonus_value.visible = false
+
+	$final_receipt/combo_bonus_label.visible = false
+	$final_receipt/combo_bonus_value.visible = false
+
+	$final_receipt/jackpot_bonus_label.visible = false
+	$final_receipt/jackpot_bonus_value.visible = false
+
+	$final_receipt/super_jackpot_bonus_label.visible = false
+	$final_receipt/super_jackpot_bonus_value.visible = false
+	
+	$final_receipt/final_total_label.visible = false
+	$final_receipt/final_total_value.visible = false
+
+
+	# --------------------------------
+	# FINAL RECEIPT VALUES
+	# --------------------------------
+
+	$final_receipt/base_score_label.text = "BASE SCORE"
+	$final_receipt/base_score_value.text = format_score(base_score)
+
+	$final_receipt/delivery_bonus_label.text = "DELIVERY BONUS"
+	$final_receipt/delivery_bonus_value.text = format_score(delivery_bonus_total)
+
+	$final_receipt/multiplier_bonus_label.text = "MULTIPLIER BONUS"
+	$final_receipt/multiplier_bonus_value.text = format_score(multiplier_bonus_total)
+
+	$final_receipt/combo_bonus_label.text = "COMBO BONUS"
+	$final_receipt/combo_bonus_value.text = format_score(combo_bonus_total)
+
+	$final_receipt/jackpot_bonus_label.text = "JACKPOT BONUS"
+	$final_receipt/jackpot_bonus_value.text = format_score(jackpot_bonus_total)
+
+	$final_receipt/super_jackpot_bonus_label.text = "SUPER JACKPOT"
+	$final_receipt/super_jackpot_bonus_value.text = format_score(super_jackpot_bonus_total)
+
+
+	# --------------------------------
+	# RECEIPT ENTRANCE
+	# --------------------------------
+
+	$final_receipt.position = final_receipt_position + Vector2(0, 1200)
+
+	var receipt_tween = create_tween()
+
+	receipt_tween.set_trans(Tween.TRANS_QUAD)
+	receipt_tween.set_ease(Tween.EASE_OUT)
+
+	receipt_tween.tween_property(
+		$final_receipt,
+		"position",
+		final_receipt_position,
+		1.0
+	)
+
+	await receipt_tween.finished
+
+	print("FINAL RECEIPT ON SCREEN")
+
+
+	# Small pause before printing
+	await get_tree().create_timer(0.5).timeout
+
+
+	# --------------------------------
+	# BASE SCORE
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/base_score_label,
+		$final_receipt/base_score_value
+	)
+
+	await get_tree().create_timer(0.4).timeout
+
+
+	# --------------------------------
+	# DELIVERY BONUS
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/delivery_bonus_label,
+		$final_receipt/delivery_bonus_value
+	)
+
+	await get_tree().create_timer(0.4).timeout
+
+
+	# --------------------------------
+	# MULTIPLIER BONUS
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/multiplier_bonus_label,
+		$final_receipt/multiplier_bonus_value
+	)
+
+	await get_tree().create_timer(0.4).timeout
+
+
+	# --------------------------------
+	# COMBO BONUS
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/combo_bonus_label,
+		$final_receipt/combo_bonus_value
+	)
+
+
+	# Pause between normal scoring
+	# and special bonuses
+	await get_tree().create_timer(0.8).timeout
+
+
+	# --------------------------------
+	# JACKPOT BONUS
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/jackpot_bonus_label,
+		$final_receipt/jackpot_bonus_value
+	)
+
+	await get_tree().create_timer(0.4).timeout
+
+
+	# --------------------------------
+	# SUPER JACKPOT
+	# --------------------------------
+
+	await animate_receipt_row(
+		$final_receipt/super_jackpot_bonus_label,
+		$final_receipt/super_jackpot_bonus_value
+	)
+
+	await get_tree().create_timer(0.8).timeout
+
+
+	# --------------------------------
+	# FINAL FRENZY SCORE
+	# --------------------------------
+
+	$final_receipt/final_total_label.text = "FRENZY SCORE"
+	$final_receipt/final_total_value.text = format_score(frenzy_score)
+
+	await animate_receipt_row(
+		$final_receipt/final_total_label,
+		$final_receipt/final_total_value
+	)
+
+	await get_tree().create_timer(0.8).timeout
+
+	print("ALL RECEIPT SCORES DISPLAYED")
 
 func end_combo():
 
