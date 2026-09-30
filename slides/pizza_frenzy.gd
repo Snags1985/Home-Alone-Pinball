@@ -448,6 +448,9 @@ func shoot_delivery_ramp():
 
 			$multiplier_label.text = str(frenzy_multiplier) + "X"
 
+			# Match the timer's digital green
+			$multiplier_label.modulate = Color(0.2, 0.8, 0.3, 1.0)
+
 			animate_multiplier()
 			show_multiplier_popup()
 
@@ -576,6 +579,7 @@ func start_sequence():
 	pizza_ball_save_active = true
 
 	frenzy_multiplier = 2
+	$multiplier_label.modulate = Color(0.2, 0.8, 0.3, 1.0)
 	$multiplier_label.text = str(frenzy_multiplier) + "X"
 	$multiplier_label.visible = true
 
@@ -676,12 +680,15 @@ func pulse_once(node):
 
 func frenzy_countdown():
 
+	# Normal timer colour
+	$timer_label.modulate = Color(0.2, 0.8, 0.3, 1.0)
+
 	while frenzy_time_remaining > 0:
 
 		$timer_label.text = "00:%02d" % frenzy_time_remaining
 
 		if frenzy_time_remaining <= 10:
-			$timer_label.modulate = Color(0.78, 0.004, 0.008, 1.0)
+			$timer_label.modulate = Color(0.766, 0.006, 0.01, 1.0)
 
 			var tween = create_tween()
 

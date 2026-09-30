@@ -32,18 +32,18 @@
 [ext_resource type="Texture2D" uid="uid://cf1k4wnslodcc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/go.png" id="27_thgtb"]
 [ext_resource type="Texture2D" uid="uid://cd23et4uvduxe" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_night.png" id="28_thgtb"]
 [ext_resource type="Texture2D" uid="uid://jkmme0jbqjse" path="res://addons/mpf-gmc/images/PIZZA FRENZY/street_scene_day.png" id="29_1hkyi"]
-[ext_resource type="Texture2D" uid="uid://c6bwwtluglus6" path="res://addons/mpf-gmc/images/PIZZA FRENZY/receipt_left.png" id="30_bjhsj"]
 [ext_resource type="Texture2D" uid="uid://be1fh37m4dotw" path="res://addons/mpf-gmc/images/PIZZA FRENZY/pizza_car.PNG" id="30_d64b3"]
-[ext_resource type="Texture2D" uid="uid://bj3msympa184j" path="res://addons/mpf-gmc/images/PIZZA FRENZY/receipt_right.png" id="31_qpyl0"]
 [ext_resource type="Texture2D" uid="uid://fatcrw7w4yni" path="res://addons/mpf-gmc/images/PIZZA FRENZY/rear_wheel.png" id="32_88ev2"]
+[ext_resource type="FontFile" uid="uid://hkbepfeu65k7" path="res://addons/mpf-gmc/fonts/Fake Receipt.otf" id="32_fjpaj"]
 [ext_resource type="Texture2D" uid="uid://bjogq8fnfarpr" path="res://addons/mpf-gmc/images/PIZZA FRENZY/receipt_long.PNG" id="32_ge1mu"]
 [ext_resource type="Texture2D" uid="uid://n31470ti0njg" path="res://addons/mpf-gmc/images/PIZZA FRENZY/front_wheel.png" id="33_i1o6u"]
+[ext_resource type="Texture2D" uid="uid://bnyp4hrq4760c" path="res://addons/mpf-gmc/images/PIZZA FRENZY/delivery_timer.png" id="34_xnj5x"]
 [ext_resource type="AudioStream" uid="uid://cxjg5iwupm6t3" path="res://sounds/voice/ball_saved_1.mp3" id="36_i1o6u"]
+[ext_resource type="Texture2D" uid="uid://dfoymsuokt1p0" path="res://addons/mpf-gmc/images/PIZZA FRENZY/delivery_bonus.png" id="36_pnn2o"]
 [ext_resource type="AudioStream" uid="uid://dhyg8kb5qi4b" path="res://sounds/voice/ball_saved_2.mp3" id="37_6ih6s"]
-[ext_resource type="FontFile" uid="uid://ti0g1mag7wm6" path="res://addons/mpf-gmc/fonts/compacta-bold.ttf" id="37_507yj"]
+[ext_resource type="FontFile" uid="uid://c3uxyr1t2vfeo" path="res://addons/mpf-gmc/fonts/digital-7.ttf" id="38_fjpaj"]
 [ext_resource type="Texture2D" uid="uid://dq2h10i4hyq1q" path="res://addons/mpf-gmc/images/PIZZA FRENZY/awesome.png" id="38_m7r5k"]
 [ext_resource type="Texture2D" uid="uid://b4jv202qqfqll" path="res://addons/mpf-gmc/images/PIZZA FRENZY/perfect.png" id="39_cxshc"]
-[ext_resource type="FontFile" uid="uid://bfre5sm21xhy3" path="res://addons/mpf-gmc/fonts/courier-prime-bold_ufonts.com.ttf" id="39_xyiom"]
 [ext_resource type="Texture2D" uid="uid://effto5ijvkuu" path="res://addons/mpf-gmc/images/PIZZA FRENZY/looking_good.png" id="40_tmj5n"]
 [ext_resource type="Texture2D" uid="uid://bypu3pajc11yr" path="res://addons/mpf-gmc/images/PIZZA FRENZY/on_fire.png" id="41_bjhsj"]
 [ext_resource type="Texture2D" uid="uid://d1fo5jwkx2wvc" path="res://addons/mpf-gmc/images/PIZZA FRENZY/jackpot.png" id="42_tmj5n"]
@@ -52,7 +52,7 @@
 
 [node name="PizzaFrenzy" type="Node2D" unique_id=911019608]
 script = ExtResource("1_61tar")
-metadata/_edit_horizontal_guides_ = [-163.0]
+metadata/_edit_horizontal_guides_ = [-163.0, 248.0, 345.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2030322007]
 anchors_preset = 15
@@ -252,28 +252,33 @@ scale = Vector2(1.3646811, 1.2076045)
 [node name="pizza_frenzy_hud" type="Node2D" parent="." unique_id=804885391]
 
 [node name="pizza_frenzy_logo" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=2113626539]
-position = Vector2(977, 126)
+position = Vector2(1022.00006, 147)
 scale = Vector2(0.2434896, 0.23437497)
 texture = ExtResource("18_vwogh")
 
 [node name="receipt_long" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=531507781]
-position = Vector2(977, 457)
+position = Vector2(1047, 459)
 scale = Vector2(0.45189834, 0.51935273)
 texture = ExtResource("32_ge1mu")
 
 [node name="order_total" type="Label" parent="pizza_frenzy_hud" unique_id=468363368]
-offset_left = 757.0
-offset_top = 351.0
-offset_right = 1219.0
-offset_bottom = 442.0
+offset_left = 790.0
+offset_top = 329.0
+offset_right = 1325.0
+offset_bottom = 420.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 66
 text = "ORDER TOTAL:"
 
-[node name="receipt_right" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=838839281]
-position = Vector2(1658.9999, 281.99994)
-scale = Vector2(0.6095375, 0.60953754)
-texture = ExtResource("31_qpyl0")
+[node name="Label" type="Label" parent="pizza_frenzy_hud" unique_id=622246918]
+offset_left = 770.0
+offset_top = 361.0
+offset_right = 1340.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 66
+text = "- - - - - - - - - - - - - - - "
 
 [node name="Multiplier" type="Label" parent="pizza_frenzy_hud" unique_id=1087655826]
 offset_left = 1537.043
@@ -285,11 +290,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 47
 text = "MULTIPLIER:"
 
-[node name="receipt_left" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=81922511]
-position = Vector2(290, 276.99994)
-scale = Vector2(0.6071025, 0.6071025)
-texture = ExtResource("30_bjhsj")
-
 [node name="time_left" type="Label" parent="pizza_frenzy_hud" unique_id=238354803]
 offset_left = 138.99998
 offset_top = 249.0
@@ -299,6 +299,16 @@ rotation = -0.19198622
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 55
 text = "TIME LEFT:"
+
+[node name="digital_timer" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=538759696]
+position = Vector2(362, 218)
+scale = Vector2(0.60082877, 0.6008287)
+texture = ExtResource("34_xnj5x")
+
+[node name="delivery_bonus" type="Sprite2D" parent="pizza_frenzy_hud" unique_id=1243320037]
+position = Vector2(1615, 226.00002)
+scale = Vector2(0.60082877, 0.6008287)
+texture = ExtResource("36_pnn2o")
 
 [node name="delivery_car_container" type="Node2D" parent="." unique_id=58470948]
 visible = false
@@ -321,28 +331,32 @@ texture = ExtResource("32_88ev2")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 104.0
-offset_top = 300.00003
-offset_right = 475.03314
-offset_bottom = 489.00003
+offset_left = 226.0
+offset_top = 242.0
+offset_right = 532.0
+offset_bottom = 351.0
 grow_horizontal = 2
-rotation = -0.1972222
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 118
+theme_override_fonts/font = ExtResource("38_fjpaj")
+theme_override_font_sizes/font_size = 140
 text = "00:45"
 horizontal_alignment = 1
 
-[node name="multiplier_label" type="Label" parent="." unique_id=1054297973]
-offset_left = 1532.9999
-offset_top = 220.00002
-offset_right = 1793.5754
-offset_bottom = 413.0
-rotation = 0.2617994
-theme_override_colors/font_color = Color(0.76862043, 0, 0.012920001, 1)
+[node name="multiplier_label" type="Label" parent="." unique_id=905911647]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1531.0
+offset_top = 240.0
+offset_right = 1716.0
+offset_bottom = 349.0
+grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 141
-text = "X2"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("38_fjpaj")
+theme_override_font_sizes/font_size = 140
+text = "10X"
 horizontal_alignment = 1
 
 [node name="multiplier_popup" type="Label" parent="." unique_id=67373787]
@@ -357,14 +371,14 @@ text = "\"\""
 horizontal_alignment = 1
 
 [node name="score_label" type="Label" parent="." unique_id=761989719]
-offset_left = 651.0
-offset_top = 445.0
-offset_right = 1351.0
-offset_bottom = 718.0
+offset_left = 648.0
+offset_top = 449.0
+offset_right = 1439.0
+offset_bottom = 722.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.40392157)
-theme_override_fonts/font = ExtResource("37_507yj")
-theme_override_font_sizes/font_size = 120
+theme_override_fonts/font = ExtResource("32_fjpaj")
+theme_override_font_sizes/font_size = 90
 text = "123,2545,4552"
 horizontal_alignment = 1
 
@@ -380,6 +394,7 @@ text = "\"\""
 horizontal_alignment = 1
 
 [node name="final_receipt" type="Sprite2D" parent="." unique_id=2142160686]
+visible = false
 position = Vector2(953.5625, 660.9826)
 scale = Vector2(0.71819526, 0.7181953)
 texture = ExtResource("49_xyiom")
@@ -390,6 +405,7 @@ offset_top = -431.0
 offset_right = -1.9665527
 offset_bottom = -380.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "BASE SCORE"
 vertical_alignment = 1
@@ -400,6 +416,7 @@ offset_top = -431.0
 offset_right = 325.64246
 offset_bottom = -380.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "7,350,000"
 horizontal_alignment = 2
@@ -411,6 +428,7 @@ offset_top = -394.0
 offset_right = -1.9665527
 offset_bottom = -343.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "DELIVERY BONUS"
 vertical_alignment = 1
@@ -421,6 +439,7 @@ offset_top = -394.0
 offset_right = 325.64246
 offset_bottom = -343.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "500,000"
 horizontal_alignment = 2
@@ -432,6 +451,7 @@ offset_top = -356.0
 offset_right = -1.9665527
 offset_bottom = -305.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "MULTIPLIER BONUS"
 vertical_alignment = 1
@@ -442,6 +462,7 @@ offset_top = -356.0
 offset_right = 325.64246
 offset_bottom = -305.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "1,000,000"
 horizontal_alignment = 2
@@ -453,6 +474,7 @@ offset_top = -318.0
 offset_right = -1.9665527
 offset_bottom = -267.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "COMBO BONUS"
 vertical_alignment = 1
@@ -463,6 +485,7 @@ offset_top = -318.0
 offset_right = 325.64246
 offset_bottom = -267.17664
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "250,000"
 horizontal_alignment = 2
@@ -474,6 +497,7 @@ offset_top = 65.0
 offset_right = -1.9665527
 offset_bottom = 115.823364
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "JACKPOT BONUS"
 vertical_alignment = 1
@@ -484,6 +508,7 @@ offset_top = 65.0
 offset_right = 325.64246
 offset_bottom = 115.823364
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "500,000"
 horizontal_alignment = 2
@@ -495,6 +520,7 @@ offset_top = 101.0
 offset_right = -1.9665527
 offset_bottom = 151.82336
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "SUPER JACKPOT"
 vertical_alignment = 1
@@ -505,6 +531,7 @@ offset_top = 101.0
 offset_right = 325.64246
 offset_bottom = 151.82336
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 32
 text = "1,000,000"
 horizontal_alignment = 2
@@ -516,7 +543,7 @@ offset_top = 359.98267
 offset_right = -1.9665527
 offset_bottom = 410.80603
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("39_xyiom")
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 45
 text = "FINAL TOTAL"
 vertical_alignment = 1
@@ -527,7 +554,7 @@ offset_top = 443.52527
 offset_right = 325.64246
 offset_bottom = 494.34863
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("39_xyiom")
+theme_override_fonts/font = ExtResource("32_fjpaj")
 theme_override_font_sizes/font_size = 45
 text = "0"
 horizontal_alignment = 2
@@ -562,36 +589,36 @@ stream = ExtResource("37_6ih6s")
 [node name="awesome" type="Sprite2D" parent="." unique_id=1752867725]
 visible = false
 z_index = 20
-position = Vector2(915, 204)
+position = Vector2(993, 210)
 texture = ExtResource("38_m7r5k")
 
 [node name="perfect" type="Sprite2D" parent="." unique_id=2010237315]
 visible = false
 z_index = 20
-position = Vector2(898, 207)
+position = Vector2(976, 199)
 texture = ExtResource("39_cxshc")
 
 [node name="looking_good" type="Sprite2D" parent="." unique_id=2010111047]
 visible = false
 z_index = 20
-position = Vector2(909, 199)
+position = Vector2(989, 185)
 texture = ExtResource("40_tmj5n")
 
 [node name="on_fire" type="Sprite2D" parent="." unique_id=1335620274]
 visible = false
 z_index = 20
-position = Vector2(872, 213)
+position = Vector2(999, 203)
 texture = ExtResource("41_bjhsj")
 
 [node name="jackpot" type="Sprite2D" parent="." unique_id=288012515]
 visible = false
 z_index = 20
-position = Vector2(943, 190)
+position = Vector2(1007, 190)
 texture = ExtResource("42_tmj5n")
 
 [node name="super_jackpot" type="Sprite2D" parent="." unique_id=1644195032]
 visible = false
 z_index = 20
-position = Vector2(889, 212)
+position = Vector2(986, 202)
 scale = Vector2(0.4482848, 0.44828483)
 texture = ExtResource("43_bjhsj")
