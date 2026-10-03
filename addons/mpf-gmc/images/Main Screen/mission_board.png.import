@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7o2eb527gs7f"
-path="res://.godot/imported/nice_job.png-b9b89bee0cc8f0b0fac4b3d7a9fc3bef.ctex"
+uid="uid://8b3dx2e6obx2"
+path="res://.godot/imported/mission_board.png-f5ced2b2663bc69c31c7f0aff218da1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/Pizza Frenzy/nice_job.png"
-dest_files=["res://.godot/imported/nice_job.png-b9b89bee0cc8f0b0fac4b3d7a9fc3bef.ctex"]
+source_file="res://addons/mpf-gmc/images/Main Screen/mission_board.png"
+dest_files=["res://.godot/imported/mission_board.png-f5ced2b2663bc69c31c7f0aff218da1d.ctex"]
 
 [params]
 

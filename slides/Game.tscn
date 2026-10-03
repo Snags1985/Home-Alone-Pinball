@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://en4yh0ewugbk"]
+
+[ext_resource type="PackedScene" uid="uid://bpfbj34wl351" path="res://slides/main_game_screen.tscn" id="1_oi1wy"]
+[ext_resource type="Script" uid="uid://cqqtno8kdbeqk" path="res://addons/mpf-gmc/scripts/game_scoring.gd" id="3_frv3b"]
+[ext_resource type="Script" uid="uid://ux6gofp0wo20" path="res://addons/mpf-gmc/scripts/game_settings.gd" id="4_5mdxq"]
+[ext_resource type="Script" uid="uid://cyy17kmme10dj" path="res://addons/mpf-gmc/scripts/settings_menu.gd" id="5_m7q13"]
+[ext_resource type="PackedScene" uid="uid://nwfx2puvlsgm" path="res://slides/pizza_frenzy.tscn" id="16_5brmp"]
+
+[node name="Game" type="Node2D" unique_id=1080735159]
+
+[node name="Main_Game_Screen" parent="." unique_id=400016218 instance=ExtResource("1_oi1wy")]
+
+[node name="PizzaFrenzy" parent="." unique_id=911019608 instance=ExtResource("16_5brmp")]
+visible = false
+
+[node name="GameScoring" type="Node" parent="." unique_id=1950481658]
+script = ExtResource("3_frv3b")
+
+[node name="GameSettings" type="Node" parent="." unique_id=1298221572]
+script = ExtResource("4_5mdxq")
+
+[node name="SettingMenu" type="Node2D" parent="." unique_id=1814380511]
+z_index = 100
+script = ExtResource("5_m7q13")
+
+[node name="settings_background" type="ColorRect" parent="SettingMenu" unique_id=212295795]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.023529412, 0.27058825, 0.47058824, 1)
+
+[node name="balls_panel" type="ColorRect" parent="SettingMenu" unique_id=1088696348]
+offset_left = 362.0
+offset_top = 218.0
+offset_right = 1562.0
+offset_bottom = 518.0
+color = Color(0.025680542, 0.34177226, 0.59765625, 1)
+
+[node name="balls_setting_label" type="Label" parent="SettingMenu" unique_id=1972775765]
+offset_left = 762.0
+offset_top = 233.0
+offset_right = 1151.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 42
+text = "BALLS PER GAME: 5"
+
+[node name="settings_title" type="Label" parent="SettingMenu" unique_id=2094581811]
+offset_top = 82.0
+offset_right = 1920.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 60
+text = "Machine Settings"
+horizontal_alignment = 1
+
+[node name="balls_selector" type="Label" parent="SettingMenu" unique_id=29437546]
+offset_left = -2.0
+offset_top = 298.0
+offset_right = 1918.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 45
+text = "◀ 3 BALLS ▶"
+horizontal_alignment = 1
+
+[node name="controls_label" type="Label" parent="SettingMenu" unique_id=2020508928]
+offset_left = 3.0
+offset_top = 1000.0
+offset_right = 1923.0
+offset_bottom = 1060.0
+theme_override_font_sizes/font_size = 30
+text = "LEFT / RIGHT: SELECT     ENTER: CONFIRM"
+horizontal_alignment = 1

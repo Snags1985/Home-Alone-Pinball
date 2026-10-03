@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fatcrw7w4yni"
-path="res://.godot/imported/rear_wheel.png-a9ace1e6d4c2e3117535435a860ccb6e.ctex"
+path="res://.godot/imported/rear_wheel.png-bf279cddb58c2c7fea950c345126475d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/PIZZA FRENZY/rear_wheel.png"
-dest_files=["res://.godot/imported/rear_wheel.png-a9ace1e6d4c2e3117535435a860ccb6e.ctex"]
+source_file="res://addons/mpf-gmc/images/Pizza Frenzy/rear_wheel.png"
+dest_files=["res://.godot/imported/rear_wheel.png-bf279cddb58c2c7fea950c345126475d.ctex"]
 
 [params]
 

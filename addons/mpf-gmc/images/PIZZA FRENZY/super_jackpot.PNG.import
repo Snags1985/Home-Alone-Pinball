@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d87udld3xc3t"
-path="res://.godot/imported/super_jackpot.PNG-d5a79e9098af5652c8db4cdc1a419c39.ctex"
+path="res://.godot/imported/super_jackpot.PNG-0eed830588d4ef30254f0bcd322ff2a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/PIZZA FRENZY/super_jackpot.PNG"
-dest_files=["res://.godot/imported/super_jackpot.PNG-d5a79e9098af5652c8db4cdc1a419c39.ctex"]
+source_file="res://addons/mpf-gmc/images/Pizza Frenzy/super_jackpot.PNG"
+dest_files=["res://.godot/imported/super_jackpot.PNG-0eed830588d4ef30254f0bcd322ff2a5.ctex"]
 
 [params]
 

@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bpfbj34wl351"]
+
+[ext_resource type="Script" uid="uid://uo5i14w6y3br" path="res://addons/mpf-gmc/scripts/main_game_screen.gd" id="1_7cjs0"]
+[ext_resource type="Texture2D" uid="uid://cqjy7fs2l1pta" path="res://addons/mpf-gmc/images/Main Screen/main_screen_background.png" id="1_vg4kd"]
+[ext_resource type="Texture2D" uid="uid://8b3dx2e6obx2" path="res://addons/mpf-gmc/images/Main Screen/mission_board.png" id="2_fxqqk"]
+[ext_resource type="Texture2D" uid="uid://3gmrsmkrb1br" path="res://addons/mpf-gmc/images/Main Screen/pizza_board.png" id="3_8b8bp"]
+[ext_resource type="Texture2D" uid="uid://cmi4wfuej1ia" path="res://addons/mpf-gmc/images/Main Screen/Score_board.png" id="4_5ve24"]
+[ext_resource type="Texture2D" uid="uid://rteitck5oinj" path="res://addons/mpf-gmc/images/Pizza Frenzy/p_grey.png" id="10_2u4td"]
+[ext_resource type="Texture2D" uid="uid://btwr1msim2rdu" path="res://addons/mpf-gmc/images/Pizza Frenzy/p_lit.png" id="11_gwf0e"]
+[ext_resource type="Texture2D" uid="uid://y12q6wds0mks" path="res://addons/mpf-gmc/images/Pizza Frenzy/i_grey.png" id="12_6xqhp"]
+[ext_resource type="Texture2D" uid="uid://h4xm81cspahm" path="res://addons/mpf-gmc/images/Pizza Frenzy/i_lit.png" id="13_k0rwq"]
+[ext_resource type="Texture2D" uid="uid://dhljpvlhqswxm" path="res://addons/mpf-gmc/images/Pizza Frenzy/z2_grey.png" id="14_tmqfr"]
+[ext_resource type="Texture2D" uid="uid://b5skdy4abd152" path="res://addons/mpf-gmc/images/Pizza Frenzy/z2_lit.png" id="15_fxbmp"]
+[ext_resource type="Texture2D" uid="uid://d2orfshkk2a1p" path="res://addons/mpf-gmc/images/Pizza Frenzy/z1_grey.png" id="16_1kg3j"]
+[ext_resource type="Texture2D" uid="uid://bdox5ad8jp4so" path="res://addons/mpf-gmc/images/Pizza Frenzy/z1_lit.png" id="17_al7un"]
+[ext_resource type="Texture2D" uid="uid://hadir6nkkiy1" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_grey.png" id="18_7rri2"]
+[ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
+
+[node name="Main_Game_Screen" type="Node2D" unique_id=400016218]
+script = ExtResource("1_7cjs0")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1794305162]
+position = Vector2(959.5, 540.25)
+scale = Vector2(1.1477273, 1.1471839)
+texture = ExtResource("1_vg4kd")
+
+[node name="mission_board" type="Sprite2D" parent="." unique_id=1356589273]
+position = Vector2(1704.625, 266.7425)
+scale = Vector2(0.35418412, 0.40774047)
+texture = ExtResource("2_fxqqk")
+
+[node name="pizza_board" type="Sprite2D" parent="." unique_id=1748027427]
+position = Vector2(1708, 539)
+scale = Vector2(0.1703499, 0.16160223)
+texture = ExtResource("3_8b8bp")
+
+[node name="p_grey" type="Sprite2D" parent="pizza_board" unique_id=2087952041]
+position = Vector2(-504.10938, 1.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_2u4td")
+
+[node name="p_lit" type="Sprite2D" parent="pizza_board" unique_id=1763472915]
+visible = false
+position = Vector2(-504.10938, 1.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_gwf0e")
+
+[node name="i_grey" type="Sprite2D" parent="pizza_board" unique_id=1794948943]
+position = Vector2(-253.10938, 1.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_6xqhp")
+
+[node name="i_lit" type="Sprite2D" parent="pizza_board" unique_id=152837849]
+visible = false
+position = Vector2(-253.10938, 1.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_k0rwq")
+
+[node name="z2_grey" type="Sprite2D" parent="pizza_board" unique_id=1392392499]
+position = Vector2(-17.109375, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_tmqfr")
+
+[node name="z2_lit" type="Sprite2D" parent="pizza_board" unique_id=318422566]
+visible = false
+position = Vector2(-17.109375, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_fxbmp")
+
+[node name="z1_grey" type="Sprite2D" parent="pizza_board" unique_id=787059798]
+position = Vector2(279.89014, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_1kg3j")
+
+[node name="z1_lit" type="Sprite2D" parent="pizza_board" unique_id=682071266]
+visible = false
+position = Vector2(279.89014, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_al7un")
+
+[node name="a_grey" type="Sprite2D" parent="pizza_board" unique_id=908545687]
+position = Vector2(566.89014, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_7rri2")
+
+[node name="a_lit" type="Sprite2D" parent="pizza_board" unique_id=1478624067]
+visible = false
+position = Vector2(566.89014, 2.546875)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_m2pir")
+
+[node name="score_board" type="Sprite2D" parent="." unique_id=1360299407]
+position = Vector2(312.99997, 214)
+scale = Vector2(0.41015622, 0.41015625)
+texture = ExtResource("4_5ve24")
+
+[node name="player_label" type="Label" parent="." unique_id=521227949]
+offset_left = 243.0
+offset_top = 115.0
+offset_right = 376.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 30
+text = "PLAYER 1"
+
+[node name="score_label" type="Label" parent="." unique_id=2038911336]
+offset_left = 102.0
+offset_top = 134.0
+offset_right = 517.0
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 73
+text = "123,456,789"
+horizontal_alignment = 1
+
+[node name="ball_label" type="Label" parent="." unique_id=359325725]
+offset_left = 240.0
+offset_top = 301.0
+offset_right = 389.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 46
+text = "BALL 1"
+
+[node name="game_over_label" type="Label" parent="." unique_id=1394415836]
+offset_left = 559.0
+offset_top = 482.0
+offset_right = 1419.0
+offset_bottom = 687.0
+theme_override_font_sizes/font_size = 150
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1

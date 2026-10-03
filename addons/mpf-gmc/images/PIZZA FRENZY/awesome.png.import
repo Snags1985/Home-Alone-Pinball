@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq2h10i4hyq1q"
-path="res://.godot/imported/awesome.png-d6165235b3c671e390ef3c30b08b8fa8.ctex"
+path="res://.godot/imported/awesome.png-61db2f27c151606448c122935db67c48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/PIZZA FRENZY/awesome.png"
-dest_files=["res://.godot/imported/awesome.png-d6165235b3c671e390ef3c30b08b8fa8.ctex"]
+source_file="res://addons/mpf-gmc/images/Pizza Frenzy/awesome.png"
+dest_files=["res://.godot/imported/awesome.png-61db2f27c151606448c122935db67c48.ctex"]
 
 [params]
 
