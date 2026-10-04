@@ -7,12 +7,15 @@ func award_points(points):
 
 func target_hit():
 	award_points(10000)
+	main_game_screen.show_score_popup("TARGET", 10000)
 	
 func ramp_hit():
 	award_points(25000)
+	main_game_screen.show_score_popup("RAMP", 25000)
 	
 func bumper_hit():
 	award_points(1000)
+	main_game_screen.show_score_popup("BUMPER", 1000)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

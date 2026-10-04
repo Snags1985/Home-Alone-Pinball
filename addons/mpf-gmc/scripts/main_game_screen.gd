@@ -22,9 +22,16 @@ var pizza_board_was_active = false
 
 var pizza_collection_active = false
 
+var pizza_frenzy_mission_status = "LOCKED"
+var furnace_multiball_mission_status = "LOCKED"
+var mode_3_mission_status = "LOCKED"
+var set_traps_mission_status = "LOCKED"
+var defend_house_mission_status = "LOCKED"
+
 
 @onready var pizza_frenzy = get_parent().get_node("PizzaFrenzy")
 @onready var game_settings = get_parent().get_node("GameSettings")
+
 func format_score(score):
 	var score_string = str(score)
 	var result = ""
@@ -59,8 +66,8 @@ func _ready():
 	$pizza_board/p_grey.visible = not pizza_frenzy.p_collected
 
 	# Initial game display
-	$player_label.text = "PLAYER 1"
-	$score_label.text = format_score(player_score)
+	$score_board/player_label.text = "PLAYER 1"
+	$score_board/score_label.text = format_score(player_score)
 	$ball_board/ball_label.text = "BALL " + str(current_ball)
 
 	# Hide Game Over
@@ -85,6 +92,23 @@ func update_pizza_board():
 
 	$pizza_board/a_lit.visible = pizza_frenzy.a_collected
 	$pizza_board/a_grey.visible = not pizza_frenzy.a_collected
+
+func update_mission_board():
+
+	$mission_board/mission_1_label.text = "PIZZA FRENZY"
+	$mission_board/mission_1_status.text = pizza_frenzy_mission_status
+
+	$mission_board/mission_2_label.text = "FURNACE\nMULTIBALL"
+	$mission_board/mission_2_status.text = furnace_multiball_mission_status
+
+	$mission_board/mission_3_label.text = ""
+	$mission_board/mission_3_status.text = mode_3_mission_status
+
+	$mission_board/mission_4_label.text = "SET THE TRAPS"
+	$mission_board/mission_4_status.text = set_traps_mission_status
+
+	$mission_board/mission_5_label.text = "DEFEND\nTHE HOUSE"
+	$mission_board/mission_5_status.text = defend_house_mission_status
 
 func show_pizza_board():
 
@@ -267,7 +291,16 @@ func add_score(points):
 		return
 
 	player_score += points
-	$score_label.text = format_score(player_score)
+	$score_board/score_label.text = format_score(player_score)
+
+func show_score_popup(shot_name, points):
+
+	$score_board/score_popup.text = shot_name + " +" + format_score(points)
+	$score_board/score_popup.visible = true
+
+	await get_tree().create_timer(1.5).timeout
+
+	$score_board/score_popup.visible = false
 
 func next_ball():
 	current_ball += 1
@@ -310,12 +343,13 @@ func start_new_game():
 	$pizza_board.position = pizza_board_up_position
 	$information_board.position = information_board_up_position
 
-	$player_label.text = "PLAYER 1"
-	$score_label.text = format_score(player_score)
+	$score_board/player_label.text = "PLAYER 1"
+	$score_board/score_label.text = format_score(player_score)
 	
 	$game_over_label.visible = false
 
 	update_pizza_board()
+	update_mission_board()
 
 	print("NEW GAME STARTED")
 	print("Balls per game: ", game_settings.balls_per_game)
@@ -363,14 +397,16 @@ func _input(event):
 			pizza_frenzy.start_pizza_frenzy()	
 
 func start_pizza_collection():
-
 	if pizza_collection_active:
 		return
 
 	pizza_collection_active = true
 
-	print("PIZZA COLLECTION STARTED")
+	# Update Mission Board
+	pizza_frenzy_mission_status = "READY"
+	update_mission_board()
 
+	print("PIZZA COLLECTION STARTED")
 	show_pizza_board()
 
 func complete_pizza_collection():

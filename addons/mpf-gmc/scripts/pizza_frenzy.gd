@@ -479,22 +479,21 @@ func shoot_delivery_ramp():
 	start_pizza_frenzy()
 	
 func start_pizza_frenzy():
-
-	
 	if pizza_frenzy_active:
 		return
-		
+
 	visible = true
 	main_game_screen.visible = false
 
 	pizza_frenzy_count += 1
-
 	frenzy_starting = true
 
+	main_game_screen.pizza_frenzy_mission_status = "ACTIVE"
+	main_game_screen.update_mission_board()
+
 	print("PIZZA FRENZY STARTING")
-
 	show_status_logo("pizza_frenzy")
-
+	
 	start_sequence()
 	
 func start_sequence():
@@ -961,6 +960,9 @@ func complete_pizza_frenzy():
 		return
 
 	frenzy_finished = true
+
+	main_game_screen.pizza_frenzy_mission_status = "COMPLETE"
+	main_game_screen.update_mission_board()
 
 	print("PIZZA FRENZY COMPLETE")
 
