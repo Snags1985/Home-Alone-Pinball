@@ -1,4 +1,5 @@
 extends Node2D
+@onready var main_game_screen = get_parent().get_node("Main_Game_Screen")
 
 var pizza_complete = false
 var pizza_slices = 0
@@ -389,7 +390,7 @@ func reset_pizza_frenzy():
 	frenzy_time_remaining = 45
 	frenzy_multiplier = 2
 
-	# Reset Pizza Frenzy scoring
+# Reset Pizza Frenzy scoring
 	frenzy_score = 0
 	base_score = 0
 	delivery_bonus_total = 0
@@ -397,7 +398,7 @@ func reset_pizza_frenzy():
 	combo_bonus_total = 0
 	jackpot_bonus_total = 0
 	super_jackpot_bonus_total = 0
-	
+
 	show_status_logo("get_ready")
 
 func _input(event):
@@ -479,8 +480,12 @@ func shoot_delivery_ramp():
 	
 func start_pizza_frenzy():
 
+	
 	if pizza_frenzy_active:
 		return
+		
+	visible = true
+	main_game_screen.visible = false
 
 	pizza_frenzy_count += 1
 
@@ -797,6 +802,7 @@ func collect_letter(letter):
 		print("DELIVERY RAMP LIT")
 
 		animate_pizza_ready()
+		main_game_screen.complete_pizza_collection()
 	
 func hide_gameplay_elements():
 
@@ -984,10 +990,17 @@ func complete_pizza_frenzy():
 	await show_final_receipt()
 
 	# Give the player time to read the results
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(8.0).timeout
 
 	# Reset everything after the receipt
 	reset_pizza_frenzy()
+
+	# Return to the Main Game Screen
+	visible = false
+	main_game_screen.visible = true
+
+	# Hide any active Main Game Screen board
+	main_game_screen.hide_active_board()
 
 func show_combo_callout():
 

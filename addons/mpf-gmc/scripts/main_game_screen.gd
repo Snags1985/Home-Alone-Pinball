@@ -20,6 +20,8 @@ var active_board = null
 var information_message = ""
 var pizza_board_was_active = false
 
+var pizza_collection_active = false
+
 
 @onready var pizza_frenzy = get_parent().get_node("PizzaFrenzy")
 @onready var game_settings = get_parent().get_node("GameSettings")
@@ -182,7 +184,7 @@ func hide_active_board():
 	active_board = null
 
 func show_information_message(message, duration):
-
+	
 	# Don't interrupt another information message
 	if information_message != "":
 		return
@@ -301,6 +303,12 @@ func start_new_game():
 	game_over = false
 
 	pizza_frenzy.reset_pizza_frenzy()
+	
+	pizza_collection_active = false
+	active_board = null
+	
+	$pizza_board.position = pizza_board_up_position
+	$information_board.position = information_board_up_position
 
 	$player_label.text = "PLAYER 1"
 	$score_label.text = format_score(player_score)
@@ -341,7 +349,73 @@ func _input(event):
 			
 		if event.keycode == KEY_V:
 			show_ball_board()	
+		
+		# Start Pizza collection
+		if event.keycode == KEY_O:
+			start_pizza_collection()
+		
+		# Test Pizza Complete
+		if event.keycode == KEY_C:
+			complete_pizza_collection()
+			
+		# Test Delivery Ramp
+		if event.keycode == KEY_L:
+			pizza_frenzy.start_pizza_frenzy()	
 
+func start_pizza_collection():
+
+	if pizza_collection_active:
+		return
+
+	pizza_collection_active = true
+
+	print("PIZZA COLLECTION STARTED")
+
+	show_pizza_board()
+
+func complete_pizza_collection():
+
+	if not pizza_collection_active:
+		return
+
+	pizza_collection_active = false
+
+	print("PIZZA COLLECTION COMPLETE")
+
+	# Slide Pizza Board up
+	var pizza_tween = create_tween()
+	pizza_tween.set_trans(Tween.TRANS_QUAD)
+	pizza_tween.set_ease(Tween.EASE_IN)
+
+	pizza_tween.tween_property(
+		$pizza_board,
+		"position",
+		pizza_board_up_position,
+		0.5
+	)
+
+	await pizza_tween.finished
+
+	active_board = null
+
+	# Set the instruction
+	$information_board/information_label.text = "SHOOT\nDELIVERY RAMP"
+
+	# Bring Information Board down
+	active_board = $information_board
+
+	var info_tween = create_tween()
+	info_tween.set_trans(Tween.TRANS_QUAD)
+	info_tween.set_ease(Tween.EASE_OUT)
+
+	info_tween.tween_property(
+		$information_board,
+		"position",
+		information_board_down_position,
+		0.6
+	)
+
+	await info_tween.finished
 
 func _process(_delta):
 	update_pizza_board()
