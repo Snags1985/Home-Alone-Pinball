@@ -19,7 +19,7 @@
 [ext_resource type="VideoStream" uid="uid://dh2owdsmdwxdo" path="res://addons/mpf-gmc/videos/9pm_return.ogv" id="18_ogvj0"]
 [ext_resource type="Texture2D" uid="uid://b0p3p6v7tr1no" path="res://addons/mpf-gmc/images/Main Screen/tv_bezel.png" id="18_yie78"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
-[ext_resource type="Script" uid="uid://dvrqqi5cm3csk" path="res://addons/mpf-gmc/scripts/christmas_lights.gd" id="20_j6bmr"]
+[ext_resource type="Script" uid="uid://dvrqqi5cm3csk" path="res://addons/mpf-gmc/scripts/christmas_lights_mission_board.gd" id="20_j6bmr"]
 [ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="21_2h5bb"]
 [ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="22_2h5bb"]
 [ext_resource type="Script" uid="uid://cas0xkeh03q8s" path="res://addons/mpf-gmc/scripts/christmas_lights_ball_board.gd" id="22_nvkvk"]
@@ -28,6 +28,16 @@
 [ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="24_ljhe1"]
 [ext_resource type="Script" uid="uid://hqfvhov6tukm" path="res://addons/mpf-gmc/scripts/christmas_lights_tv.gd" id="27_xmq7j"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ilsi4"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1000, 0, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
+
 [node name="Main_Game_Screen" type="Node2D" unique_id=400016218]
 script = ExtResource("1_7cjs0")
 
@@ -35,6 +45,15 @@ script = ExtResource("1_7cjs0")
 position = Vector2(959.5, 540.25)
 scale = Vector2(1.1477273, 1.1471839)
 texture = ExtResource("1_vg4kd")
+
+[node name="Snow" type="Node2D" parent="." unique_id=552061384]
+
+[node name="SnowEffect" type="GPUParticles2D" parent="Snow" unique_id=1254560618]
+position = Vector2(967, -77)
+amount = 3000
+lifetime = 5.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ilsi4")
 
 [node name="pizza_board" type="Sprite2D" parent="." unique_id=1748027427]
 position = Vector2(1708.0001, 554)
@@ -219,83 +238,83 @@ text = "COMPLETED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChristmasLights" type="Node2D" parent="mission_board" unique_id=1544121387]
+[node name="ChristmasLights_mission_board" type="Node2D" parent="mission_board" unique_id=1544121387]
 z_index = 10
 position = Vector2(-4812.822, -654.1966)
 scale = Vector2(2.8233902, 2.4525402)
 script = ExtResource("20_j6bmr")
 
-[node name="Bulb_Red_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1011743479]
+[node name="Bulb_Red_04" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1011743479]
 z_index = 1
 position = Vector2(1864, 51.999992)
 rotation = -1.7802359
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("21_2h5bb")
 
-[node name="Bulb_Red_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1397159903]
+[node name="Bulb_Red_05" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1397159903]
 z_index = 1
 position = Vector2(1890.0001, 238)
 rotation = -0.38397244
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("21_2h5bb")
 
-[node name="Bulb_Red_06" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1191403972]
+[node name="Bulb_Red_06" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1191403972]
 z_index = 1
 position = Vector2(1528, 481)
 rotation = 0.17453292
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("21_2h5bb")
 
-[node name="Bulb_Green_03" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1608542766]
+[node name="Bulb_Green_03" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1608542766]
 z_index = 1
 position = Vector2(1890, 140.99995)
 rotation = -3.1415927
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("22_2h5bb")
 
-[node name="Bulb_Green_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=918213806]
+[node name="Bulb_Green_05" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=918213806]
 z_index = 1
 position = Vector2(1525, 326.99994)
 rotation = 2.687807
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("22_2h5bb")
 
-[node name="Bulb_Green_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=960873443]
+[node name="Bulb_Green_04" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=960873443]
 z_index = 1
 position = Vector2(1551.9999, 45.000076)
 rotation = 0.43633232
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("22_2h5bb")
 
-[node name="Bulb_Gold_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=87578544]
+[node name="Bulb_Gold_05" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=87578544]
 z_index = 1
 position = Vector2(1530.0001, 174.00005)
 rotation = 0.2617994
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("23_ov82p")
 
-[node name="Bulb_Gold_06" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1544892102]
+[node name="Bulb_Gold_06" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1544892102]
 z_index = 1
 position = Vector2(1891, 455)
 rotation = 0.2443461
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("23_ov82p")
 
-[node name="Bulb_Blue_03" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1568239273]
+[node name="Bulb_Blue_03" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=1568239273]
 z_index = 1
 position = Vector2(1525.0001, 239.99998)
 rotation = 0.06981317
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("24_ljhe1")
 
-[node name="Bulb_Blue_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=235117063]
+[node name="Bulb_Blue_05" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=235117063]
 z_index = 1
 position = Vector2(1886, 351.99997)
 rotation = -0.20943952
 scale = Vector2(0.068188034, 0.06818804)
 texture = ExtResource("24_ljhe1")
 
-[node name="Bulb_Blue_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=887631954]
+[node name="Bulb_Blue_04" type="Sprite2D" parent="mission_board/ChristmasLights_mission_board" unique_id=887631954]
 z_index = 1
 position = Vector2(1529.0001, 100.99999)
 rotation = 0.06981317

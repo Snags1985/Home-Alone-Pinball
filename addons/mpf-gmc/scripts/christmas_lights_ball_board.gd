@@ -2,8 +2,8 @@ extends Node2D
 
 @export var min_brightness: float = 0.65
 @export var max_brightness: float = 1.9
-@export var min_speed: float = 1.5
-@export var max_speed: float = 3.0
+@export var min_speed: float = 2.5
+@export var max_speed: float = 5.0
 
 var lights = []
 

@@ -17,7 +17,10 @@ var frenzy_time_remaining = 45
 var frenzy_starting = false
 var active_scene = null
 var car_tween = null
+var scroll_tween = null
+
 var frenzy_finished = false
+var frenzy_cancelled = false
 var delivery_progress = 0
 var frenzy_multiplier = 2
 var multiplier_tween = null
@@ -38,7 +41,7 @@ var multiplier_bonus_total = 0
 var combo_bonus_total = 0
 var jackpot_bonus_total = 0
 var super_jackpot_bonus_total = 0
-
+var frenzy_run_id = 0
 
 
 func _ready():
@@ -324,6 +327,50 @@ func pulse_logo():
 			pulse_logo()
 	)
 
+func force_stop_pizza_frenzy():
+	
+	frenzy_run_id += 1
+	print("PIZZA FRENZY FORCE STOPPED")
+
+	frenzy_cancelled = true
+
+	# Stop the delivery car
+	if car_tween:
+		car_tween.kill()
+		car_tween = null
+	if scroll_tween:
+		scroll_tween.kill()
+		scroll_tween = null
+
+	# Stop frenzy state
+	pizza_frenzy_active = false
+	frenzy_starting = false
+	frenzy_finished = true
+
+	# Stop animations
+	wheels_spinning = false
+	logo_pulsing = false
+	callout_showing = false
+
+	# Stop multiplier animation
+	if multiplier_tween:
+		multiplier_tween.kill()
+		multiplier_tween = null
+
+	# Stop/reset frenzy timer
+	frenzy_time_remaining = 45
+
+	# Hide Pizza Frenzy visuals
+	$timer_label.visible = false
+	$pizza_frenzy_hud.visible = false
+	$score_label.visible = false
+	$score_popup.visible = false
+	$multiplier_label.visible = false
+	$complete.visible = false
+
+	# Hide the frenzy scene
+	visible = false
+
 func reset_pizza_frenzy():
 	
 	# Hide final receipt
@@ -479,8 +526,14 @@ func shoot_delivery_ramp():
 	start_pizza_frenzy()
 	
 func start_pizza_frenzy():
+
 	if pizza_frenzy_active:
 		return
+
+	main_game_screen.game_has_started = true
+	frenzy_run_id += 1
+
+	var run_id = frenzy_run_id
 
 	visible = true
 	main_game_screen.visible = false
@@ -492,11 +545,12 @@ func start_pizza_frenzy():
 	main_game_screen.update_mission_board()
 
 	print("PIZZA FRENZY STARTING")
+
 	show_status_logo("pizza_frenzy")
+
+	start_sequence(run_id)
 	
-	start_sequence()
-	
-func start_sequence():
+func start_sequence(run_id):
 
 	hide_gameplay_elements()
 
@@ -523,10 +577,23 @@ func start_sequence():
 
 	await tween.finished
 
-	await pulse_once(logo)
+	if run_id != frenzy_run_id:
+		return
+
 	await pulse_once(logo)
 
+	if run_id != frenzy_run_id:
+		return
+
+	await pulse_once(logo)
+
+	if run_id != frenzy_run_id:
+		return
+
 	await get_tree().create_timer(0.5).timeout
+
+	if run_id != frenzy_run_id:
+		return
 
 	# Hide logo before countdown
 	$frenzy_intro/pizza_frenzy_big.visible = false
@@ -536,25 +603,38 @@ func start_sequence():
 
 	await get_tree().create_timer(1.0).timeout
 
+	if run_id != frenzy_run_id:
+		return
+
 	hide_countdown()
 	$frenzy_intro/countdown_2.visible = true
 
 	await get_tree().create_timer(1.0).timeout
+
+	if run_id != frenzy_run_id:
+		return
 
 	hide_countdown()
 	$frenzy_intro/countdown_1.visible = true
 
 	await get_tree().create_timer(1.0).timeout
 
+	if run_id != frenzy_run_id:
+		return
+
 	hide_countdown()
 	$frenzy_intro/go.visible = true
 
 	await get_tree().create_timer(1.0).timeout
 
+	if run_id != frenzy_run_id:
+		return
+
 	hide_countdown()
 	$frenzy_intro.visible = false
-	
-	start_delivery_run()
+
+	start_delivery_run(run_id)
+
 	frenzy_time_remaining = 45
 
 	# Show shared Pizza Frenzy HUD
@@ -570,16 +650,16 @@ func start_sequence():
 	delivery_ramp_lit = false
 	frenzy_starting = false
 	frenzy_score = 0
-	
+
 	delivery_bonus_total = 0
 	multiplier_bonus_total = 0
 	combo_bonus_total = 0
 	jackpot_bonus_total = 0
 	super_jackpot_bonus_total = 0
-	
+
 	$score_label.text = format_score(0)
 	$score_label.visible = true
-	
+
 	pizza_ball_save_active = true
 
 	frenzy_multiplier = 2
@@ -587,12 +667,24 @@ func start_sequence():
 	$multiplier_label.text = str(frenzy_multiplier) + "X"
 	$multiplier_label.visible = true
 
-	frenzy_countdown()
+	frenzy_countdown(run_id)
 	
-func start_delivery_run():
+func start_delivery_run(run_id):
 
 	print("START DELIVERY RUN")
 
+	if run_id != frenzy_run_id:
+		return
+
+	if car_tween:
+		car_tween.kill()
+		car_tween = null
+
+	if scroll_tween:
+		scroll_tween.kill()
+		scroll_tween = null
+
+	# Choose scene
 	if pizza_frenzy_count % 2 == 1:
 		active_scene = $street_scene_night/street_scene_night
 		$street_scene_night.visible = true
@@ -604,24 +696,27 @@ func start_delivery_run():
 		$street_scene_day.visible = true
 		print("Using DAY scene")
 
+	# Reset car
 	$delivery_car_container.visible = true
-
-	# Put car at shop
 	$delivery_car_container/pizza_car.global_position = Vector2(350, 948)
+
 	print("Car X = ", $delivery_car_container/pizza_car.global_position.x)
 	print("Car Y = ", $delivery_car_container/pizza_car.global_position.y)
 
-	# Reset street position
+	# Reset street
 	active_scene.position.x = 488.941
 
-	# Pause for 2 seconds so player sees the pizza shop
+	# Show shop for 2 seconds
 	await get_tree().create_timer(2.0).timeout
-	
-	# Start wheel animation
+
+	if run_id != frenzy_run_id:
+		return
+
+	# Start wheels
 	wheels_spinning = true
 
 	# Scroll street for 15 seconds
-	var scroll_tween = create_tween()
+	scroll_tween = create_tween()
 
 	scroll_tween.tween_property(
 		active_scene,
@@ -630,13 +725,16 @@ func start_delivery_run():
 		15.0
 	)
 
-	# Wait until scrolling finishes
 	await scroll_tween.finished
+
+	if run_id != frenzy_run_id:
+		return
+
 	print("House after scroll = ",
-	active_scene.get_node("house_marker").global_position)
+		active_scene.get_node("house_marker").global_position)
 
 	print("Car after scroll = ",
-	$delivery_car_container/pizza_car.global_position)
+		$delivery_car_container/pizza_car.global_position)
 
 	# Drive to house
 	car_tween = create_tween()
@@ -682,16 +780,20 @@ func pulse_once(node):
 
 	node.visible = false
 
-func frenzy_countdown():
+func frenzy_countdown(run_id):
 
 	# Normal timer colour
 	$timer_label.modulate = Color(0.2, 0.8, 0.3, 1.0)
 
 	while frenzy_time_remaining > 0:
 
+		if run_id != frenzy_run_id:
+			return
+
 		$timer_label.text = "00:%02d" % frenzy_time_remaining
 
 		if frenzy_time_remaining <= 10:
+
 			$timer_label.modulate = Color(0.766, 0.006, 0.01, 1.0)
 
 			var tween = create_tween()
@@ -712,7 +814,13 @@ func frenzy_countdown():
 
 		await get_tree().create_timer(1.0).timeout
 
+		if run_id != frenzy_run_id:
+			return
+
 		frenzy_time_remaining -= 1
+
+	if run_id != frenzy_run_id:
+		return
 
 	$timer_label.text = "00:00"
 
@@ -959,6 +1067,9 @@ func complete_pizza_frenzy():
 	if frenzy_finished:
 		return
 
+	if frenzy_cancelled:
+		return
+
 	frenzy_finished = true
 
 	main_game_screen.pizza_frenzy_mission_status = "COMPLETE"
@@ -1147,7 +1258,9 @@ func animate_receipt_row(label_node, value_node):
 	await row_tween.finished
 
 func show_final_receipt():
-
+	if frenzy_cancelled:
+		return
+		
 	$final_receipt.visible = true
 
 	# Hide all receipt score lines before the receipt appears
@@ -1216,7 +1329,9 @@ func show_final_receipt():
 	)
 
 	await receipt_tween.finished
-
+	if frenzy_cancelled:
+		return
+		
 	print("FINAL RECEIPT ON SCREEN")
 
 

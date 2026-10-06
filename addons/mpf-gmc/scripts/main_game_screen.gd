@@ -1,11 +1,14 @@
 
 extends Node2D
+signal video_finished
 
 var player_score = 0
 var current_ball = 1
-
 var game_active = false
 var game_over = false
+
+var player_count = 0
+var game_has_started = false
 
 var pizza_board_down_position
 var pizza_board_up_position
@@ -329,6 +332,8 @@ func add_score(points):
 	if not game_active:
 		return
 
+	game_has_started = true
+
 	player_score += points
 	$score_board/score_label.text = format_score(player_score)
 
@@ -373,6 +378,9 @@ func start_new_game():
 	current_ball = 1
 	game_active = true
 	game_over = false
+
+	player_count = 1
+	game_has_started = false
 	
 	home_alone_section = 1
 	home_alone_section_complete = false
@@ -419,6 +427,23 @@ func start_new_game():
 	$ball_board/ball_label.text = "BALL " + str(current_ball)
 	show_ball_board()
 	start_home_alone_section()
+
+func restart_game():
+
+	print("RESTARTING GAME")
+
+	# Stop any video currently playing
+	$video_tv/VideoStreamPlayer.stop()
+	$video_tv.visible = false
+
+	# Completely abort Pizza Frenzy
+	pizza_frenzy.force_stop_pizza_frenzy()
+
+	# Return to Main Game Screen
+	visible = true
+
+	# Start a completely fresh game
+	start_new_game()
 
 func start_home_alone_section():
 	if home_alone_section_complete:
@@ -684,15 +709,31 @@ func update_junk_food_display():
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
+
 		if event.keycode == KEY_N:
-			start_new_game()
+
+			# No game currently running
+			if not game_active:
+				start_new_game()
+				return
+
+			# Game has already started - restart completely
+			if game_has_started:
+				restart_game()
+				return
+
+			# Game has not started yet - add another player
+			if player_count < 4:
+				player_count += 1
+				print("PLAYER ", player_count, " ADDED")
+				$score_board/player_label.text = str(player_count) + " PLAYERS"
 
 		if event.keycode == KEY_D:
 			ball_drained()
-	
+
 		if event.keycode == KEY_S:
 			add_score(10000)
-			
+
 		if event.keycode == KEY_P:
 			show_pizza_board()
 
@@ -701,55 +742,52 @@ func _input(event):
 
 		if event.keycode == KEY_U:
 			hide_active_board()
-			
+
 		if event.keycode == KEY_K:
 			show_information_message("BALL SAVED", 3.0)
-			
+
 		if event.keycode == KEY_V:
-			show_ball_board()	
-		
-		# Start Pizza collection
+			show_ball_board()
+
 		if event.keycode == KEY_O:
 			start_pizza_collection()
-		
-		# Test Pizza Complete
+
 		if event.keycode == KEY_C:
 			complete_pizza_collection()
-			
-		# Test Delivery Ramp
+
 		if event.keycode == KEY_L:
-			pizza_frenzy.start_pizza_frenzy()	
-			
+			pizza_frenzy.start_pizza_frenzy()
+
 		if event.keycode == KEY_B:
 			buzz_girlfriend_scoop_hit()
-			
+
 		if event.keycode == KEY_T:
 			staircase_ramp_hit()
-			
+
 		if event.keycode == KEY_1:
 			lights_on_target_1_hit()
-		
+
 		if event.keycode == KEY_2:
 			lights_on_target_2_hit()
-			
+
 		if event.keycode == KEY_3:
 			lights_on_target_3_hit()
-			
+
 		if event.keycode == KEY_4:
 			aftershave_target_hit()
-			
+
 		if event.keycode == KEY_5:
 			grocery_item_1_hit()
-			
+
 		if event.keycode == KEY_6:
 			grocery_item_2_hit()
-			
+
 		if event.keycode == KEY_7:
 			grocery_item_3_hit()
-			
+
 		if event.keycode == KEY_8:
 			grocery_item_4_hit()
-		
+
 		if event.keycode == KEY_9:
 			grocery_item_5_hit()
 			
@@ -829,10 +867,17 @@ func home_alone_complete():
 func _process(_delta):
 	update_pizza_board()
 
+func is_video_active():
+	return $video_tv.visible
+
 func _on_video_finished():
+
 	hide_video_tv()
 
+	video_finished.emit()
+
 	match current_video:
+
 		"buzz_girlfriend":
 			print("BUZZ'S GIRLFRIEND VIDEO COMPLETE")
 
