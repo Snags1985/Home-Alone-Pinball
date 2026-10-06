@@ -19,6 +19,14 @@
 [ext_resource type="VideoStream" uid="uid://dh2owdsmdwxdo" path="res://addons/mpf-gmc/videos/9pm_return.ogv" id="18_ogvj0"]
 [ext_resource type="Texture2D" uid="uid://b0p3p6v7tr1no" path="res://addons/mpf-gmc/images/Main Screen/tv_bezel.png" id="18_yie78"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
+[ext_resource type="Script" uid="uid://dvrqqi5cm3csk" path="res://addons/mpf-gmc/scripts/christmas_lights.gd" id="20_j6bmr"]
+[ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="21_2h5bb"]
+[ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="22_2h5bb"]
+[ext_resource type="Script" uid="uid://cas0xkeh03q8s" path="res://addons/mpf-gmc/scripts/christmas_lights_ball_board.gd" id="22_nvkvk"]
+[ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="23_ov82p"]
+[ext_resource type="Script" uid="uid://1dfh1o34ak71" path="res://addons/mpf-gmc/scripts/christmas_lights_score_board.gd" id="24_etd4s"]
+[ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="24_ljhe1"]
+[ext_resource type="Script" uid="uid://hqfvhov6tukm" path="res://addons/mpf-gmc/scripts/christmas_lights_tv.gd" id="27_xmq7j"]
 
 [node name="Main_Game_Screen" type="Node2D" unique_id=400016218]
 script = ExtResource("1_7cjs0")
@@ -211,6 +219,89 @@ text = "COMPLETED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ChristmasLights" type="Node2D" parent="mission_board" unique_id=1544121387]
+z_index = 10
+position = Vector2(-4812.822, -654.1966)
+scale = Vector2(2.8233902, 2.4525402)
+script = ExtResource("20_j6bmr")
+
+[node name="Bulb_Red_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1011743479]
+z_index = 1
+position = Vector2(1864, 51.999992)
+rotation = -1.7802359
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Red_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1397159903]
+z_index = 1
+position = Vector2(1890.0001, 238)
+rotation = -0.38397244
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Red_06" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1191403972]
+z_index = 1
+position = Vector2(1528, 481)
+rotation = 0.17453292
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Green_03" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1608542766]
+z_index = 1
+position = Vector2(1890, 140.99995)
+rotation = -3.1415927
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Green_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=918213806]
+z_index = 1
+position = Vector2(1525, 326.99994)
+rotation = 2.687807
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Green_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=960873443]
+z_index = 1
+position = Vector2(1551.9999, 45.000076)
+rotation = 0.43633232
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Gold_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=87578544]
+z_index = 1
+position = Vector2(1530.0001, 174.00005)
+rotation = 0.2617994
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Gold_06" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1544892102]
+z_index = 1
+position = Vector2(1891, 455)
+rotation = 0.2443461
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Blue_03" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=1568239273]
+z_index = 1
+position = Vector2(1525.0001, 239.99998)
+rotation = 0.06981317
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Blue_05" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=235117063]
+z_index = 1
+position = Vector2(1886, 351.99997)
+rotation = -0.20943952
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Blue_04" type="Sprite2D" parent="mission_board/ChristmasLights" unique_id=887631954]
+z_index = 1
+position = Vector2(1529.0001, 100.99999)
+rotation = 0.06981317
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("24_ljhe1")
+
 [node name="ball_board" type="Sprite2D" parent="." unique_id=820711537]
 position = Vector2(313, 337)
 scale = Vector2(0.41, 0.41)
@@ -227,7 +318,53 @@ text = "BALL 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ChristmasLights_Ball_board" type="Node2D" parent="ball_board" unique_id=1085595665]
+script = ExtResource("22_nvkvk")
+
+[node name="Bulb_Green_06" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=1849520400]
+z_index = 1
+position = Vector2(607.31726, 90.24396)
+rotation = 0.10471975
+scale = Vector2(0.16631228, 0.16631229)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Red_08" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=1307025585]
+z_index = 1
+position = Vector2(560.9757, 29.268372)
+rotation = 0.2268928
+scale = Vector2(0.16631228, 0.1663123)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Gold_09" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=1704616998]
+z_index = 1
+position = Vector2(500, -39.024475)
+rotation = 0.34906584
+scale = Vector2(0.16631228, 0.1663123)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Gold_08" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=1283318919]
+z_index = 1
+position = Vector2(-509.7561, -36.58539)
+rotation = -0.38397238
+scale = Vector2(0.16631229, 0.1663123)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Blue_07" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=849506901]
+z_index = 1
+position = Vector2(-558.5366, 29.26831)
+rotation = -0.2792527
+scale = Vector2(0.16631225, 0.1663123)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Gold_07" type="Sprite2D" parent="ball_board/ChristmasLights_Ball_board" unique_id=681182947]
+z_index = 1
+position = Vector2(-609.7561, 90.2439)
+rotation = -0.052359883
+scale = Vector2(0.16631228, 0.16631229)
+texture = ExtResource("23_ov82p")
+
 [node name="score_board" type="Sprite2D" parent="." unique_id=1360299407]
+z_index = 1
 position = Vector2(312.99997, 153)
 scale = Vector2(0.41015622, 0.41015625)
 texture = ExtResource("4_5ve24")
@@ -265,6 +402,72 @@ text = "RAMP +25,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="ChristmasLights_Score_board" type="Node2D" parent="score_board" unique_id=380667070]
+script = ExtResource("24_etd4s")
+
+[node name="Bulb_Red_02" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=431315220]
+z_index = 1
+position = Vector2(-641.219, 43.88568)
+rotation = -0.01745329
+scale = Vector2(0.16624893, 0.16624893)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Gold_01" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=871090731]
+z_index = 1
+position = Vector2(-607.0857, -121.90477)
+rotation = -0.01745329
+scale = Vector2(0.16624893, 0.16624893)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Gold_03" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=615239260]
+z_index = 1
+position = Vector2(-502.2476, -177.98096)
+rotation = 0.34906584
+scale = Vector2(0.16624892, 0.16624893)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Red_03" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=1553893735]
+z_index = 1
+position = Vector2(-351.08566, -163.35242)
+rotation = 0.34906584
+scale = Vector2(0.16624892, 0.16624893)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Green_01" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=1962707087]
+z_index = 1
+position = Vector2(-231.61908, -173.10478)
+rotation = -0.38397235
+scale = Vector2(0.16624893, 0.16624895)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Red_07" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=690267685]
+z_index = 1
+position = Vector2(348.64783, -165.79048)
+rotation = -0.38397235
+scale = Vector2(0.16624893, 0.16624895)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Gold_02" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=676815023]
+z_index = 1
+position = Vector2(504.6858, -173.10477)
+rotation = -0.31415927
+scale = Vector2(0.16624893, 0.16624893)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Blue_06" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=1944624366]
+z_index = 1
+position = Vector2(604.6478, -121.90483)
+rotation = 0.06981314
+scale = Vector2(0.16624892, 0.16624892)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Gold_04" type="Sprite2D" parent="score_board/ChristmasLights_Score_board" unique_id=1573182878]
+z_index = 1
+position = Vector2(643.65735, 78.01904)
+rotation = -0.20943952
+scale = Vector2(0.16624892, 0.16624893)
+texture = ExtResource("23_ov82p")
+
 [node name="game_over_label" type="Label" parent="." unique_id=1394415836]
 offset_left = 559.0
 offset_top = 482.0
@@ -301,3 +504,62 @@ expand = true
 position = Vector2(1051, 291)
 scale = Vector2(0.5996596, 0.5908203)
 texture = ExtResource("18_yie78")
+
+[node name="ChristmasLights_TV" type="Node2D" parent="video_tv" unique_id=1364224721]
+script = ExtResource("27_xmq7j")
+
+[node name="Bulb_Red_08" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=1023772146]
+z_index = 1
+position = Vector2(1425, 124.999954)
+rotation = -0.4712389
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("21_2h5bb")
+
+[node name="Bulb_Gold_09" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=501310058]
+z_index = 1
+position = Vector2(1377.0001, 79.99996)
+rotation = -0.8552113
+scale = Vector2(0.06818803, 0.068188034)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Blue_07" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=1310197342]
+z_index = 1
+position = Vector2(1252.0001, 76.00002)
+rotation = -0.19198623
+scale = Vector2(0.07299131, 0.07299132)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Gold_08" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=821878137]
+z_index = 1
+position = Vector2(1194.0001, 71.00002)
+rotation = -0.8552113
+scale = Vector2(0.06818803, 0.068188034)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Blue_02" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=24317896]
+z_index = 1
+position = Vector2(900, 71.00002)
+rotation = 0.40142572
+scale = Vector2(0.068188034, 0.06818804)
+texture = ExtResource("24_ljhe1")
+
+[node name="Bulb_Green_06" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=1099956878]
+z_index = 1
+position = Vector2(774.9152, 71.924934)
+rotation = -0.5410521
+scale = Vector2(0.072811894, 0.0728119)
+texture = ExtResource("22_2h5bb")
+
+[node name="Bulb_Gold_07" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=1492503305]
+z_index = 1
+position = Vector2(656, 116.99999)
+rotation = 0.8552113
+scale = Vector2(0.06818803, 0.068188034)
+texture = ExtResource("23_ov82p")
+
+[node name="Bulb_Red_01" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=267301473]
+z_index = 1
+position = Vector2(662, 165)
+rotation = 0.15707964
+scale = Vector2(0.06818803, 0.06818804)
+texture = ExtResource("21_2h5bb")
