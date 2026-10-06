@@ -22,12 +22,41 @@ var pizza_board_was_active = false
 
 var pizza_collection_active = false
 
-var pizza_frenzy_mission_status = "LOCKED"
+var home_alone_mission_status = "READY"
+var pizza_frenzy_mission_status = "READY"
 var furnace_multiball_mission_status = "LOCKED"
-var mode_3_mission_status = "LOCKED"
 var set_traps_mission_status = "LOCKED"
 var defend_house_mission_status = "LOCKED"
 
+var home_alone_section = 1
+var home_alone_section_complete = false
+
+var lights_on_target_1_complete = false
+var lights_on_target_2_complete = false
+var lights_on_target_3_complete = false
+var aftershave_target_complete = false
+var junk_food_score = 0
+var junk_food_complete = false
+var grocery_run_active = false
+
+var grocery_1_collected = false
+var grocery_2_collected = false
+var grocery_3_collected = false
+var grocery_4_collected = false
+var grocery_5_collected = false
+
+var grocery_run_score = 0
+var staircase_ramp_lit = false
+
+var video_tv_home_position: Vector2
+var current_video = ""
+
+# Video path loactions for TV screen ---------------------------------------------------------------
+
+const VIDEO_BUZZ_GIRLFRIEND = preload("res://addons/mpf-gmc/videos/buzz_girlfriend.ogv")
+const VIDEO_9PM_RETURN = preload("res://addons/mpf-gmc/videos/9pm_return.ogv")
+
+# --------------------------------------------------------------------------------------------------
 
 @onready var pizza_frenzy = get_parent().get_node("PizzaFrenzy")
 @onready var game_settings = get_parent().get_node("GameSettings")
@@ -76,6 +105,11 @@ func _ready():
 	$pizza_board.position = pizza_board_up_position
 	$information_board.position = information_board_up_position
 	$ball_board.position = ball_board_up_position
+	
+	video_tv_home_position = $video_tv.position
+	
+	$video_tv.visible = false
+	$video_tv/VideoStreamPlayer.finished.connect(_on_video_finished)
 
 func update_pizza_board():
 	$pizza_board/p_lit.visible = pizza_frenzy.p_collected
@@ -95,14 +129,14 @@ func update_pizza_board():
 
 func update_mission_board():
 
-	$mission_board/mission_1_label.text = "PIZZA FRENZY"
-	$mission_board/mission_1_status.text = pizza_frenzy_mission_status
+	$mission_board/mission_1_label.text = "HOME ALONE"
+	$mission_board/mission_1_status.text = home_alone_mission_status
 
 	$mission_board/mission_2_label.text = "FURNACE\nMULTIBALL"
 	$mission_board/mission_2_status.text = furnace_multiball_mission_status
 
-	$mission_board/mission_3_label.text = ""
-	$mission_board/mission_3_status.text = mode_3_mission_status
+	$mission_board/mission_3_label.text = "PIZZA FRENZY"
+	$mission_board/mission_3_status.text = pizza_frenzy_mission_status
 
 	$mission_board/mission_4_label.text = "SET THE TRAPS"
 	$mission_board/mission_4_status.text = set_traps_mission_status
@@ -285,6 +319,11 @@ func show_information_message(message, duration):
 
 	pizza_board_was_active = false
 
+func show_staircase_instruction():
+	information_message = ""
+	
+	$information_board/information_label.text = "SHOOT\nSTAIRCASE"
+
 func add_score(points):
 
 	if not game_active:
@@ -334,6 +373,28 @@ func start_new_game():
 	current_ball = 1
 	game_active = true
 	game_over = false
+	
+	home_alone_section = 1
+	home_alone_section_complete = false
+	
+	lights_on_target_1_complete = false
+	lights_on_target_2_complete = false
+	lights_on_target_3_complete = false
+	aftershave_target_complete = false
+	junk_food_score = 0
+	junk_food_complete = false
+	staircase_ramp_lit = false
+	grocery_run_active = false
+
+	grocery_1_collected = false
+	grocery_2_collected = false
+	grocery_3_collected = false
+	grocery_4_collected = false
+	grocery_5_collected = false
+
+	grocery_run_score = 0
+	
+	home_alone_mission_status = "ACTIVE"
 
 	pizza_frenzy.reset_pizza_frenzy()
 	
@@ -357,6 +418,269 @@ func start_new_game():
 
 	$ball_board/ball_label.text = "BALL " + str(current_ball)
 	show_ball_board()
+	start_home_alone_section()
+
+func start_home_alone_section():
+	if home_alone_section_complete:
+		return
+
+	match home_alone_section:
+		1:
+			start_home_alone_section_1()
+		2:
+			start_home_alone_section_2()
+		3:
+			start_home_alone_section_3()
+		4:
+			start_home_alone_section_4()
+		5:
+			start_home_alone_section_5()
+		6:
+			start_home_alone_section_6()
+		7:
+			start_home_alone_section_7()
+
+func start_home_alone_section_1():
+	
+	print("HOME ALONE - SECTION 1")
+	print("BUZZ'S GIRLFRIEND")
+
+func start_home_alone_section_2():
+	junk_food_score = 0
+	junk_food_complete = false
+
+	print("HOME ALONE - SECTION 2")
+	print("JUNK FOOD / GANGSTER MOVIE")
+	print("JUNK FOOD TARGET: 50000")
+
+	update_junk_food_display()
+	show_information_board()
+
+func start_home_alone_section_3():
+	print("HOME ALONE - SECTION 3")
+	print("SLED")
+
+func start_home_alone_section_4():
+	print("HOME ALONE - SECTION 4")
+	print("LIGHTS ON")
+
+func start_home_alone_section_5():
+	print("HOME ALONE - SECTION 5")
+	print("AFTERSHAVE")
+
+func start_home_alone_section_6():
+	print("HOME ALONE - SECTION 6")
+	print("GROCERY RUN")
+
+func start_home_alone_section_7():
+	print("HOME ALONE - SECTION 7")
+	print("9 PM RETURN")
+
+	play_9pm_return_video()
+
+func grocery_item_1_hit():
+	if home_alone_section != 6:
+		return
+
+	if grocery_1_collected:
+		return
+
+	grocery_1_collected = true
+	grocery_run_active = true
+
+	grocery_run_score += 5000
+
+	print("GROCERY ITEM 1 COLLECTED")
+	print("GROCERY RUN SCORE: ", grocery_run_score)
+
+	add_score(5000)
+	show_score_popup("GROCERY", 5000)
+
+func grocery_item_2_hit():
+	if home_alone_section != 6:
+		return
+
+	if grocery_2_collected:
+		return
+
+	grocery_2_collected = true
+	grocery_run_active = true
+
+	grocery_run_score += 5000
+
+	print("GROCERY ITEM 2 COLLECTED")
+	print("GROCERY RUN SCORE: ", grocery_run_score)
+
+	add_score(5000)
+	show_score_popup("GROCERY", 5000)
+
+func grocery_item_3_hit():
+	if home_alone_section != 6:
+		return
+
+	if grocery_3_collected:
+		return
+
+	grocery_3_collected = true
+	grocery_run_active = true
+
+	grocery_run_score += 5000
+
+	print("GROCERY ITEM 3 COLLECTED")
+	print("GROCERY RUN SCORE: ", grocery_run_score)
+
+	add_score(5000)
+	show_score_popup("GROCERY", 5000)
+
+func grocery_item_4_hit():
+	if home_alone_section != 6:
+		return
+
+	if grocery_4_collected:
+		return
+
+	grocery_4_collected = true
+	grocery_run_active = true
+
+	grocery_run_score += 5000
+
+	print("GROCERY ITEM 4 COLLECTED")
+	print("GROCERY RUN SCORE: ", grocery_run_score)
+
+	add_score(5000)
+	show_score_popup("GROCERY", 5000)
+
+func grocery_item_5_hit():
+	if home_alone_section != 6:
+		return
+
+	if grocery_5_collected:
+		return
+
+	grocery_5_collected = true
+	grocery_run_active = true
+
+	grocery_run_score += 5000
+
+	print("GROCERY ITEM 5 COLLECTED")
+	print("GROCERY RUN SCORE: ", grocery_run_score)
+
+	add_score(5000)
+	show_score_popup("GROCERY", 5000)
+
+	print("GROCERY CHECK:")
+	print("ITEM 1: ", grocery_1_collected)
+	print("ITEM 2: ", grocery_2_collected)
+	print("ITEM 3: ", grocery_3_collected)
+	print("ITEM 4: ", grocery_4_collected)
+	print("ITEM 5: ", grocery_5_collected)
+
+	if grocery_1_collected and grocery_2_collected and grocery_3_collected and grocery_4_collected and grocery_5_collected:
+		print("GROCERY RUN COMPLETE")
+		print("AWARDING GROCERY BONUS: 10000")
+
+		grocery_run_score += 10000
+
+		add_score(10000)
+		show_score_popup("GROCERY RUN", 10000)
+
+		grocery_run_active = false
+
+		home_alone_section = 7
+		start_home_alone_section()
+
+func lights_on_target_1_hit():
+	if home_alone_section != 4:
+		return
+
+	if lights_on_target_1_complete:
+		return
+
+	lights_on_target_1_complete = true
+
+	print("LIGHTS ON - TARGET 1 HIT")
+
+	add_score(10000)
+	show_score_popup("LIGHTS ON", 10000)
+
+func lights_on_target_2_hit():
+	if home_alone_section != 4:
+		return
+
+	if lights_on_target_2_complete:
+		return
+
+	lights_on_target_2_complete = true
+
+	print("LIGHTS ON - TARGET 2 HIT")
+
+	add_score(10000)
+	show_score_popup("LIGHTS ON", 10000)
+
+func lights_on_target_3_hit():
+	if home_alone_section != 4:
+		return
+
+	if lights_on_target_3_complete:
+		return
+
+	lights_on_target_3_complete = true
+
+	print("LIGHTS ON - TARGET 3 HIT")
+
+	add_score(10000)
+	show_score_popup("LIGHTS ON", 10000)
+
+	if lights_on_target_1_complete and lights_on_target_2_complete and lights_on_target_3_complete:
+		print("LIGHTS ON - ALL TARGETS COMPLETE")
+
+		home_alone_section = 5
+		start_home_alone_section()
+
+func aftershave_target_hit():
+	if home_alone_section != 5:
+		return
+
+	if aftershave_target_complete:
+		return
+
+	aftershave_target_complete = true
+
+	print("AFTERSHAVE TARGET HIT")
+
+	add_score(10000)
+	show_score_popup("AFTERSHAVE", 10000)
+
+	home_alone_section = 6
+	start_home_alone_section()
+
+func buzz_girlfriend_scoop_hit():
+	if home_alone_section != 1:
+		return
+
+	print("BUZZ'S GIRLFRIEND SCOOP HIT")
+
+	add_score(50000)
+	show_score_popup("BUZZ'S GIRLFRIEND", 50000)
+
+	play_buzz_girlfriend_video()
+
+func staircase_ramp_hit():
+	if home_alone_section != 3:
+		return
+
+	print("STAIRCASE RAMP HIT")
+
+	add_score(20000)
+	show_score_popup("STAIRCASE", 20000)
+
+	home_alone_section = 4
+	start_home_alone_section()
+	
+	hide_active_board()
+
+func update_junk_food_display():
+	$information_board/information_label.text = "JUNK FOOD\n" + format_score(junk_food_score) + " / 50,000"
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -395,7 +719,45 @@ func _input(event):
 		# Test Delivery Ramp
 		if event.keycode == KEY_L:
 			pizza_frenzy.start_pizza_frenzy()	
-
+			
+		if event.keycode == KEY_B:
+			buzz_girlfriend_scoop_hit()
+			
+		if event.keycode == KEY_T:
+			staircase_ramp_hit()
+			
+		if event.keycode == KEY_1:
+			lights_on_target_1_hit()
+		
+		if event.keycode == KEY_2:
+			lights_on_target_2_hit()
+			
+		if event.keycode == KEY_3:
+			lights_on_target_3_hit()
+			
+		if event.keycode == KEY_4:
+			aftershave_target_hit()
+			
+		if event.keycode == KEY_5:
+			grocery_item_1_hit()
+			
+		if event.keycode == KEY_6:
+			grocery_item_2_hit()
+			
+		if event.keycode == KEY_7:
+			grocery_item_3_hit()
+			
+		if event.keycode == KEY_8:
+			grocery_item_4_hit()
+		
+		if event.keycode == KEY_9:
+			grocery_item_5_hit()
+			
+		if event.is_action_pressed("ui_accept"):
+			show_video_tv()
+		if event.is_action_pressed("ui_cancel"):
+			hide_video_tv()
+			
 func start_pizza_collection():
 	if pizza_collection_active:
 		return
@@ -453,5 +815,102 @@ func complete_pizza_collection():
 
 	await info_tween.finished
 
+func home_alone_complete():
+	print("HOME ALONE COMPLETE")
+
+	home_alone_section_complete = true
+	home_alone_mission_status = "COMPLETE"
+
+	# Unlock Furnace Multiball
+	furnace_multiball_mission_status = "READY"
+
+	update_mission_board()
+
 func _process(_delta):
 	update_pizza_board()
+
+func _on_video_finished():
+	hide_video_tv()
+
+	match current_video:
+		"buzz_girlfriend":
+			print("BUZZ'S GIRLFRIEND VIDEO COMPLETE")
+
+			home_alone_section = 2
+			start_home_alone_section()
+
+		"9pm_return":
+			print("9 PM RETURN VIDEO COMPLETE")
+
+			home_alone_complete()
+
+func show_video_tv():
+	var start_position = video_tv_home_position + Vector2(0, -700)
+
+	$video_tv.position = start_position
+	$video_tv.visible = true
+
+	# Reset video to the beginning
+	$video_tv/VideoStreamPlayer.stop()
+	$video_tv/VideoStreamPlayer.stream_position = 0.0
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		$video_tv,
+		"position",
+		video_tv_home_position,
+		0.8
+	)
+
+	# Start video once TV reaches its final position
+	tween.finished.connect(func():
+		$video_tv/VideoStreamPlayer.play()
+	)
+
+func hide_video_tv():
+	$video_tv/VideoStreamPlayer.stop()
+
+	var end_position = video_tv_home_position + Vector2(0, -700)
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN)
+
+	tween.tween_property(
+		$video_tv,
+		"position",
+		end_position,
+		0.8
+	)
+
+	tween.finished.connect(func():
+		$video_tv.visible = false
+	)
+
+
+func play_buzz_girlfriend_video():
+	play_game_video("buzz_girlfriend")
+
+func play_9pm_return_video():
+	play_game_video("9pm_return")
+
+func play_game_video(video_id):
+
+	match video_id:
+
+		"buzz_girlfriend":
+			current_video = "buzz_girlfriend"
+			$video_tv/VideoStreamPlayer.stream = VIDEO_BUZZ_GIRLFRIEND
+
+		"9pm_return":
+			current_video = "9pm_return"
+			$video_tv/VideoStreamPlayer.stream = VIDEO_9PM_RETURN
+
+		"gangster_movie":
+			current_video = "gangster_movie"
+			# Gangster movie will be added here
+
+	show_video_tv()

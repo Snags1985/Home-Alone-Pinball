@@ -16,6 +16,8 @@
 [ext_resource type="FontFile" uid="uid://c3uxyr1t2vfeo" path="res://addons/mpf-gmc/fonts/digital-7.ttf" id="17_4c7gw"]
 [ext_resource type="Texture2D" uid="uid://bdox5ad8jp4so" path="res://addons/mpf-gmc/images/Pizza Frenzy/z1_lit.png" id="17_al7un"]
 [ext_resource type="Texture2D" uid="uid://hadir6nkkiy1" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_grey.png" id="18_7rri2"]
+[ext_resource type="VideoStream" uid="uid://dh2owdsmdwxdo" path="res://addons/mpf-gmc/videos/9pm_return.ogv" id="18_ogvj0"]
+[ext_resource type="Texture2D" uid="uid://b0p3p6v7tr1no" path="res://addons/mpf-gmc/images/Main Screen/tv_bezel.png" id="18_yie78"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
 
 [node name="Main_Game_Screen" type="Node2D" unique_id=400016218]
@@ -113,7 +115,7 @@ offset_top = -259.33762
 offset_right = 156.34499
 offset_bottom = -153.87842
 theme_override_font_sizes/font_size = 45
-text = "PIZZA FRENZY"
+text = "HOME ALONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -154,7 +156,7 @@ offset_top = 64.397644
 offset_right = 156.34497
 offset_bottom = 177.39764
 theme_override_font_sizes/font_size = 45
-text = "MODE 3"
+text = "PIZZA FRENZY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -252,6 +254,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="score_popup" type="Label" parent="score_board" unique_id=1155217179]
+visible = false
 offset_left = -78.01898
 offset_top = -82.89526
 offset_right = 507.12402
@@ -271,3 +274,30 @@ theme_override_font_sizes/font_size = 150
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="video_tv" type="Node2D" parent="." unique_id=44517328]
+position = Vector2(10, 0)
+
+[node name="tv_bezel" type="Node2D" parent="video_tv" unique_id=1747898959]
+position = Vector2(-242, 523)
+
+[node name="ColorRect" type="ColorRect" parent="video_tv/tv_bezel" unique_id=1856188441]
+offset_left = 970.0
+offset_top = -391.0
+offset_right = 1595.0
+offset_bottom = -22.0
+color = Color(0.01953125, 0.017623901, 0.017623901, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="video_tv" unique_id=1513053159]
+offset_left = 737.0
+offset_top = 130.0
+offset_right = 1362.0
+offset_bottom = 499.0
+stream = ExtResource("18_ogvj0")
+expand = true
+
+[node name="Sprite2D" type="Sprite2D" parent="video_tv" unique_id=1511730955]
+position = Vector2(1051, 291)
+scale = Vector2(0.5996596, 0.5908203)
+texture = ExtResource("18_yie78")
