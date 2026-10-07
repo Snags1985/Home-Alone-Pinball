@@ -1,21 +1,25 @@
 extends Node
 
 @onready var main_game_screen = get_parent().get_node("Main_Game_Screen")
+const SCORE_TARGET = 10000
+const SCORE_RAMP = 25000
+const SCORE_BUMPER = 1000
+const SCORE_BUZZ_GIRLFRIEND = 25000
 
 func award_points(points):
 	main_game_screen.add_score(points)
 
 func target_hit():
-	award_points(10000)
-	main_game_screen.show_score_popup("TARGET", 10000)
+	award_points(SCORE_TARGET)
+	main_game_screen.show_score_popup("TARGET", SCORE_TARGET)
 	
 func ramp_hit():
-	award_points(25000)
-	main_game_screen.show_score_popup("RAMP", 25000)
+	award_points(SCORE_RAMP)
+	main_game_screen.show_score_popup("RAMP", SCORE_RAMP)
 	
 func bumper_hit():
-	award_points(1000)
-	main_game_screen.show_score_popup("BUMPER", 1000)
+	award_points(SCORE_BUMPER)
+	main_game_screen.show_score_popup("BUMPER", SCORE_BUMPER)
 
 	if main_game_screen.home_alone_section != 2:
 		return

@@ -49,8 +49,18 @@ var grocery_4_collected = false
 var grocery_5_collected = false
 
 var grocery_run_score = 0
-var staircase_ramp_lit = false
+var grocery_items = [
+	GROCERY_SOLDIERS,
+	GROCERY_MAC,
+	GROCERY_MILK,
+	GROCERY_BREAD,
+	GROCERY_DETERGENT
+]
 
+var grocery_target_assignments = []
+var grocery_collected_count = 0
+
+var staircase_ramp_lit = false
 var video_tv_home_position: Vector2
 var current_video = ""
 
@@ -58,6 +68,15 @@ var current_video = ""
 
 const VIDEO_BUZZ_GIRLFRIEND = preload("res://addons/mpf-gmc/videos/buzz_girlfriend.ogv")
 const VIDEO_9PM_RETURN = preload("res://addons/mpf-gmc/videos/9pm_return.ogv")
+
+# --------------------------------------------------------------------------------------------------
+
+# Grocery itme image paths--------------------------------------------------------------------------
+const GROCERY_SOLDIERS = preload("res://addons/mpf-gmc/images/Greocery Run/army_men.png")
+const GROCERY_MAC = preload("res://addons/mpf-gmc/images/Greocery Run/macaroni.png")
+const GROCERY_MILK = preload("res://addons/mpf-gmc/images/Greocery Run/milk.png")
+const GROCERY_BREAD = preload("res://addons/mpf-gmc/images/Greocery Run/bread.png")
+const GROCERY_DETERGENT = preload("res://addons/mpf-gmc/images/Greocery Run/detergent.png")
 
 # --------------------------------------------------------------------------------------------------
 
@@ -497,6 +516,13 @@ func start_home_alone_section_6():
 	print("HOME ALONE - SECTION 6")
 	print("GROCERY RUN")
 
+	grocery_target_assignments = grocery_items.duplicate()
+	grocery_target_assignments.shuffle()
+	grocery_collected_count = 0
+
+	$information_board/information_label.text = ""
+	show_information_board()
+
 func start_home_alone_section_7():
 	print("HOME ALONE - SECTION 7")
 	print("9 PM RETURN")
@@ -511,6 +537,10 @@ func grocery_item_1_hit():
 		return
 
 	grocery_1_collected = true
+
+	$information_board/grocery_item_1.texture = grocery_target_assignments[0]
+	$information_board/grocery_item_1.visible = true
+
 	grocery_run_active = true
 
 	grocery_run_score += 5000
@@ -529,6 +559,10 @@ func grocery_item_2_hit():
 		return
 
 	grocery_2_collected = true
+
+	$information_board/grocery_item_2.texture = grocery_target_assignments[1]
+	$information_board/grocery_item_2.visible = true
+
 	grocery_run_active = true
 
 	grocery_run_score += 5000
@@ -547,6 +581,10 @@ func grocery_item_3_hit():
 		return
 
 	grocery_3_collected = true
+
+	$information_board/grocery_item_3.texture = grocery_target_assignments[2]
+	$information_board/grocery_item_3.visible = true
+
 	grocery_run_active = true
 
 	grocery_run_score += 5000
@@ -565,6 +603,10 @@ func grocery_item_4_hit():
 		return
 
 	grocery_4_collected = true
+
+	$information_board/grocery_item_4.texture = grocery_target_assignments[3]
+	$information_board/grocery_item_4.visible = true
+
 	grocery_run_active = true
 
 	grocery_run_score += 5000
@@ -583,6 +625,10 @@ func grocery_item_5_hit():
 		return
 
 	grocery_5_collected = true
+
+	$information_board/grocery_item_5.texture = grocery_target_assignments[4]
+	$information_board/grocery_item_5.visible = true
+
 	grocery_run_active = true
 
 	grocery_run_score += 5000
@@ -685,19 +731,40 @@ func buzz_girlfriend_scoop_hit():
 
 	print("BUZZ'S GIRLFRIEND SCOOP HIT")
 
-	add_score(50000)
-	show_score_popup("BUZZ'S GIRLFRIEND", 50000)
+	add_score(25000)
+	show_score_popup("BUZZ'S GIRLFRIEND", 25000)
 
 	play_buzz_girlfriend_video()
+
+func sled_ramp_hit():
+	if home_alone_section != 3:
+		return
+
+	if not staircase_ramp_lit:
+		return
+
+	print("SLED STAIRCASE RAMP HIT")
+
+	staircase_ramp_lit = false
+
+	add_score(20000)
+	show_score_popup("SLED RUN", 20000)
+
+	show_information_message("SLED RUN", 2.0)
 
 func staircase_ramp_hit():
 	if home_alone_section != 3:
 		return
 
+	if not staircase_ramp_lit:
+		return
+
 	print("STAIRCASE RAMP HIT")
 
+	staircase_ramp_lit = false
+
 	add_score(20000)
-	show_score_popup("STAIRCASE", 20000)
+	show_score_popup("SLED RUN", 20000)
 
 	home_alone_section = 4
 	start_home_alone_section()

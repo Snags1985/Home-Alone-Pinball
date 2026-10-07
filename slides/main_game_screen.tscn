@@ -9,13 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://btwr1msim2rdu" path="res://addons/mpf-gmc/images/Pizza Frenzy/p_lit.png" id="11_gwf0e"]
 [ext_resource type="Texture2D" uid="uid://y12q6wds0mks" path="res://addons/mpf-gmc/images/Pizza Frenzy/i_grey.png" id="12_6xqhp"]
 [ext_resource type="Texture2D" uid="uid://h4xm81cspahm" path="res://addons/mpf-gmc/images/Pizza Frenzy/i_lit.png" id="13_k0rwq"]
+[ext_resource type="Texture2D" uid="uid://52bhuqk34utw" path="res://addons/mpf-gmc/images/Greocery Run/army_men.png" id="14_aqto4"]
 [ext_resource type="Texture2D" uid="uid://dhljpvlhqswxm" path="res://addons/mpf-gmc/images/Pizza Frenzy/z2_grey.png" id="14_tmqfr"]
 [ext_resource type="Texture2D" uid="uid://b5skdy4abd152" path="res://addons/mpf-gmc/images/Pizza Frenzy/z2_lit.png" id="15_fxbmp"]
+[ext_resource type="Texture2D" uid="uid://we3u8qr7yybh" path="res://addons/mpf-gmc/images/Greocery Run/bread.png" id="15_ysemc"]
 [ext_resource type="Texture2D" uid="uid://d2orfshkk2a1p" path="res://addons/mpf-gmc/images/Pizza Frenzy/z1_grey.png" id="16_1kg3j"]
+[ext_resource type="Texture2D" uid="uid://cmfr15y3qtugl" path="res://addons/mpf-gmc/images/Greocery Run/detergent.png" id="16_2rout"]
 [ext_resource type="Texture2D" uid="uid://b8yy22lfw2gu3" path="res://addons/mpf-gmc/images/Main Screen/ball_board.png" id="16_5b1ws"]
 [ext_resource type="FontFile" uid="uid://c3uxyr1t2vfeo" path="res://addons/mpf-gmc/fonts/digital-7.ttf" id="17_4c7gw"]
 [ext_resource type="Texture2D" uid="uid://bdox5ad8jp4so" path="res://addons/mpf-gmc/images/Pizza Frenzy/z1_lit.png" id="17_al7un"]
+[ext_resource type="Texture2D" uid="uid://r5mryese5g0i" path="res://addons/mpf-gmc/images/Greocery Run/macaroni.png" id="17_q7brp"]
 [ext_resource type="Texture2D" uid="uid://hadir6nkkiy1" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_grey.png" id="18_7rri2"]
+[ext_resource type="Texture2D" uid="uid://rcvgqlnw2m1g" path="res://addons/mpf-gmc/images/Greocery Run/milk.png" id="18_fqku7"]
 [ext_resource type="VideoStream" uid="uid://dh2owdsmdwxdo" path="res://addons/mpf-gmc/videos/9pm_return.ogv" id="18_ogvj0"]
 [ext_resource type="Texture2D" uid="uid://b0p3p6v7tr1no" path="res://addons/mpf-gmc/images/Main Screen/tv_bezel.png" id="18_yie78"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
@@ -129,6 +134,36 @@ theme_override_font_sizes/font_size = 150
 text = "BALL SAVED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="grocery_item_1" type="Sprite2D" parent="information_board" unique_id=1625725147]
+visible = false
+position = Vector2(-704.4331, 6.2762146)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_aqto4")
+
+[node name="grocery_item_2" type="Sprite2D" parent="information_board" unique_id=189803618]
+visible = false
+position = Vector2(-311.12622, 6.2762146)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_ysemc")
+
+[node name="grocery_item_3" type="Sprite2D" parent="information_board" unique_id=271421921]
+visible = false
+position = Vector2(76.31836, 6.2762146)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_2rout")
+
+[node name="grocery_item_4" type="Sprite2D" parent="information_board" unique_id=1889236576]
+visible = false
+position = Vector2(416.792, 6.2762146)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("17_q7brp")
+
+[node name="grocery_item_5" type="Sprite2D" parent="information_board" unique_id=1930944018]
+visible = false
+position = Vector2(757.2632, 6.2762146)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_fqku7")
 
 [node name="mission_board" type="Sprite2D" parent="." unique_id=1356589273]
 z_index = 10
