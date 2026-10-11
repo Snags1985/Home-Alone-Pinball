@@ -553,6 +553,7 @@ offset_right = 1362.0
 offset_bottom = 499.0
 stream = ExtResource("18_ogvj0")
 expand = true
+bus = &"voice"
 
 [node name="Sprite2D" type="Sprite2D" parent="video_tv" unique_id=1511730955]
 position = Vector2(1051, 291)

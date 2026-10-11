@@ -579,12 +579,14 @@ visible = false
 position = Vector2(961, 919)
 scale = Vector2(0.8848987, 1)
 stream = ExtResource("36_i1o6u")
+bus = &"voice"
 
 [node name="ball_saved_2_audio" type="AudioStreamPlayer2D" parent="." unique_id=1949426853]
 visible = false
 position = Vector2(961, 919)
 scale = Vector2(0.8848987, 1)
 stream = ExtResource("37_6ih6s")
+bus = &"voice"
 
 [node name="awesome" type="Sprite2D" parent="." unique_id=1752867725]
 visible = false

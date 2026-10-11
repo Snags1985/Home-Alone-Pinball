@@ -6,9 +6,11 @@ var player_score = 0
 var current_ball = 1
 var game_active = false
 var game_over = false
-
 var player_count = 0
 var game_has_started = false
+
+# Credit system
+var credits = 0
 
 var pizza_board_down_position
 var pizza_board_up_position
@@ -132,6 +134,7 @@ func _ready():
 	
 	$video_tv.visible = false
 	$video_tv/VideoStreamPlayer.finished.connect(_on_video_finished)
+	update_attract_credit_message()
 
 func update_pizza_board():
 	$pizza_board/p_lit.visible = pizza_frenzy.p_collected
@@ -355,6 +358,24 @@ func add_score(points):
 
 	player_score += points
 	$score_board/score_label.text = format_score(player_score)
+
+func add_credit():
+	credits += 1
+	update_attract_credit_message()
+	print("CREDIT ADDED - CREDITS: ", credits)
+
+func update_attract_credit_message():
+	var game_settings = get_parent().get_node("GameSettings")
+
+	if game_settings.free_play_enabled:
+		$"../attract_mode/credit_message".visible = false
+	else:
+		$"../attract_mode/credit_message".visible = true
+
+		if credits > 0:
+			$"../attract_mode/credit_message".text = "CREDITS: " + str(credits)
+		else:
+			$"../attract_mode/credit_message".text = "INSERT COIN"
 
 func show_score_popup(shot_name, points):
 
@@ -775,93 +796,134 @@ func update_junk_food_display():
 	$information_board/information_label.text = "JUNK FOOD\n" + format_score(junk_food_score) + " / 50,000"
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
 
-		if event.keycode == KEY_N:
+	if not (event is InputEventKey and event.pressed):
+		return
 
-			# No game currently running
-			if not game_active:
-				start_new_game()
-				return
 
-			# Game has already started - restart completely
-			if game_has_started:
-				restart_game()
-				return
+	# =========================================================
+	# NEW GAME / START
+	# =========================================================
 
-			# Game has not started yet - add another player
-			if player_count < 4:
-				player_count += 1
-				print("PLAYER ", player_count, " ADDED")
-				$score_board/player_label.text = str(player_count) + " PLAYERS"
+	if event.keycode == KEY_N:
 
-		if event.keycode == KEY_D:
-			ball_drained()
+		# Start from attract mode
+		if get_parent().get_node("attract_mode").visible:
 
-		if event.keycode == KEY_S:
-			add_score(10000)
+			var game_settings = get_parent().get_node("GameSettings")
 
-		if event.keycode == KEY_P:
-			show_pizza_board()
+			# Free Play OFF - require a credit
+			if not game_settings.free_play_enabled:
 
-		if event.keycode == KEY_I:
-			show_information_board()
+				if credits <= 0:
+					print("START BLOCKED - NO CREDITS")
+					return
 
-		if event.keycode == KEY_U:
-			hide_active_board()
+				credits -= 1
+				update_attract_credit_message()
 
-		if event.keycode == KEY_K:
-			show_information_message("BALL SAVED", 3.0)
+			# Start the game
+			get_parent().get_node("attract_mode").visible = false
+			visible = true
+			start_new_game()
+			return
 
-		if event.keycode == KEY_V:
-			show_ball_board()
 
-		if event.keycode == KEY_O:
-			start_pizza_collection()
+		# If already in the game
+		if not game_active:
 
-		if event.keycode == KEY_C:
-			complete_pizza_collection()
+			start_new_game()
+			return
 
-		if event.keycode == KEY_L:
-			pizza_frenzy.start_pizza_frenzy()
 
-		if event.keycode == KEY_B:
-			buzz_girlfriend_scoop_hit()
+		if game_has_started:
 
-		if event.keycode == KEY_T:
-			staircase_ramp_hit()
+			restart_game()
+			return
 
-		if event.keycode == KEY_1:
-			lights_on_target_1_hit()
 
-		if event.keycode == KEY_2:
-			lights_on_target_2_hit()
+		# Add players before the game has started
+		if player_count < 4:
 
-		if event.keycode == KEY_3:
-			lights_on_target_3_hit()
+			player_count += 1
 
-		if event.keycode == KEY_4:
-			aftershave_target_hit()
+			print(
+				"PLAYER ",
+				player_count,
+				" ADDED"
+			)
 
-		if event.keycode == KEY_5:
-			grocery_item_1_hit()
+			$score_board/player_label.text = (
+				str(player_count) + " PLAYERS"
+			)
 
-		if event.keycode == KEY_6:
-			grocery_item_2_hit()
 
-		if event.keycode == KEY_7:
-			grocery_item_3_hit()
+	# =========================================================
+	# TEMPORARY CREDIT KEY
+	# =========================================================
 
-		if event.keycode == KEY_8:
-			grocery_item_4_hit()
+	if event.keycode == KEY_C:
 
-		if event.keycode == KEY_9:
-			grocery_item_5_hit()
-			
-		if event.is_action_pressed("ui_accept"):
-			show_video_tv()
-		if event.is_action_pressed("ui_cancel"):
-			hide_video_tv()
+		add_credit()
+		return
+
+
+	# =========================================================
+	# TEMPORARY INFORMATION BOARD TEST
+	# =========================================================
+
+	if event.keycode == KEY_K:
+
+		show_information_message(
+			"BALL SAVED",
+			3.0
+		)
+
+		return
+
+
+	# =========================================================
+	# TEMPORARY STAIRCASE / SLED TEST
+	# =========================================================
+
+	if event.keycode == KEY_T:
+
+		staircase_ramp_hit()
+		return
+
+
+	# =========================================================
+	# GROCERY RUN TEST KEYS
+	# =========================================================
+
+	if event.keycode == KEY_1:
+
+		grocery_item_1_hit()
+		return
+
+
+	if event.keycode == KEY_2:
+
+		grocery_item_2_hit()
+		return
+
+
+	if event.keycode == KEY_3:
+
+		grocery_item_3_hit()
+		return
+
+
+	if event.keycode == KEY_4:
+
+		grocery_item_4_hit()
+		return
+
+
+	if event.keycode == KEY_5:
+
+		grocery_item_5_hit()
+		return
 			
 func start_pizza_collection():
 	if pizza_collection_active:
@@ -1001,7 +1063,6 @@ func hide_video_tv():
 	tween.finished.connect(func():
 		$video_tv.visible = false
 	)
-
 
 func play_buzz_girlfriend_video():
 	play_game_video("buzz_girlfriend")

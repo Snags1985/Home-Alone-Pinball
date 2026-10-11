@@ -1,14 +1,31 @@
 [gd_scene format=3 uid="uid://en4yh0ewugbk"]
 
+[ext_resource type="PackedScene" uid="uid://185dtivr1vtv" path="res://slides/attract_mode.tscn" id="1_26yv7"]
 [ext_resource type="PackedScene" uid="uid://bpfbj34wl351" path="res://slides/main_game_screen.tscn" id="1_oi1wy"]
 [ext_resource type="Script" uid="uid://cqqtno8kdbeqk" path="res://addons/mpf-gmc/scripts/game_scoring.gd" id="3_frv3b"]
 [ext_resource type="Script" uid="uid://ux6gofp0wo20" path="res://addons/mpf-gmc/scripts/game_settings.gd" id="4_5mdxq"]
 [ext_resource type="Script" uid="uid://cyy17kmme10dj" path="res://addons/mpf-gmc/scripts/settings_menu.gd" id="5_m7q13"]
+[ext_resource type="Texture2D" uid="uid://ccyimdfni8ii4" path="res://addons/mpf-gmc/images/Settings/background.png" id="6_wr682"]
+[ext_resource type="Texture2D" uid="uid://bak4qcrh6jrkc" path="res://addons/mpf-gmc/images/Settings/devider.png" id="7_6vymg"]
+[ext_resource type="Texture2D" uid="uid://b4puk4ad64l2a" path="res://addons/mpf-gmc/images/Settings/bauble_gold.png" id="7_v1se4"]
+[ext_resource type="FontFile" uid="uid://bppdjegw1ciku" path="res://addons/mpf-gmc/fonts/Georgia-Bold.ttf" id="8_bkq11"]
+[ext_resource type="Texture2D" uid="uid://c0lf5c5koq58a" path="res://addons/mpf-gmc/images/Settings/bauble_red.png" id="8_qm65m"]
+[ext_resource type="Script" uid="uid://1dfh1o34ak71" path="res://addons/mpf-gmc/scripts/christmas_lights_score_board.gd" id="9_wr682"]
+[ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="10_ge1om"]
+[ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="11_6vymg"]
+[ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="12_bkq11"]
+[ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="13_1sfst"]
 [ext_resource type="PackedScene" uid="uid://nwfx2puvlsgm" path="res://slides/pizza_frenzy.tscn" id="16_5brmp"]
+[ext_resource type="AudioStream" uid="uid://cxdf4s3px6c0y" path="res://sounds/voice/keep_the_change.mp3" id="16_bkq11"]
+[ext_resource type="AudioStream" uid="uid://747l5n2kixsa" path="res://sounds/music/main_theme.mp3" id="17_1sfst"]
+[ext_resource type="AudioStream" uid="uid://c66ax4ilq06to" path="res://sounds/effects/sample.mp3" id="18_op5x4"]
 
 [node name="Game" type="Node2D" unique_id=1080735159]
 
+[node name="attract_mode" parent="." unique_id=1453258256 instance=ExtResource("1_26yv7")]
+
 [node name="Main_Game_Screen" parent="." unique_id=400016218 instance=ExtResource("1_oi1wy")]
+visible = false
 
 [node name="PizzaFrenzy" parent="." unique_id=911019608 instance=ExtResource("16_5brmp")]
 visible = false
@@ -24,48 +41,171 @@ script = ExtResource("4_5mdxq")
 z_index = 100
 script = ExtResource("5_m7q13")
 
-[node name="settings_background" type="ColorRect" parent="SettingMenu" unique_id=212295795]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.023529412, 0.27058825, 0.47058824, 1)
+[node name="settings_background" type="Sprite2D" parent="SettingMenu" unique_id=1132713626]
+position = Vector2(959, 540)
+scale = Vector2(1.1369185, 1.1733047)
+texture = ExtResource("6_wr682")
 
-[node name="balls_panel" type="ColorRect" parent="SettingMenu" unique_id=1088696348]
-offset_left = 362.0
-offset_top = 218.0
-offset_right = 1562.0
+[node name="balls_panel" type="ColorRect" parent="SettingMenu" unique_id=1511698261]
+offset_left = 822.0
+offset_top = 547.0
+offset_right = 1121.9172
+offset_bottom = 625.0
+color = Color(0.039215688, 0.101960786, 0.14117648, 0.5019608)
+
+[node name="devider" type="Sprite2D" parent="SettingMenu" unique_id=1519241714]
+z_index = 1
+position = Vector2(977.3748, 707.875)
+scale = Vector2(0.29799718, 0.29799718)
+texture = ExtResource("7_6vymg")
+
+[node name="setting_label" type="Label" parent="SettingMenu" unique_id=1972775765]
+z_index = 1
+offset_left = 489.0
+offset_top = 476.0
+offset_right = 1471.0
 offset_bottom = 518.0
-color = Color(0.025680542, 0.34177226, 0.59765625, 1)
-
-[node name="balls_setting_label" type="Label" parent="SettingMenu" unique_id=1972775765]
-offset_left = 762.0
-offset_top = 233.0
-offset_right = 1151.0
-offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("8_bkq11")
 theme_override_font_sizes/font_size = 42
-text = "BALLS PER GAME: 5"
+text = "BALLS PER GAME: 3"
+horizontal_alignment = 1
 
 [node name="settings_title" type="Label" parent="SettingMenu" unique_id=2094581811]
-offset_top = 82.0
-offset_right = 1920.0
-offset_bottom = 182.0
+z_index = 1
+offset_left = 34.0
+offset_top = 807.0
+offset_right = 1954.0
+offset_bottom = 907.0
+theme_override_colors/font_color = Color(0.9647059, 0.7490196, 0.31764707, 1)
+theme_override_fonts/font = ExtResource("8_bkq11")
 theme_override_font_sizes/font_size = 60
 text = "Machine Settings"
 horizontal_alignment = 1
 
 [node name="balls_selector" type="Label" parent="SettingMenu" unique_id=29437546]
-offset_left = -2.0
-offset_top = 298.0
-offset_right = 1918.0
-offset_bottom = 398.0
+z_index = 1
+offset_left = 489.0
+offset_top = 509.0
+offset_right = 1471.0
+offset_bottom = 609.0
+theme_override_colors/font_color = Color(0.9647059, 0.7490196, 0.31764707, 1)
 theme_override_font_sizes/font_size = 45
-text = "◀ 3 BALLS ▶"
+text = "◀  3 BALLS  ▶"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="controls_label" type="Label" parent="SettingMenu" unique_id=2020508928]
-offset_left = 3.0
-offset_top = 1000.0
-offset_right = 1923.0
-offset_bottom = 1060.0
-theme_override_font_sizes/font_size = 30
-text = "LEFT / RIGHT: SELECT     ENTER: CONFIRM"
+z_index = 1
+offset_left = 25.0
+offset_top = 769.0
+offset_right = 1945.0
+offset_bottom = 829.0
+theme_override_fonts/font = ExtResource("8_bkq11")
+theme_override_font_sizes/font_size = 25
+text = "LEFT / RIGHT: SELECT     START: CONFIRM"
 horizontal_alignment = 1
+
+[node name="bauble_1" type="Sprite2D" parent="SettingMenu" unique_id=787802479]
+position = Vector2(693, 393.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_v1se4")
+
+[node name="bauble_2" type="Sprite2D" parent="SettingMenu" unique_id=1170544915]
+position = Vector2(801, 392)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="bauble_3" type="Sprite2D" parent="SettingMenu" unique_id=1586659892]
+position = Vector2(921, 392.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="bauble_4" type="Sprite2D" parent="SettingMenu" unique_id=1202064950]
+position = Vector2(1040.5, 394.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="bauble_5" type="Sprite2D" parent="SettingMenu" unique_id=88827700]
+position = Vector2(1136, 394.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="bauble_6" type="Sprite2D" parent="SettingMenu" unique_id=105773198]
+position = Vector2(1236, 394.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="bauble_7" type="Sprite2D" parent="SettingMenu" unique_id=1553036924]
+position = Vector2(1315, 394.16)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("8_qm65m")
+
+[node name="ChristmasLights_settings" type="Node2D" parent="SettingMenu" unique_id=761939652]
+script = ExtResource("9_wr682")
+
+[node name="Bulb_Red_02" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=1334872684]
+z_index = 1
+position = Vector2(338.75458, 354.30566)
+rotation = 0.12217305
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("10_ge1om")
+
+[node name="Bulb_Gold_01" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=2033036165]
+z_index = 1
+position = Vector2(322, 288)
+rotation = 0.7330383
+scale = Vector2(0.14443828, 0.14443828)
+texture = ExtResource("11_6vymg")
+
+[node name="Bulb_Green_01" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=255301858]
+z_index = 1
+position = Vector2(500.00003, 190)
+rotation = -0.7679449
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("12_bkq11")
+
+[node name="Bulb_Blue_06" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=1879945758]
+z_index = 1
+position = Vector2(692.00006, 178.00002)
+rotation = 0.38571778
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("13_1sfst")
+
+[node name="Bulb_Gold_02" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=1727894006]
+z_index = 1
+position = Vector2(1218, 172)
+rotation = -0.80285144
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("11_6vymg")
+
+[node name="Bulb_Blue_07" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=1448504558]
+z_index = 1
+position = Vector2(1319.9999, 187)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("13_1sfst")
+
+[node name="Bulb_Gold_04" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=136582805]
+z_index = 1
+position = Vector2(1533, 184.00005)
+rotation = -1.012291
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("11_6vymg")
+
+[node name="Bulb_Red_07" type="Sprite2D" parent="SettingMenu/ChristmasLights_settings" unique_id=683154089]
+z_index = 1
+position = Vector2(1613.0001, 274.99994)
+rotation = -0.38397235
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("10_ge1om")
+
+[node name="voice_preview" type="AudioStreamPlayer2D" parent="SettingMenu" unique_id=60055539]
+stream = ExtResource("16_bkq11")
+bus = &"voice"
+
+[node name="music_preview" type="AudioStreamPlayer2D" parent="SettingMenu" unique_id=1840793444]
+stream = ExtResource("17_1sfst")
+bus = &"music"
+
+[node name="effects_preview" type="AudioStreamPlayer2D" parent="SettingMenu" unique_id=1231345348]
+stream = ExtResource("18_op5x4")
+bus = &"effects"
