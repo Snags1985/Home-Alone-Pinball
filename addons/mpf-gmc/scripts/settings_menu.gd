@@ -107,7 +107,10 @@ func _input(event):
 		if editing_setting:
 			change_current_value(-1)
 		else:
-			if current_page > 1:
+			if current_page == 1:
+				current_page = TOTAL_PAGES
+				animate_page_change(-1)
+			else:
 				change_page(-1)
 
 	# RIGHT
@@ -116,7 +119,10 @@ func _input(event):
 		if editing_setting:
 			change_current_value(1)
 		else:
-			if current_page < TOTAL_PAGES:
+			if current_page == TOTAL_PAGES:
+				current_page = 1
+				animate_page_change(1)
+			else:
 				change_page(1)
 
 	# START / ENTER
@@ -136,10 +142,16 @@ func _input(event):
 
 func change_page(direction):
 
+	stop_audio_previews()
+
 	var old_page = current_page
 
 	current_page += direction
-	current_page = clamp(current_page, 1, TOTAL_PAGES)
+
+	if current_page > TOTAL_PAGES:
+		current_page = 1
+	elif current_page < 1:
+		current_page = TOTAL_PAGES
 
 	print("CHANGED PAGE: ", old_page, " -> ", current_page)
 
@@ -242,6 +254,12 @@ func animate_page_change(direction):
 	balls_selector.position.x = balls_selector_home_x
 
 	page_animating = false
+
+func stop_audio_previews():
+
+	$music_preview.stop()
+	$voice_preview.stop()
+	$effects_preview.stop()
 
 
 # =========================================================
@@ -359,57 +377,64 @@ func update_page_display():
 # =========================================================
 
 func change_current_value(direction):
+
 	# Page 1 - Balls
 	if current_page == 1:
 		if direction > 0:
-			selected_balls = 5
+			if selected_balls == 3:
+				selected_balls = 5
+			else:
+				selected_balls = 3
 		else:
-			selected_balls = 3
+			if selected_balls == 3:
+				selected_balls = 5
+			else:
+				selected_balls = 3
 
 	# Page 2 - Difficulty
 	elif current_page == 2:
 		selected_difficulty += direction
-		selected_difficulty = clamp(
-			selected_difficulty,
-			0,
-			difficulty_options.size() - 1
-		)
+
+		if selected_difficulty >= difficulty_options.size():
+			selected_difficulty = 0
+		elif selected_difficulty < 0:
+			selected_difficulty = difficulty_options.size() - 1
 
 	# Page 3 - Master Volume
 	elif current_page == 3:
 		selected_master_volume += direction * 10
-		selected_master_volume = clamp(
-			selected_master_volume,
-			0,
-			100
-		)
+
+		if selected_master_volume > 100:
+			selected_master_volume = 0
+		elif selected_master_volume < 0:
+			selected_master_volume = 100
 
 	# Page 4 - Music Volume
 	elif current_page == 4:
 		selected_music_volume += direction * 10
-		selected_music_volume = clamp(
-			selected_music_volume,
-			0,
-			100
-		)
+
+		if selected_music_volume > 100:
+			selected_music_volume = 0
+		elif selected_music_volume < 0:
+			selected_music_volume = 100
 
 	# Page 5 - Voice Volume
 	elif current_page == 5:
 		selected_voice_volume += direction * 10
-		selected_voice_volume = clamp(
-			selected_voice_volume,
-			0,
-			100
-		)
+
+		if selected_voice_volume > 100:
+			selected_voice_volume = 0
+		elif selected_voice_volume < 0:
+			selected_voice_volume = 100
 
 	# Page 6 - Effects Volume
 	elif current_page == 6:
 		selected_effects_volume += direction * 10
-		selected_effects_volume = clamp(
-			selected_effects_volume,
-			0,
-			100
-		)
+
+		if selected_effects_volume > 100:
+			selected_effects_volume = 0
+		elif selected_effects_volume < 0:
+			selected_effects_volume = 100
 
 	# Page 7 - Free Play / Credits
 	elif current_page == 7:
@@ -423,15 +448,21 @@ func change_current_value(direction):
 # =========================================================
 
 func confirm_current_setting():
+
 	if current_page == 1:
+
 		game_settings.balls_per_game = selected_balls
+
 		print(
 			"BALLS SETTING CONFIRMED: ",
 			game_settings.balls_per_game
 		)
 
+	# Page 2 - Difficulty
 	elif current_page == 2:
+
 		game_settings.game_difficulty = difficulty_options[selected_difficulty]
+
 		print(
 			"DIFFICULTY CONFIRMED: ",
 			game_settings.game_difficulty
@@ -439,15 +470,20 @@ func confirm_current_setting():
 
 	# Page 3 - Master Volume
 	elif current_page == 3:
+
 		game_settings.master_volume = selected_master_volume
 
 		var master_bus = AudioServer.get_bus_index("Master")
 		var volume_linear = game_settings.master_volume / 100.0
 
-		AudioServer.set_bus_volume_db(
-			master_bus,
-			linear_to_db(volume_linear)
-		)
+		if game_settings.master_volume <= 0:
+			AudioServer.set_bus_mute(master_bus, true)
+		else:
+			AudioServer.set_bus_mute(master_bus, false)
+			AudioServer.set_bus_volume_db(
+				master_bus,
+				linear_to_db(volume_linear)
+			)
 
 		print(
 			"MASTER VOLUME CONFIRMED: ",
@@ -456,34 +492,44 @@ func confirm_current_setting():
 
 	# Page 4 - Music Volume
 	elif current_page == 4:
+
 		game_settings.music_volume = selected_music_volume
 
 		var music_bus = AudioServer.get_bus_index("music")
 		var volume_linear = game_settings.music_volume / 100.0
 
-		AudioServer.set_bus_volume_db(
-		music_bus,
-		linear_to_db(volume_linear)
-	)
+		if game_settings.music_volume <= 0:
+			AudioServer.set_bus_mute(music_bus, true)
+		else:
+			AudioServer.set_bus_mute(music_bus, false)
+			AudioServer.set_bus_volume_db(
+				music_bus,
+				linear_to_db(volume_linear)
+			)
 
 		$music_preview.play()
 
 		print(
-		"MUSIC VOLUME CONFIRMED: ",
-		game_settings.music_volume
-	)
+			"MUSIC VOLUME CONFIRMED: ",
+			game_settings.music_volume
+		)
 
 	# Page 5 - Voice Volume
 	elif current_page == 5:
+
 		game_settings.voice_volume = selected_voice_volume
 
 		var voice_bus = AudioServer.get_bus_index("voice")
 		var volume_linear = game_settings.voice_volume / 100.0
 
-		AudioServer.set_bus_volume_db(
-			voice_bus,
-			linear_to_db(volume_linear)
-		)
+		if game_settings.voice_volume <= 0:
+			AudioServer.set_bus_mute(voice_bus, true)
+		else:
+			AudioServer.set_bus_mute(voice_bus, false)
+			AudioServer.set_bus_volume_db(
+				voice_bus,
+				linear_to_db(volume_linear)
+			)
 
 		$voice_preview.play()
 
@@ -494,32 +540,45 @@ func confirm_current_setting():
 
 	# Page 6 - Effects Volume
 	elif current_page == 6:
+
 		game_settings.effects_volume = selected_effects_volume
 
 		var effects_bus = AudioServer.get_bus_index("effects")
 		var volume_linear = game_settings.effects_volume / 100.0
 
-		AudioServer.set_bus_volume_db(
-			effects_bus,
-			linear_to_db(volume_linear)
-		)
-		
+		if game_settings.effects_volume <= 0:
+			AudioServer.set_bus_mute(effects_bus, true)
+		else:
+			AudioServer.set_bus_mute(effects_bus, false)
+			AudioServer.set_bus_volume_db(
+				effects_bus,
+				linear_to_db(volume_linear)
+			)
+
 		$effects_preview.play()
-		
+
 		print(
 			"EFFECTS VOLUME CONFIRMED: ",
 			game_settings.effects_volume
 		)
 
-	# Page 7 - Free Play / Credits
+	# Page 7 - Free Play
 	elif current_page == 7:
+
 		game_settings.free_play_enabled = free_play_enabled
-		game_settings.save_settings()
 
 		print(
 			"FREE PLAY CONFIRMED: ",
 			game_settings.free_play_enabled
 		)
+
+	# =====================================================
+	# SAVE EVERYTHING
+	# =====================================================
+
+	game_settings.save_settings()
+
+	print("SETTINGS SAVED AFTER PAGE: ", current_page)
 
 	editing_setting = false
 	update_page_display()

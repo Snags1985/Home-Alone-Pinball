@@ -135,6 +135,7 @@ func _ready():
 	$video_tv.visible = false
 	$video_tv/VideoStreamPlayer.finished.connect(_on_video_finished)
 	update_attract_credit_message()
+	start_press_start_flash()
 
 func update_pizza_board():
 	$pizza_board/p_lit.visible = pizza_frenzy.p_collected
@@ -1087,3 +1088,13 @@ func play_game_video(video_id):
 			# Gangster movie will be added here
 
 	show_video_tv()
+
+func start_press_start_flash():
+	var press_start = $"../attract_mode/press_start"
+
+	while $"../attract_mode".visible:
+		var tween = create_tween()
+		tween.tween_property(press_start, "modulate:a", 0.1, 0.3)
+		tween.tween_property(press_start, "modulate:a", 1.0, 0.3)
+
+		await tween.finished

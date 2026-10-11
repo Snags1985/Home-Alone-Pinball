@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bak4qcrh6jrkc"
-path="res://.godot/imported/devider.png-0ec5ec78e4eb299424501b88e5ae52ec.ctex"
+uid="uid://u3usrqn1rp2i"
+path="res://.godot/imported/fireplace_glow.png-fc84300cc5acbf627a3f223debfbd6b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/Settings/devider.png"
-dest_files=["res://.godot/imported/devider.png-0ec5ec78e4eb299424501b88e5ae52ec.ctex"]
+source_file="res://addons/mpf-gmc/images/Settings/fireplace_glow.png"
+dest_files=["res://.godot/imported/fireplace_glow.png-fc84300cc5acbf627a3f223debfbd6b9.ctex"]
 
 [params]
 

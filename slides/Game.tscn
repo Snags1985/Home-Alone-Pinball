@@ -6,13 +6,15 @@
 [ext_resource type="Script" uid="uid://ux6gofp0wo20" path="res://addons/mpf-gmc/scripts/game_settings.gd" id="4_5mdxq"]
 [ext_resource type="Script" uid="uid://cyy17kmme10dj" path="res://addons/mpf-gmc/scripts/settings_menu.gd" id="5_m7q13"]
 [ext_resource type="Texture2D" uid="uid://ccyimdfni8ii4" path="res://addons/mpf-gmc/images/Settings/background.png" id="6_wr682"]
-[ext_resource type="Texture2D" uid="uid://bak4qcrh6jrkc" path="res://addons/mpf-gmc/images/Settings/devider.png" id="7_6vymg"]
 [ext_resource type="Texture2D" uid="uid://b4puk4ad64l2a" path="res://addons/mpf-gmc/images/Settings/bauble_gold.png" id="7_v1se4"]
+[ext_resource type="Texture2D" uid="uid://ck50n078t3nix" path="res://addons/mpf-gmc/images/Settings/divider.png" id="8_26yv7"]
 [ext_resource type="FontFile" uid="uid://bppdjegw1ciku" path="res://addons/mpf-gmc/fonts/Georgia-Bold.ttf" id="8_bkq11"]
 [ext_resource type="Texture2D" uid="uid://c0lf5c5koq58a" path="res://addons/mpf-gmc/images/Settings/bauble_red.png" id="8_qm65m"]
 [ext_resource type="Script" uid="uid://1dfh1o34ak71" path="res://addons/mpf-gmc/scripts/christmas_lights_score_board.gd" id="9_wr682"]
+[ext_resource type="Texture2D" uid="uid://u3usrqn1rp2i" path="res://addons/mpf-gmc/images/Settings/fireplace_glow.png" id="10_dvrjx"]
 [ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="10_ge1om"]
 [ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="11_6vymg"]
+[ext_resource type="Script" uid="uid://7j41sfjh86o0" path="res://slides/fireplace_glow.gd" id="11_yx4m7"]
 [ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="12_bkq11"]
 [ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="13_1sfst"]
 [ext_resource type="PackedScene" uid="uid://nwfx2puvlsgm" path="res://slides/pizza_frenzy.tscn" id="16_5brmp"]
@@ -42,8 +44,8 @@ z_index = 100
 script = ExtResource("5_m7q13")
 
 [node name="settings_background" type="Sprite2D" parent="SettingMenu" unique_id=1132713626]
-position = Vector2(959, 540)
-scale = Vector2(1.1369185, 1.1733047)
+position = Vector2(959, 544)
+scale = Vector2(1.1369185, 1.181916)
 texture = ExtResource("6_wr682")
 
 [node name="balls_panel" type="ColorRect" parent="SettingMenu" unique_id=1511698261]
@@ -53,11 +55,11 @@ offset_right = 1121.9172
 offset_bottom = 625.0
 color = Color(0.039215688, 0.101960786, 0.14117648, 0.5019608)
 
-[node name="devider" type="Sprite2D" parent="SettingMenu" unique_id=1519241714]
+[node name="divider" type="Sprite2D" parent="SettingMenu" unique_id=1519241714]
 z_index = 1
 position = Vector2(977.3748, 707.875)
 scale = Vector2(0.29799718, 0.29799718)
-texture = ExtResource("7_6vymg")
+texture = ExtResource("8_26yv7")
 
 [node name="setting_label" type="Label" parent="SettingMenu" unique_id=1972775765]
 z_index = 1
@@ -105,38 +107,46 @@ theme_override_font_sizes/font_size = 25
 text = "LEFT / RIGHT: SELECT     START: CONFIRM"
 horizontal_alignment = 1
 
+[node name="fireplace_glow" type="PointLight2D" parent="SettingMenu" unique_id=1427040585]
+position = Vector2(1892.9999, 688)
+scale = Vector2(0.63671875, 0.63671875)
+color = Color(0.95703125, 0.5988455, 0.13832092, 1)
+texture = ExtResource("10_dvrjx")
+texture_scale = 2.0
+script = ExtResource("11_yx4m7")
+
 [node name="bauble_1" type="Sprite2D" parent="SettingMenu" unique_id=787802479]
-position = Vector2(693, 393.16)
+position = Vector2(670, 393.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("7_v1se4")
 
 [node name="bauble_2" type="Sprite2D" parent="SettingMenu" unique_id=1170544915]
-position = Vector2(801, 392)
+position = Vector2(774, 392)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
 [node name="bauble_3" type="Sprite2D" parent="SettingMenu" unique_id=1586659892]
-position = Vector2(921, 392.16)
+position = Vector2(878, 392.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
 [node name="bauble_4" type="Sprite2D" parent="SettingMenu" unique_id=1202064950]
-position = Vector2(1040.5, 394.16)
+position = Vector2(981, 394.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
 [node name="bauble_5" type="Sprite2D" parent="SettingMenu" unique_id=88827700]
-position = Vector2(1136, 394.16)
+position = Vector2(1085, 394.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
 [node name="bauble_6" type="Sprite2D" parent="SettingMenu" unique_id=105773198]
-position = Vector2(1236, 394.16)
+position = Vector2(1188, 394.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
 [node name="bauble_7" type="Sprite2D" parent="SettingMenu" unique_id=1553036924]
-position = Vector2(1315, 394.16)
+position = Vector2(1292, 394.16003)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("8_qm65m")
 
