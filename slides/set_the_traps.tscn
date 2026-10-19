@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://d4nhfxdy1347l"]
+
+[ext_resource type="Texture2D" uid="uid://dk6whwa80npsy" path="res://addons/mpf-gmc/images/Battleplan/battleplan_empty.png" id="1_d70nd"]
+[ext_resource type="Script" uid="uid://c3eocc8w67vvj" path="res://addons/mpf-gmc/scripts/set_the_traps.gd" id="1_te8qt"]
+[ext_resource type="Texture2D" uid="uid://d3v2q1fs3hmak" path="res://addons/mpf-gmc/images/Battleplan/fan_feathers.png" id="2_dc632"]
+[ext_resource type="Texture2D" uid="uid://bdm3v0oeabgyt" path="res://addons/mpf-gmc/images/Battleplan/word_fan_feathers.png" id="3_4kgp0"]
+[ext_resource type="Texture2D" uid="uid://bl52gvf36dkjo" path="res://addons/mpf-gmc/images/Battleplan/door_handle.png" id="4_ek4n0"]
+[ext_resource type="Texture2D" uid="uid://dvmveuah4u6r2" path="res://addons/mpf-gmc/images/Battleplan/word_door_handle.png" id="5_e0wl3"]
+[ext_resource type="Texture2D" uid="uid://b1dtchbv7rdxs" path="res://addons/mpf-gmc/images/Battleplan/fire.png" id="5_f51hu"]
+[ext_resource type="Texture2D" uid="uid://bn74a0b7yije8" path="res://addons/mpf-gmc/images/Battleplan/ornamints.png" id="5_te8qt"]
+[ext_resource type="Texture2D" uid="uid://dnsbbjlveefx3" path="res://addons/mpf-gmc/images/Battleplan/word_ornamints.png" id="6_in40t"]
+[ext_resource type="Texture2D" uid="uid://dljd71x34emim" path="res://addons/mpf-gmc/images/Battleplan/front_ice.png" id="6_shedo"]
+[ext_resource type="Texture2D" uid="uid://bcrn0iaxmjahi" path="res://addons/mpf-gmc/images/Battleplan/word_fire.png" id="7_te8qt"]
+[ext_resource type="Texture2D" uid="uid://rrgdwjjq48tq" path="res://addons/mpf-gmc/images/Battleplan/glue.png" id="7_to6fb"]
+[ext_resource type="Texture2D" uid="uid://dfuap60nitjpg" path="res://addons/mpf-gmc/images/Battleplan/heavy_cans.png" id="8_1acjr"]
+[ext_resource type="Texture2D" uid="uid://b2fgfytc77u20" path="res://addons/mpf-gmc/images/Battleplan/micro_machines.png" id="9_ib7v7"]
+[ext_resource type="Texture2D" uid="uid://brtuuu0ralr1k" path="res://addons/mpf-gmc/images/Battleplan/word_front_ice.png" id="9_in40t"]
+[ext_resource type="Texture2D" uid="uid://n1o7kckd4jel" path="res://addons/mpf-gmc/images/Battleplan/rear_ice.png" id="11_e0wl3"]
+[ext_resource type="Texture2D" uid="uid://cqlmkuwalft6" path="res://addons/mpf-gmc/images/Battleplan/word_glue.png" id="11_rjy2l"]
+[ext_resource type="Texture2D" uid="uid://da3gvjehevlal" path="res://addons/mpf-gmc/images/Battleplan/tar.png" id="12_te8qt"]
+[ext_resource type="Texture2D" uid="uid://c1qkg5u04yk63" path="res://addons/mpf-gmc/images/Battleplan/word_heavy_cans.png" id="13_w4v2s"]
+[ext_resource type="Texture2D" uid="uid://bwbf6l1vm5bmb" path="res://addons/mpf-gmc/images/Battleplan/word_micro_machines.png" id="15_2r8dy"]
+[ext_resource type="Texture2D" uid="uid://c1ft6o2rqykh2" path="res://addons/mpf-gmc/images/Battleplan/word_rear_ice.png" id="19_yh4mo"]
+[ext_resource type="Texture2D" uid="uid://us16cubhdyca" path="res://addons/mpf-gmc/images/Battleplan/word_tar.png" id="21_glmse"]
+
+[node name="set_the_traps" type="Node2D" unique_id=2111115162]
+script = ExtResource("1_te8qt")
+
+[node name="BattlePlan" type="Sprite2D" parent="." unique_id=1626877669]
+position = Vector2(960.00006, 540)
+texture = ExtResource("1_d70nd")
+
+[node name="Trap_HeavyCans" type="Node2D" parent="." unique_id=2109032498]
+
+[node name="heavy_cans" type="Sprite2D" parent="Trap_HeavyCans" unique_id=800191514]
+position = Vector2(960.4155, 539.89624)
+texture = ExtResource("8_1acjr")
+
+[node name="word_heavy_cans" type="Sprite2D" parent="Trap_HeavyCans" unique_id=76549595]
+position = Vector2(960.25006, 540.99994)
+texture = ExtResource("13_w4v2s")
+
+[node name="Trap_Ornamints" type="Node2D" parent="." unique_id=1108376870]
+
+[node name="ornamints" type="Sprite2D" parent="Trap_Ornamints" unique_id=1652441267]
+position = Vector2(960.14575, 539)
+texture = ExtResource("5_te8qt")
+
+[node name="word_ornamints" type="Sprite2D" parent="Trap_Ornamints" unique_id=91527906]
+position = Vector2(959.89026, 540.3066)
+texture = ExtResource("6_in40t")
+
+[node name="Trap_MicroMachines" type="Node2D" parent="." unique_id=539813850]
+
+[node name="micro_machines" type="Sprite2D" parent="Trap_MicroMachines" unique_id=721602303]
+position = Vector2(959.92896, 539.8962)
+texture = ExtResource("9_ib7v7")
+
+[node name="word_micro_machines" type="Sprite2D" parent="Trap_MicroMachines" unique_id=878262265]
+position = Vector2(959.40656, 541.05664)
+texture = ExtResource("15_2r8dy")
+
+[node name="Trap_Tar" type="Node2D" parent="." unique_id=357258918]
+
+[node name="tar" type="Sprite2D" parent="Trap_Tar" unique_id=2140150103]
+position = Vector2(959.4289, 539.8963)
+texture = ExtResource("12_te8qt")
+
+[node name="word_tar" type="Sprite2D" parent="Trap_Tar" unique_id=321413072]
+position = Vector2(960.0694, 539.39624)
+texture = ExtResource("21_glmse")
+
+[node name="Trap_DoorHandle" type="Node2D" parent="." unique_id=1537297769]
+
+[node name="door_handle" type="Sprite2D" parent="Trap_DoorHandle" unique_id=265349628]
+position = Vector2(959.92896, 539.8963)
+scale = Vector2(1.000074, 1.0001923)
+texture = ExtResource("4_ek4n0")
+
+[node name="word_door_handle" type="Sprite2D" parent="Trap_DoorHandle" unique_id=937863024]
+position = Vector2(959.5023, 540.2925)
+texture = ExtResource("5_e0wl3")
+
+[node name="Trap_FanFeathers" type="Node2D" parent="." unique_id=193981967]
+
+[node name="fan_feathers" type="Sprite2D" parent="Trap_FanFeathers" unique_id=1423035147]
+position = Vector2(959.8882, 539.8867)
+texture = ExtResource("2_dc632")
+
+[node name="word_fan_feathers" type="Sprite2D" parent="Trap_FanFeathers" unique_id=1979054122]
+position = Vector2(959.7688, 539.8963)
+texture = ExtResource("3_4kgp0")
+
+[node name="Trap_Glue" type="Node2D" parent="." unique_id=1923434613]
+
+[node name="glue" type="Sprite2D" parent="Trap_Glue" unique_id=353005294]
+position = Vector2(959.5, 540.1509)
+scale = Vector2(1.001, 1)
+texture = ExtResource("7_to6fb")
+
+[node name="word_glue" type="Sprite2D" parent="Trap_Glue" unique_id=733773440]
+position = Vector2(960.40674, 539.8302)
+texture = ExtResource("11_rjy2l")
+
+[node name="Trap_Fire" type="Node2D" parent="." unique_id=1660710112]
+
+[node name="fire" type="Sprite2D" parent="Trap_Fire" unique_id=346697112]
+position = Vector2(959.42896, 540.89624)
+texture = ExtResource("5_f51hu")
+
+[node name="word_fire" type="Sprite2D" parent="Trap_Fire" unique_id=1650474100]
+position = Vector2(961.5246, 541.5566)
+scale = Vector2(1.005, 1)
+texture = ExtResource("7_te8qt")
+
+[node name="Trap_RearIce" type="Node2D" parent="." unique_id=907727782]
+
+[node name="rear_ice" type="Sprite2D" parent="Trap_RearIce" unique_id=472969268]
+position = Vector2(960.25, 540)
+texture = ExtResource("11_e0wl3")
+
+[node name="word_rear_ice" type="Sprite2D" parent="Trap_RearIce" unique_id=225372746]
+position = Vector2(958.24994, 539)
+texture = ExtResource("19_yh4mo")
+
+[node name="Trap_FrontIce" type="Node2D" parent="." unique_id=246579651]
+
+[node name="front_ice" type="Sprite2D" parent="Trap_FrontIce" unique_id=1459536169]
+position = Vector2(963, 538)
+texture = ExtResource("6_shedo")
+
+[node name="word_front_ice" type="Sprite2D" parent="Trap_FrontIce" unique_id=1394423096]
+position = Vector2(960, 540)
+texture = ExtResource("9_in40t")

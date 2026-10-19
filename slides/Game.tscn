@@ -14,13 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://u3usrqn1rp2i" path="res://addons/mpf-gmc/images/Settings/fireplace_glow.png" id="10_dvrjx"]
 [ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="10_ge1om"]
 [ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="11_6vymg"]
-[ext_resource type="Script" uid="uid://7j41sfjh86o0" path="res://slides/fireplace_glow.gd" id="11_yx4m7"]
+[ext_resource type="Script" uid="uid://7j41sfjh86o0" path="res://addons/mpf-gmc/scripts/fireplace_glow.gd" id="11_yx4m7"]
 [ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="12_bkq11"]
 [ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="13_1sfst"]
 [ext_resource type="PackedScene" uid="uid://nwfx2puvlsgm" path="res://slides/pizza_frenzy.tscn" id="16_5brmp"]
 [ext_resource type="AudioStream" uid="uid://cxdf4s3px6c0y" path="res://sounds/voice/keep_the_change.mp3" id="16_bkq11"]
 [ext_resource type="AudioStream" uid="uid://747l5n2kixsa" path="res://sounds/music/main_theme.mp3" id="17_1sfst"]
 [ext_resource type="AudioStream" uid="uid://c66ax4ilq06to" path="res://sounds/effects/sample.mp3" id="18_op5x4"]
+[ext_resource type="PackedScene" uid="uid://d4nhfxdy1347l" path="res://slides/set_the_traps.tscn" id="22_8r6fk"]
 
 [node name="Game" type="Node2D" unique_id=1080735159]
 
@@ -32,6 +33,9 @@ visible = false
 [node name="PizzaFrenzy" parent="." unique_id=911019608 instance=ExtResource("16_5brmp")]
 visible = false
 z_index = 10
+
+[node name="set_the_traps" parent="." unique_id=2111115162 instance=ExtResource("22_8r6fk")]
+z_index = 100
 
 [node name="GameScoring" type="Node" parent="." unique_id=1950481658]
 script = ExtResource("3_frv3b")

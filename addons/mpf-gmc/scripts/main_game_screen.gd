@@ -65,6 +65,7 @@ var grocery_collected_count = 0
 var staircase_ramp_lit = false
 var video_tv_home_position: Vector2
 var current_video = ""
+var keep_video_tv_open = false
 
 # Video path loactions for TV screen ---------------------------------------------------------------
 
@@ -133,7 +134,7 @@ func _ready():
 	video_tv_home_position = $video_tv.position
 	
 	$video_tv.visible = false
-	$video_tv/VideoStreamPlayer.finished.connect(_on_video_finished)
+	$video_tv/TV_Content/VideoStreamPlayer.finished.connect(_on_video_finished)
 	update_attract_credit_message()
 	start_press_start_flash()
 
@@ -165,7 +166,15 @@ func update_mission_board():
 	$mission_board/mission_3_status.text = pizza_frenzy_mission_status
 
 	$mission_board/mission_4_label.text = "SET THE TRAPS"
-	$mission_board/mission_4_status.text = set_traps_mission_status
+
+	print("MISSION 4 STATUS NODE: ", $mission_board/mission_4_status)
+	print("MISSION 4 TEXT NODE: ", $mission_board/mission_4_status/status_text)
+	
+	$mission_board/mission_4_status/status_text.text = set_traps_mission_status
+
+	$mission_board/mission_4_status/plaque_locked.visible = set_traps_mission_status == "LOCKED"
+	$mission_board/mission_4_status/plaque_active.visible = set_traps_mission_status == "ACTIVE"
+	$mission_board/mission_4_status/plaque_completed.visible = set_traps_mission_status == "COMPLETE"
 
 	$mission_board/mission_5_label.text = "DEFEND\nTHE HOUSE"
 	$mission_board/mission_5_status.text = defend_house_mission_status
@@ -474,7 +483,7 @@ func restart_game():
 	print("RESTARTING GAME")
 
 	# Stop any video currently playing
-	$video_tv/VideoStreamPlayer.stop()
+	$video_tv/TV_Content/VideoStreamPlayer.stop()
 	$video_tv.visible = false
 
 	# Completely abort Pizza Frenzy
@@ -858,7 +867,14 @@ func _input(event):
 				str(player_count) + " PLAYERS"
 			)
 
+	# =========================================================
+	# TEMPORARY BUZZ GIRLFRIEND TEST KEY
+	# =========================================================
 
+	if event.keycode == KEY_B:
+		buzz_girlfriend_scoop_hit()
+		return
+		
 	# =========================================================
 	# TEMPORARY CREDIT KEY
 	# =========================================================
@@ -881,7 +897,13 @@ func _input(event):
 		)
 
 		return
-
+	# =========================================================
+	# TEMPORARY SET THE TRAPS TEST KEY
+	# =========================================================
+	
+	if event.keycode == KEY_S:
+		$"../set_the_traps".start_set_the_traps()
+		return
 
 	# =========================================================
 	# TEMPORARY STAIRCASE / SLED TEST
@@ -1002,7 +1024,8 @@ func is_video_active():
 
 func _on_video_finished():
 
-	hide_video_tv()
+	if not keep_video_tv_open:
+		hide_video_tv()
 
 	video_finished.emit()
 
@@ -1019,15 +1042,14 @@ func _on_video_finished():
 
 			home_alone_complete()
 
-func show_video_tv():
+func show_video_tv(play_video = true):
 	var start_position = video_tv_home_position + Vector2(0, -700)
-
 	$video_tv.position = start_position
 	$video_tv.visible = true
 
 	# Reset video to the beginning
-	$video_tv/VideoStreamPlayer.stop()
-	$video_tv/VideoStreamPlayer.stream_position = 0.0
+	$video_tv/TV_Content/VideoStreamPlayer.stop()
+	$video_tv/TV_Content/VideoStreamPlayer.stream_position = 0.0
 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -1040,13 +1062,13 @@ func show_video_tv():
 		0.8
 	)
 
-	# Start video once TV reaches its final position
-	tween.finished.connect(func():
-		$video_tv/VideoStreamPlayer.play()
-	)
+	if play_video:
+		tween.finished.connect(func():
+			$video_tv/TV_Content/VideoStreamPlayer.play()
+		)
 
 func hide_video_tv():
-	$video_tv/VideoStreamPlayer.stop()
+	$video_tv/TV_Content/VideoStreamPlayer.stop()
 
 	var end_position = video_tv_home_position + Vector2(0, -700)
 
@@ -1077,11 +1099,11 @@ func play_game_video(video_id):
 
 		"buzz_girlfriend":
 			current_video = "buzz_girlfriend"
-			$video_tv/VideoStreamPlayer.stream = VIDEO_BUZZ_GIRLFRIEND
+			$video_tv/TV_Content/VideoStreamPlayer.stream = VIDEO_BUZZ_GIRLFRIEND
 
 		"9pm_return":
 			current_video = "9pm_return"
-			$video_tv/VideoStreamPlayer.stream = VIDEO_9PM_RETURN
+			$video_tv/TV_Content/VideoStreamPlayer.stream = VIDEO_9PM_RETURN
 
 		"gangster_movie":
 			current_video = "gangster_movie"

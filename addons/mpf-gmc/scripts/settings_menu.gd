@@ -70,7 +70,7 @@ func _input(event):
 		return
 
 	# Temporary development key to open/close settings
-	if event.keycode == KEY_M:
+	if event.keycode == KEY_0:
 		settings_active = not settings_active
 		visible = settings_active
 

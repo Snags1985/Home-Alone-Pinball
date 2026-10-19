@@ -25,8 +25,11 @@
 [ext_resource type="Texture2D" uid="uid://b0p3p6v7tr1no" path="res://addons/mpf-gmc/images/Main Screen/tv_bezel.png" id="18_yie78"]
 [ext_resource type="Texture2D" uid="uid://dvq58v04fcyss" path="res://addons/mpf-gmc/images/Pizza Frenzy/a_lit.png" id="19_m2pir"]
 [ext_resource type="Script" uid="uid://dvrqqi5cm3csk" path="res://addons/mpf-gmc/scripts/christmas_lights_mission_board.gd" id="20_j6bmr"]
+[ext_resource type="Texture2D" uid="uid://b2baos30bp55l" path="res://addons/mpf-gmc/images/Main Screen/locked_plaque.png" id="20_q7brp"]
 [ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="21_2h5bb"]
+[ext_resource type="Texture2D" uid="uid://br56v8yohgr8j" path="res://addons/mpf-gmc/images/Main Screen/active_plaque.png" id="21_fqku7"]
 [ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="22_2h5bb"]
+[ext_resource type="Texture2D" uid="uid://nqbr8or7u3q8" path="res://addons/mpf-gmc/images/Main Screen/completed_plaque.png" id="22_nkn6f"]
 [ext_resource type="Script" uid="uid://cas0xkeh03q8s" path="res://addons/mpf-gmc/scripts/christmas_lights_ball_board.gd" id="22_nvkvk"]
 [ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="23_ov82p"]
 [ext_resource type="Script" uid="uid://1dfh1o34ak71" path="res://addons/mpf-gmc/scripts/christmas_lights_score_board.gd" id="24_etd4s"]
@@ -242,11 +245,32 @@ text = "SET THE TRAPS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mission_4_status" type="Label" parent="mission_board" unique_id=973874547]
+[node name="mission_4_status" type="Node2D" parent="mission_board" unique_id=308503329]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(1, 0.9999998)
+
+[node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1488397634]
+position = Vector2(297.51392, 286.35254)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("20_q7brp")
+
+[node name="plaque_active" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1341853332]
+visible = false
+position = Vector2(297.514, 286.353)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("21_fqku7")
+
+[node name="plaque_completed" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1812884009]
+visible = false
+position = Vector2(297.514, 286.353)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("22_nkn6f")
+
+[node name="status_text" type="Label" parent="mission_board/mission_4_status" unique_id=973874547]
 offset_left = 190.22559
-offset_top = 243.43323
+offset_top = 243.43335
 offset_right = 404.80322
-offset_bottom = 329.2721
+offset_bottom = 329.27222
 theme_override_font_sizes/font_size = 33
 text = "COMPLETED"
 horizontal_alignment = 1
@@ -535,32 +559,32 @@ vertical_alignment = 1
 [node name="video_tv" type="Node2D" parent="." unique_id=44517328]
 position = Vector2(10, 0)
 
-[node name="tv_bezel" type="Node2D" parent="video_tv" unique_id=1747898959]
-position = Vector2(-242, 523)
+[node name="TV_Content" type="Node2D" parent="video_tv" unique_id=2060972789]
 
-[node name="ColorRect" type="ColorRect" parent="video_tv/tv_bezel" unique_id=1856188441]
-offset_left = 970.0
-offset_top = -391.0
-offset_right = 1595.0
-offset_bottom = -22.0
-color = Color(0.01953125, 0.017623901, 0.017623901, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="video_tv" unique_id=1513053159]
-offset_left = 737.0
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="video_tv/TV_Content" unique_id=1513053159]
+offset_left = 778.0
 offset_top = 130.0
-offset_right = 1362.0
+offset_right = 1330.0
 offset_bottom = 499.0
 stream = ExtResource("18_ogvj0")
 expand = true
 bus = &"voice"
 
-[node name="Sprite2D" type="Sprite2D" parent="video_tv" unique_id=1511730955]
+[node name="ColorRect" type="ColorRect" parent="video_tv" unique_id=1856188441]
+offset_left = 728.0
+offset_top = 132.00002
+offset_right = 1353.0
+offset_bottom = 501.0
+color = Color(0.01953125, 0.017623901, 0.017623901, 1)
+
+[node name="tv_bezel" type="Sprite2D" parent="video_tv" unique_id=1511730955]
+z_index = 10
 position = Vector2(1051, 291)
 scale = Vector2(0.5996596, 0.5908203)
 texture = ExtResource("18_yie78")
 
 [node name="ChristmasLights_TV" type="Node2D" parent="video_tv" unique_id=1364224721]
+z_index = 20
 script = ExtResource("27_xmq7j")
 
 [node name="Bulb_Red_08" type="Sprite2D" parent="video_tv/ChristmasLights_TV" unique_id=1023772146]
