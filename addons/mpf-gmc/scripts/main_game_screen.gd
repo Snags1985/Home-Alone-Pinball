@@ -157,27 +157,43 @@ func update_pizza_board():
 func update_mission_board():
 
 	$mission_board/mission_1_label.text = "HOME ALONE"
-	$mission_board/mission_1_status.text = home_alone_mission_status
+	$mission_board/mission_1_status/status_text.text = home_alone_mission_status
+
+	$mission_board/mission_1_status/plaque_locked.visible = home_alone_mission_status == "LOCKED"
+	$mission_board/mission_1_status/plaque_ready.visible = home_alone_mission_status == "READY"
+	$mission_board/mission_1_status/plaque_active.visible = home_alone_mission_status == "ACTIVE"
+
 
 	$mission_board/mission_2_label.text = "FURNACE\nMULTIBALL"
-	$mission_board/mission_2_status.text = furnace_multiball_mission_status
+	$mission_board/mission_2_status/status_text.text = furnace_multiball_mission_status
+
+	$mission_board/mission_2_status/plaque_locked.visible = furnace_multiball_mission_status == "LOCKED"
+	$mission_board/mission_2_status/plaque_ready.visible = furnace_multiball_mission_status == "READY"
+	$mission_board/mission_2_status/plaque_active.visible = furnace_multiball_mission_status == "ACTIVE"
+
 
 	$mission_board/mission_3_label.text = "PIZZA FRENZY"
-	$mission_board/mission_3_status.text = pizza_frenzy_mission_status
+	$mission_board/mission_3_status/status_text.text = pizza_frenzy_mission_status
+
+	$mission_board/mission_3_status/plaque_locked.visible = pizza_frenzy_mission_status == "LOCKED"
+	$mission_board/mission_3_status/plaque_ready.visible = pizza_frenzy_mission_status == "READY"
+	$mission_board/mission_3_status/plaque_active.visible = pizza_frenzy_mission_status == "ACTIVE"
+
 
 	$mission_board/mission_4_label.text = "SET THE TRAPS"
-
-	print("MISSION 4 STATUS NODE: ", $mission_board/mission_4_status)
-	print("MISSION 4 TEXT NODE: ", $mission_board/mission_4_status/status_text)
-	
 	$mission_board/mission_4_status/status_text.text = set_traps_mission_status
 
 	$mission_board/mission_4_status/plaque_locked.visible = set_traps_mission_status == "LOCKED"
+	$mission_board/mission_4_status/plaque_ready.visible = set_traps_mission_status == "READY"
 	$mission_board/mission_4_status/plaque_active.visible = set_traps_mission_status == "ACTIVE"
-	$mission_board/mission_4_status/plaque_completed.visible = set_traps_mission_status == "COMPLETE"
+
 
 	$mission_board/mission_5_label.text = "DEFEND\nTHE HOUSE"
-	$mission_board/mission_5_status.text = defend_house_mission_status
+	$mission_board/mission_5_status/status_text.text = defend_house_mission_status
+
+	$mission_board/mission_5_status/plaque_locked.visible = defend_house_mission_status == "LOCKED"
+	$mission_board/mission_5_status/plaque_ready.visible = defend_house_mission_status == "READY"
+	$mission_board/mission_5_status/plaque_active.visible = defend_house_mission_status == "ACTIVE"
 
 func show_pizza_board():
 
@@ -806,10 +822,8 @@ func update_junk_food_display():
 	$information_board/information_label.text = "JUNK FOOD\n" + format_score(junk_food_score) + " / 50,000"
 
 func _input(event):
-
 	if not (event is InputEventKey and event.pressed):
 		return
-
 
 	# =========================================================
 	# NEW GAME / START
@@ -838,23 +852,17 @@ func _input(event):
 			start_new_game()
 			return
 
-
 		# If already in the game
 		if not game_active:
-
 			start_new_game()
 			return
 
-
 		if game_has_started:
-
 			restart_game()
 			return
 
-
 		# Add players before the game has started
 		if player_count < 4:
-
 			player_count += 1
 
 			print(
@@ -874,7 +882,7 @@ func _input(event):
 	if event.keycode == KEY_B:
 		buzz_girlfriend_scoop_hit()
 		return
-		
+
 	# =========================================================
 	# TEMPORARY CREDIT KEY
 	# =========================================================
@@ -883,7 +891,6 @@ func _input(event):
 
 		add_credit()
 		return
-
 
 	# =========================================================
 	# TEMPORARY INFORMATION BOARD TEST
@@ -897,10 +904,11 @@ func _input(event):
 		)
 
 		return
+
 	# =========================================================
 	# TEMPORARY SET THE TRAPS TEST KEY
 	# =========================================================
-	
+
 	if event.keycode == KEY_S:
 		$"../set_the_traps".start_set_the_traps()
 		return
@@ -910,44 +918,50 @@ func _input(event):
 	# =========================================================
 
 	if event.keycode == KEY_T:
-
 		staircase_ramp_hit()
 		return
-
 
 	# =========================================================
 	# GROCERY RUN TEST KEYS
 	# =========================================================
 
 	if event.keycode == KEY_1:
-
 		grocery_item_1_hit()
 		return
 
-
 	if event.keycode == KEY_2:
-
 		grocery_item_2_hit()
 		return
 
-
 	if event.keycode == KEY_3:
-
 		grocery_item_3_hit()
 		return
 
-
 	if event.keycode == KEY_4:
-
 		grocery_item_4_hit()
 		return
 
-
 	if event.keycode == KEY_5:
-
 		grocery_item_5_hit()
 		return
-			
+		
+		
+	if event.keycode == KEY_6:
+		lights_on_target_1_hit()
+		return
+
+	if event.keycode == KEY_7:
+		lights_on_target_2_hit()
+		return
+
+	if event.keycode == KEY_8:
+		lights_on_target_3_hit()
+		return	
+		
+	if event.keycode == KEY_9:
+		aftershave_target_hit()
+		return
+		
 func start_pizza_collection():
 	if pizza_collection_active:
 		return
@@ -1010,6 +1024,8 @@ func home_alone_complete():
 
 	home_alone_section_complete = true
 	home_alone_mission_status = "COMPLETE"
+
+	$information_board.position = information_board_up_position
 
 	# Unlock Furnace Multiball
 	furnace_multiball_mission_status = "READY"

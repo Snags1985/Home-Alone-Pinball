@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nqbr8or7u3q8"
-path="res://.godot/imported/completed_plaque.png-0d2382ba50c6a891c61a60799bd3a309.ctex"
+uid="uid://dkgg44e5ry777"
+path="res://.godot/imported/ready_plaque.png-95ca117230117d933b90660a84b69475.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/mpf-gmc/images/Main Screen/completed_plaque.png"
-dest_files=["res://.godot/imported/completed_plaque.png-0d2382ba50c6a891c61a60799bd3a309.ctex"]
+source_file="res://addons/mpf-gmc/images/Main Screen/ready_plaque.png"
+dest_files=["res://.godot/imported/ready_plaque.png-95ca117230117d933b90660a84b69475.ctex"]
 
 [params]
 

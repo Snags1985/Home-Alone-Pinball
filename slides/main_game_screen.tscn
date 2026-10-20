@@ -29,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://cx6gbjxgmagau" path="res://addons/mpf-gmc/images/Main Screen/lights/red_bulb.png" id="21_2h5bb"]
 [ext_resource type="Texture2D" uid="uid://br56v8yohgr8j" path="res://addons/mpf-gmc/images/Main Screen/active_plaque.png" id="21_fqku7"]
 [ext_resource type="Texture2D" uid="uid://bahhp52r5knth" path="res://addons/mpf-gmc/images/Main Screen/lights/green_bulb.png" id="22_2h5bb"]
-[ext_resource type="Texture2D" uid="uid://nqbr8or7u3q8" path="res://addons/mpf-gmc/images/Main Screen/completed_plaque.png" id="22_nkn6f"]
 [ext_resource type="Script" uid="uid://cas0xkeh03q8s" path="res://addons/mpf-gmc/scripts/christmas_lights_ball_board.gd" id="22_nvkvk"]
+[ext_resource type="Texture2D" uid="uid://dkgg44e5ry777" path="res://addons/mpf-gmc/images/Main Screen/ready_plaque.png" id="22_q7brp"]
 [ext_resource type="Texture2D" uid="uid://2mtew6cnfj7g" path="res://addons/mpf-gmc/images/Main Screen/lights/gold_bulb.png" id="23_ov82p"]
 [ext_resource type="Script" uid="uid://1dfh1o34ak71" path="res://addons/mpf-gmc/scripts/christmas_lights_score_board.gd" id="24_etd4s"]
 [ext_resource type="Texture2D" uid="uid://2mqgxa0ss1ug" path="res://addons/mpf-gmc/images/Main Screen/lights/blue_bulb.png" id="24_ljhe1"]
@@ -175,20 +175,41 @@ scale = Vector2(0.35418412, 0.4077405)
 texture = ExtResource("2_fxqqk")
 
 [node name="mission_1_label" type="Label" parent="mission_board" unique_id=1858981406]
-offset_left = -219.16624
-offset_top = -259.33762
-offset_right = 156.34499
-offset_bottom = -153.87842
+offset_left = -219.16602
+offset_top = -259.3376
+offset_right = 156.34521
+offset_bottom = -153.87839
 theme_override_font_sizes/font_size = 45
 text = "HOME ALONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mission_1_status" type="Label" parent="mission_board" unique_id=1848340556]
-offset_left = 190.22571
-offset_top = -244.62244
-offset_right = 404.80334
-offset_bottom = -158.78357
+[node name="mission_1_status" type="Node2D" parent="mission_board" unique_id=1188672774]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(1, 0.9999998)
+
+[node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_1_status" unique_id=827813657]
+visible = false
+position = Vector2(297.51392, -204.15549)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("20_q7brp")
+
+[node name="plaque_active" type="Sprite2D" parent="mission_board/mission_1_status" unique_id=1174258307]
+visible = false
+position = Vector2(297.514, -204.155)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("21_fqku7")
+
+[node name="plaque_ready" type="Sprite2D" parent="mission_board/mission_1_status" unique_id=664550750]
+position = Vector2(297.514, -204.155)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("22_q7brp")
+
+[node name="status_text" type="Label" parent="mission_board/mission_1_status" unique_id=1848340556]
+offset_left = 190.22559
+offset_top = -244.62253
+offset_right = 404.80322
+offset_bottom = -158.78366
 theme_override_font_sizes/font_size = 33
 text = "COMPLETED"
 horizontal_alignment = 1
@@ -205,30 +226,72 @@ text = "FURNACE
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mission_2_status" type="Label" parent="mission_board" unique_id=682926590]
-offset_left = 190.22522
-offset_top = -85.207
-offset_right = 404.80286
-offset_bottom = 0.63186646
+[node name="mission_2_status" type="Node2D" parent="mission_board" unique_id=407547617]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(1, 0.9999998)
+
+[node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_2_status" unique_id=1704571800]
+visible = false
+position = Vector2(297.514, -42.287)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("20_q7brp")
+
+[node name="plaque_active" type="Sprite2D" parent="mission_board/mission_2_status" unique_id=623381531]
+visible = false
+position = Vector2(297.514, -42.287)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("21_fqku7")
+
+[node name="plaque_ready" type="Sprite2D" parent="mission_board/mission_2_status" unique_id=1787522949]
+position = Vector2(297.51392, -42.287384)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("22_q7brp")
+
+[node name="status_text" type="Label" parent="mission_board/mission_2_status" unique_id=682926590]
+offset_left = 190.22559
+offset_top = -85.20703
+offset_right = 404.80322
+offset_bottom = 0.63183594
 theme_override_font_sizes/font_size = 33
 text = "COMPLETED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="mission_3_label" type="Label" parent="mission_board" unique_id=1209876093]
-offset_left = -219.16626
+offset_left = -219.16602
 offset_top = 64.397644
-offset_right = 156.34497
+offset_right = 156.34521
 offset_bottom = 177.39764
 theme_override_font_sizes/font_size = 45
 text = "PIZZA FRENZY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mission_3_status" type="Label" parent="mission_board" unique_id=1594043317]
-offset_left = 190.2251
+[node name="mission_3_status" type="Node2D" parent="mission_board" unique_id=1041179735]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(1, 0.9999998)
+
+[node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_3_status" unique_id=289286053]
+visible = false
+position = Vector2(297.51392, 122.03241)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("20_q7brp")
+
+[node name="plaque_active" type="Sprite2D" parent="mission_board/mission_3_status" unique_id=477802960]
+visible = false
+position = Vector2(297.514, 122.032)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("21_fqku7")
+
+[node name="plaque_ready" type="Sprite2D" parent="mission_board/mission_3_status" unique_id=1320887638]
+position = Vector2(297.514, 122.032)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("22_q7brp")
+
+[node name="status_text" type="Label" parent="mission_board/mission_3_status" unique_id=1594043317]
+offset_left = 190.22559
 offset_top = 79.11304
-offset_right = 404.80273
+offset_right = 404.80322
 offset_bottom = 164.9519
 theme_override_font_sizes/font_size = 33
 text = "COMPLETED"
@@ -250,6 +313,7 @@ position = Vector2(0, 6.1035156e-05)
 scale = Vector2(1, 0.9999998)
 
 [node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1488397634]
+visible = false
 position = Vector2(297.51392, 286.35254)
 scale = Vector2(1.7244667, 1.5885761)
 texture = ExtResource("20_q7brp")
@@ -260,11 +324,10 @@ position = Vector2(297.514, 286.353)
 scale = Vector2(1.7244667, 1.5885761)
 texture = ExtResource("21_fqku7")
 
-[node name="plaque_completed" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1812884009]
-visible = false
+[node name="plaque_ready" type="Sprite2D" parent="mission_board/mission_4_status" unique_id=1812884009]
 position = Vector2(297.514, 286.353)
 scale = Vector2(1.7244667, 1.5885761)
-texture = ExtResource("22_nkn6f")
+texture = ExtResource("22_q7brp")
 
 [node name="status_text" type="Label" parent="mission_board/mission_4_status" unique_id=973874547]
 offset_left = 190.22559
@@ -277,21 +340,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="mission_5_label" type="Label" parent="mission_board" unique_id=826096786]
-offset_left = -219.16626
-offset_top = 383.22778
-offset_right = 156.34497
-offset_bottom = 512.2278
+offset_left = -219.16602
+offset_top = 383.22772
+offset_right = 156.34521
+offset_bottom = 512.2277
 theme_override_font_sizes/font_size = 45
 text = "DEFEND 
 THE HOUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mission_5_status" type="Label" parent="mission_board" unique_id=1211938623]
-offset_left = 190.2251
-offset_top = 407.75372
-offset_right = 404.80273
-offset_bottom = 493.5926
+[node name="mission_5_status" type="Node2D" parent="mission_board" unique_id=1131105946]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(1, 0.9999998)
+
+[node name="plaque_locked" type="Sprite2D" parent="mission_board/mission_5_status" unique_id=2120720661]
+visible = false
+position = Vector2(297.51392, 450.67285)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("20_q7brp")
+
+[node name="plaque_active" type="Sprite2D" parent="mission_board/mission_5_status" unique_id=65434623]
+visible = false
+position = Vector2(297.514, 450.673)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("21_fqku7")
+
+[node name="plaque_ready" type="Sprite2D" parent="mission_board/mission_5_status" unique_id=1696596905]
+position = Vector2(297.514, 450.673)
+scale = Vector2(1.7244667, 1.5885761)
+texture = ExtResource("22_q7brp")
+
+[node name="status_text" type="Label" parent="mission_board/mission_5_status" unique_id=1211938623]
+offset_left = 190.22559
+offset_top = 407.75378
+offset_right = 404.80322
+offset_bottom = 493.59265
 theme_override_font_sizes/font_size = 33
 text = "COMPLETED"
 horizontal_alignment = 1
@@ -562,6 +646,7 @@ position = Vector2(10, 0)
 [node name="TV_Content" type="Node2D" parent="video_tv" unique_id=2060972789]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="video_tv/TV_Content" unique_id=1513053159]
+z_index = 1
 offset_left = 778.0
 offset_top = 130.0
 offset_right = 1330.0
