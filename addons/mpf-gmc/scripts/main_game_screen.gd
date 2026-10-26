@@ -437,6 +437,12 @@ func ball_drained():
 
 	print("BALL DRAINED")
 
+	var furnace_multiball = $"../FurnaceMultiball"
+
+	if furnace_multiball.furnace_multiball_active:
+		furnace_multiball.furnace_ball_drained()
+		return
+
 	next_ball()
 
 func start_new_game():
@@ -888,8 +894,43 @@ func _input(event):
 	# =========================================================
 
 	if event.keycode == KEY_C:
+		$"../FurnaceMultiball".show_completed_logo()
+		return
+
+	if event.keycode == KEY_C:
 
 		add_credit()
+		return
+	
+	# =========================================================
+	# TEMPORARY BALL DRAIN
+	# =========================================================
+	if event.keycode == KEY_D:
+		if $"../FurnaceMultiball".furnace_multiball_active:
+			$"../FurnaceMultiball".furnace_ball_drained()
+		else:
+			ball_drained()
+			return
+	
+	
+	
+	# =========================================================
+	# TEMPORARY FURNACE BALL LOCK HIT
+	# =========================================================
+	
+	if event.keycode == KEY_F:
+		$"../FurnaceMultiball".furnace_ball_lock_hit()
+		return
+		
+		
+	# =========================================================
+	# TEMPORARY FURNACE READY TEST
+	# =========================================================
+	
+	if event.keycode == KEY_H:
+		$"../FurnaceMultiball".test_furnace_ready()
+		furnace_multiball_mission_status = "READY"
+		update_mission_board()
 		return
 
 	# =========================================================
@@ -904,7 +945,28 @@ func _input(event):
 		)
 
 		return
-
+		
+	# =========================================================
+	# TEMPORARY LAUNDRY SCOOP HIT
+	# =========================================================
+	
+	if event.keycode == KEY_L:
+		laundry_scoop_hit()
+		return
+		
+	# =========================================================
+	# TEMPORARY START MULTIBALL
+	# =========================================================	
+	if event.keycode == KEY_M:
+		$"../FurnaceMultiball".furnace_multiball_active = true
+		$"../FurnaceMultiball".start_furnace_multiball()
+		return	
+		
+		
+	if event.keycode == KEY_P:
+		$"../FurnaceMultiball".add_furnace_score(1000)
+		return	
+	
 	# =========================================================
 	# TEMPORARY SET THE TRAPS TEST KEY
 	# =========================================================
@@ -919,6 +981,10 @@ func _input(event):
 
 	if event.keycode == KEY_T:
 		staircase_ramp_hit()
+		return
+
+	if event.keycode == KEY_Z:
+		$"../FurnaceMultiball".test_scoreboard_zoom()
 		return
 
 	# =========================================================
@@ -1136,3 +1202,26 @@ func start_press_start_flash():
 		tween.tween_property(press_start, "modulate:a", 1.0, 0.3)
 
 		await tween.finished
+		
+		
+func laundry_scoop_hit():
+	print("LAUNDRY SCOOP HIT")
+
+	var furnace_multiball = $"../FurnaceMultiball"
+
+	if furnace_multiball.furnace_multiball_ready:
+
+		if not furnace_multiball.furnace_multiball_active:
+			furnace_multiball.furnace_multiball_active = true
+			furnace_multiball.laundry_scoop_visits = 0
+
+			furnace_multiball_mission_status = "ACTIVE"
+			update_mission_board()
+
+			print("FURNACE MULTIBALL: ACTIVE")
+			return
+
+		furnace_multiball.laundry_scoop_hit()
+
+	else:
+		print("LAUNDRY SCOOP: FURNACE MULTIBALL NOT READY")

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://db8kfbvlfrkjg"]
+
+[ext_resource type="Script" uid="uid://dqcjsj63j5ch" path="res://addons/mpf-gmc/scripts/furnace_multiball.gd" id="1_5u18v"]
+[ext_resource type="Texture2D" uid="uid://bgsup410smaga" path="res://addons/mpf-gmc/images/Multiball/furnace_multiball.png" id="2_hxmxi"]
+[ext_resource type="Texture2D" uid="uid://dnws8yqekg7sm" path="res://addons/mpf-gmc/images/Multiball/multiball_active.PNG" id="3_pjif5"]
+[ext_resource type="Texture2D" uid="uid://bfstsgupotjj8" path="res://addons/mpf-gmc/images/Multiball/furnace_score_board.png" id="3_x153t"]
+[ext_resource type="FontFile" uid="uid://c3uxyr1t2vfeo" path="res://addons/mpf-gmc/fonts/digital-7.ttf" id="4_ajdn0"]
+[ext_resource type="Texture2D" uid="uid://uv1pt8th5axt" path="res://addons/mpf-gmc/images/Multiball/ball1_locked.png" id="4_x153t"]
+[ext_resource type="Texture2D" uid="uid://d10y43d2rpjbn" path="res://addons/mpf-gmc/images/Multiball/ball2_locked.png" id="5_ajdn0"]
+[ext_resource type="Texture2D" uid="uid://dw1oyrpu2yyos" path="res://addons/mpf-gmc/images/Multiball/ball3_locked.png" id="6_txvio"]
+[ext_resource type="Texture2D" uid="uid://bq1wogqu0rjkp" path="res://addons/mpf-gmc/images/Multiball/completed_logo.png" id="9_ajdn0"]
+
+[node name="FurnaceMultiball" type="Node2D" unique_id=58344639]
+z_index = 100
+script = ExtResource("1_5u18v")
+
+[node name="background" type="Sprite2D" parent="." unique_id=742267161]
+position = Vector2(960.50006, 539.625)
+scale = Vector2(1.1513158, 1.1506377)
+texture = ExtResource("2_hxmxi")
+
+[node name="scoreboard" type="Node2D" parent="." unique_id=1577490368]
+position = Vector2(313, 153)
+
+[node name="scoreboard_frame" type="Sprite2D" parent="scoreboard" unique_id=1354657996]
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("3_x153t")
+
+[node name="score_label" type="Label" parent="scoreboard" unique_id=1322260184]
+offset_left = -213.0
+offset_top = -47.0
+offset_right = 217.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("4_ajdn0")
+theme_override_font_sizes/font_size = 88
+text = "123,456,789"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score_popup" type="Label" parent="scoreboard" unique_id=952183428]
+offset_left = -201.0
+offset_top = -29.0
+offset_right = 199.0
+offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("4_ajdn0")
+theme_override_font_sizes/font_size = 27
+text = "RAMP + 25,000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="active_logo" type="Sprite2D" parent="." unique_id=1552339117]
+visible = false
+position = Vector2(978, 784)
+scale = Vector2(0.72057, 0.72057)
+texture = ExtResource("3_pjif5")
+
+[node name="ball1_locked" type="Sprite2D" parent="." unique_id=1208337310]
+visible = false
+position = Vector2(965, 791.9999)
+scale = Vector2(1.23903, 1.23903)
+texture = ExtResource("4_x153t")
+
+[node name="ball2_locked" type="Sprite2D" parent="." unique_id=1548888259]
+visible = false
+position = Vector2(997, 779)
+scale = Vector2(1.2961166, 1.2961165)
+texture = ExtResource("5_ajdn0")
+
+[node name="ball3_locked" type="Sprite2D" parent="." unique_id=17413245]
+visible = false
+position = Vector2(1033, 787)
+scale = Vector2(1.4856322, 1.4856322)
+texture = ExtResource("6_txvio")
+
+[node name="completed_logo" type="Sprite2D" parent="." unique_id=1671905007]
+visible = false
+position = Vector2(960, 870)
+scale = Vector2(0.48323634, 0.48635235)
+texture = ExtResource("9_ajdn0")
